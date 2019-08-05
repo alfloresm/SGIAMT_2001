@@ -8,12 +8,12 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         function marcarAsistencia() {
-            
+
 
             var dni = document.getElementById("<%=txtDni.ClientID %>").value;
             sessionStorage.setItem("dni", dni);
             var estado = $('input:radio[name=asistencia]:checked').val();
-            
+
             $.ajax({
                 type: "POST",
                 url: "W_Listar_Alumnos.aspx/GetCurrentTime",
@@ -51,7 +51,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <form id="form2" runat="server" method="POST">
-        
+
 
         <div class="col-lg-12 col-md-12 col-sm-12 card-header">
             <h2>Administrar Asistencia</h2>
@@ -96,13 +96,13 @@
                                                 </asp:UpdatePanel>
                                             </div>
                                             <%--<asp:Button runat="server" Text="BUSCAR" ID="btnBuscar" CssClass="btn btn-fill btn-success" />--%>
-                                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                                         </div>
                                         <%--<div class="col-md-4 col-md-offset-2 text-center">
                                             <asp:Button runat="server" Text="ACTUALIZAR CATEGORIAS" ID="btnActualizarC" CssClass="btn bg-indigo waves-effect" OnClick="btnActualizarCat_Click" />
                                         </div>--%>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-1">
                                             <div class="card-content">
@@ -147,26 +147,25 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-sm-12">
+                                        <div class="col-md-10 col-md-offset-1">
                                             <p></p>
+
+                                            <asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <div class="col-lg-2 col-md-2 col-sm-6">
+                                                        <asp:Button ID="btnVerAsistencia" runat="server" Text="Ver Asistencia" CssClass="btn btn-fill btn-success" OnClick="btnVerAsistencia_Click" />
+                                                    </div>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                            <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <div class="col-lg-2 col-md-2 col-sm-6">
+                                                        <asp:Button ID="btnVerProgreso" runat="server" Text="Ver Progreso" CssClass="btn btn-fill btn-success" OnClick="btnVerProgreso_Click" />
+                                                    </div>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+
                                         </div>
-                                        <asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
-                                            <ContentTemplate>
-                                                <div class="col-lg-2 col-md-2 col-sm-6">
-                                                    <asp:Button ID="btnVerAsistencia" runat="server" Text="Ver Asistencia" CssClass="btn btn-fill btn-success" OnClick="btnVerAsistencia_Click" />
-                                                </div>
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
-                                        <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
-                                            <ContentTemplate>
-                                                <div class="col-lg-2 col-md-2 col-sm-6">
-                                                    <asp:Button ID="btnVerProgreso" runat="server" Text="Ver Progreso" CssClass="btn btn-fill btn-success" OnClick="btnVerProgreso_Click" />
-                                                </div>
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
-                                        <%--<div class="col-lg-2 col-md-2 col-sm-6">
-                                            <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-fill btn-danger" OnClick="btnRegresar_Click" />
-                                        </div>--%>
                                     </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>

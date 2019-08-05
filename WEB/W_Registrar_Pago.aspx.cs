@@ -112,34 +112,34 @@ namespace WEB
             updPanel2.Update();
         }
 
-        protected void btnBuscar1_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-                       objDtoUsuario.PK_IU_DNI = ddlDNI.SelectedValue;
-            //    if (ddlDNI.SelectedValue == objDtoUsuario.PK_IU_DNI)
-            //    {
+        //protected void btnBuscar1_Click(object sender, EventArgs e)
+        //{
+        //    //try
+        //    //{
+        //               objDtoUsuario.PK_IU_DNI = ddlDNI.SelectedValue;
+        //    //    if (ddlDNI.SelectedValue == objDtoUsuario.PK_IU_DNI)
+        //    //    {
                     
-                        _log.CustomWriteOnLog("registro pago", "entra boton");
-                        DtoCategoria objcat = new DtoCategoria();
-                        objCtrpago.obtenerNombreAlumno(objDtoUsuario, objcat);
-                        txtNombre2.Text = objDtoUsuario.nombres.ToString();
-                        txtCategoria2.Text = objcat.VCA_NomCategoria.ToString();
+        //                _log.CustomWriteOnLog("registro pago", "entra boton");
+        //                DtoCategoria objcat = new DtoCategoria();
+        //                objCtrpago.obtenerNombreAlumno(objDtoUsuario, objcat);
+        //                txtNombre2.Text = objDtoUsuario.nombres.ToString();
+        //                txtCategoria2.Text = objcat.VCA_NomCategoria.ToString();
                         
-                        updPanel2.Update();
+        //                updPanel2.Update();
                     
                   
-              //  }
-            //    else
-            //    {
-            //        string m = "No existe DNI";
-            //        Utils.AddScriptClientUpdatePanel(upnBotonBuscar1, "showMessage('top','center','" + m + "','danger')");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    _log.CustomWriteOnLog("registrar pago", "Error : " + ex.Message + "Stac" + ex.StackTrace);
-            //}
-        }
+        //      //  }
+        //    //    else
+        //    //    {
+        //    //        string m = "No existe DNI";
+        //    //        Utils.AddScriptClientUpdatePanel(upnBotonBuscar1, "showMessage('top','center','" + m + "','danger')");
+        //    //    }
+        //    //}
+        //    //catch (Exception ex)
+        //    //{
+        //    //    _log.CustomWriteOnLog("registrar pago", "Error : " + ex.Message + "Stac" + ex.StackTrace);
+        //    //}
+        //}
     }
 }
