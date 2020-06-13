@@ -1,0 +1,277 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FB376DF3-B5C6-4480-AA1D-1003254453C0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WEB</RootNamespace>
+    <AssemblyName>WEB</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\demo.css" />
+    <Content Include="assets\css\font-awesome.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\google-roboto-300-700.css" />
+    <Content Include="assets\css\material-dashboard.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\img\apple-icon.png" />
+    <Content Include="assets\img\bg-pricing.jpg" />
+    <Content Include="assets\img\card-1.jpg" />
+    <Content Include="assets\img\card-2.jpg" />
+    <Content Include="assets\img\card-3.jpg" />
+    <Content Include="assets\img\default-avatar.png" />
+    <Content Include="assets\img\faces\avatar.jpg" />
+    <Content Include="assets\img\faces\card-profile1-square.jpg" />
+    <Content Include="assets\img\faces\marc.jpg" />
+    <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\flags\AU.png" />
+    <Content Include="assets\img\flags\BR.png" />
+    <Content Include="assets\img\flags\DE.png" />
+    <Content Include="assets\img\flags\GB.png" />
+    <Content Include="assets\img\flags\RO.png" />
+    <Content Include="assets\img\flags\US.png" />
+    <Content Include="assets\img\image_placeholder.jpg" />
+    <Content Include="assets\img\lock.jpg" />
+    <Content Include="assets\img\login.jpg" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\placeholder.jpg" />
+    <Content Include="assets\img\product1.jpg" />
+    <Content Include="assets\img\product2.jpg" />
+    <Content Include="assets\img\product3.jpg" />
+    <Content Include="assets\img\register.jpg" />
+    <Content Include="assets\img\sidebar-1.jpg" />
+    <Content Include="assets\img\sidebar-2.jpg" />
+    <Content Include="assets\img\sidebar-3.jpg" />
+    <Content Include="assets\img\sidebar-4.jpg" />
+    <Content Include="assets\img\sidebar-5.jpg" />
+    <Content Include="assets\js\bootstrap-datetimepicker.js" />
+    <Content Include="assets\js\bootstrap-notify.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\chartist.min.js" />
+    <Content Include="assets\js\demo.js" />
+    <Content Include="assets\js\fullcalendar.min.js" />
+    <Content Include="assets\js\google-maps-api.js" />
+    <Content Include="assets\js\jasny-bootstrap.min.js" />
+    <Content Include="assets\js\jquery-3.1.1.min.js" />
+    <Content Include="assets\js\jquery-jvectormap.js" />
+    <Content Include="assets\js\jquery-ui.min.js" />
+    <Content Include="assets\js\jquery.bootstrap-wizard.js" />
+    <Content Include="assets\js\jquery.datatables.js" />
+    <Content Include="assets\js\jquery.select-bootstrap.js" />
+    <Content Include="assets\js\jquery.sharrre.js" />
+    <Content Include="assets\js\jquery.tagsinput.js" />
+    <Content Include="assets\js\jquery.validate.min.js" />
+    <Content Include="assets\js\material-dashboard.js" />
+    <Content Include="assets\js\material.min.js" />
+    <Content Include="assets\js\moment.min.js" />
+    <Content Include="assets\js\nouislider.min.js" />
+    <Content Include="assets\js\perfect-scrollbar.jquery.min.js" />
+    <Content Include="assets\js\sweetalert2.js" />
+    <Content Include="examples\calendar.html" />
+    <Content Include="examples\charts.html" />
+    <Content Include="examples\components\buttons.html" />
+    <Content Include="examples\components\grid.html" />
+    <Content Include="examples\components\icons.html" />
+    <Content Include="examples\components\notifications.html" />
+    <Content Include="examples\components\panels.html" />
+    <Content Include="examples\components\sweet-alert.html" />
+    <Content Include="examples\components\typography.html" />
+    <Content Include="examples\dashboard.html" />
+    <Content Include="examples\forms\extended.html" />
+    <Content Include="examples\forms\regular.html" />
+    <Content Include="examples\forms\true.html" />
+    <Content Include="examples\forms\validation.html" />
+    <Content Include="examples\forms\wizard.html" />
+    <Content Include="examples\maps\fullscreen.html" />
+    <Content Include="examples\maps\google.html" />
+    <Content Include="examples\maps\vector.html" />
+    <Content Include="examples\pages\lock.html" />
+    <Content Include="examples\pages\login.html" />
+    <Content Include="examples\pages\pricing.html" />
+    <Content Include="examples\pages\register.html" />
+    <Content Include="examples\pages\timeline.html" />
+    <Content Include="examples\pages\user.html" />
+    <Content Include="examples\tables\datatables.net.html" />
+    <Content Include="examples\tables\extended.html" />
+    <Content Include="examples\tables\regular.html" />
+    <Content Include="examples\widgets.html" />
+    <Content Include="Index.aspx" />
+    <Content Include="index.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MasterPage.Master" />
+    <Content Include="package.json" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\fonts\google\-2n2p-_Y08sg57CNWQfKNvesZW2xOQ-xsNqO47m55DA.woff2" />
+    <Content Include="assets\fonts\google\-L14Jk06m6pUHB-5mXQQnRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\0eC6fl06luXEYWpBSJvXCBJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2" />
+    <Content Include="assets\fonts\google\77FXFjRbGzN4aCrSFhlh3hJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\97uahxiqZRoncBaCEI3aWxJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\CWB0XYA8bzo0kSThX0UTuA.woff2" />
+    <Content Include="assets\fonts\google\d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2" />
+    <Content Include="assets\fonts\google\ek4gzZ-GeXAPcSbHtCeQI_esZW2xOQ-xsNqO47m55DA.woff2" />
+    <Content Include="assets\fonts\google\Fcx7Wwv8OzT71A3E1XOAjvesZW2xOQ-xsNqO47m55DA.woff2" />
+    <Content Include="assets\fonts\google\Fl4y0QdOxyyTHEGMXX8kcRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2" />
+    <Content Include="assets\fonts\google\I3S1wsgSg9YCurV6PUkTORJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\isZ-wbCXNKAbnjo6_TwHThJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\jSN2CGVDbcVyCnfJfjSdfBJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\mbmhprMH69Zi6eEPBYVFhRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2" />
+    <Content Include="assets\fonts\google\mx9Uck6uB63VIKFYnEMXrRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\NdF9MtnOpLzo-noMoG0miPesZW2xOQ-xsNqO47m55DA.woff2" />
+    <Content Include="assets\fonts\google\NYDWBdD4gIq26G5XYbHsFBJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\oHi30kwQWvpCWqAhzHcCSBJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\oOeFwZNlrTefzLYmlVV1UBJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\Pru33qjShpZSmG3z6VYwnRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\PwZc-YbIL414wB9rB1IAPRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\rGvHdJnr2l75qb0YND9NyBJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\RxZJdnzeo3R5zSexge8UUVtXRa8TVwTICgirnJhmVJw.woff2" />
+    <Content Include="assets\fonts\google\u0TOpm082MNkS5K0Q4rhqvesZW2xOQ-xsNqO47m55DA.woff2" />
+    <Content Include="assets\fonts\google\UX6i4JxQDm3fVTc1CPuwqhJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\fonts\google\ZLqKeelYbATG60EpZBSDyxJtnKITppOI_IvcXXDNrsc.woff2" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CTR\CTR.csproj">
+      <Project>{e6d326f8-e02f-4293-bb8f-cd91df2d1c5b}</Project>
+      <Name>CTR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{508b75ca-5f84-43f3-a0ef-334312026a0c}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65359</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:65359/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
