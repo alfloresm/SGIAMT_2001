@@ -160,6 +160,7 @@
     <Content Include="index.html" />
     <Content Include="Web.config" />
     <Content Include="W_GestionarConcurso.aspx" />
+    <Content Include="W_RegistrarAlumno.aspx" />
     <Content Include="W_RegistrarConcurso.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +185,13 @@
     </Compile>
     <Compile Include="W_GestionarConcurso.aspx.designer.cs">
       <DependentUpon>W_GestionarConcurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="W_RegistrarAlumno.aspx.cs">
+      <DependentUpon>W_RegistrarAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="W_RegistrarAlumno.aspx.designer.cs">
+      <DependentUpon>W_RegistrarAlumno.aspx</DependentUpon>
     </Compile>
     <Compile Include="W_RegistrarConcurso.aspx.cs">
       <DependentUpon>W_RegistrarConcurso.aspx</DependentUpon>
