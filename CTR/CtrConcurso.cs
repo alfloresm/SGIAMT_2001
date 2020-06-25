@@ -16,7 +16,7 @@ namespace CTR
         {
             objDaoConcurso = new DaoConcurso();
         }
-        public DataTable ListaMolduras()
+        public DataTable ListaConcursos_()
         {
             return objDaoConcurso.ListarConcursos();
         }

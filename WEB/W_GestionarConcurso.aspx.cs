@@ -22,7 +22,7 @@ namespace WEB
                 try
                 {
                     UpdatePanel.Update();
-                    gvConcurso.DataSource = objctrConcurso.ListaMolduras();
+                    gvConcurso.DataSource = objctrConcurso.ListaConcursos_();
                     gvConcurso.DataBind();
                 }
                 catch(Exception ex)
