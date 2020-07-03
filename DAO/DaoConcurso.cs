@@ -20,7 +20,7 @@ namespace DAO
         {
             DataTable dtconcurso = null;
             conexion.Open();
-            SqlCommand command = new SqlCommand("SP_Listar_Concursos]", conexion);
+            SqlCommand command = new SqlCommand("SP_Listar_Concursos", conexion);
             SqlDataAdapter daAdaptador = new SqlDataAdapter(command);
             command.CommandType = CommandType.StoredProcedure;
             dtconcurso = new DataTable();

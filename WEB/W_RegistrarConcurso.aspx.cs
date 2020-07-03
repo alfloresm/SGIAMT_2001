@@ -11,7 +11,20 @@ namespace WEB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                if (Request.Params["Id"] != null)
+                {
 
+                    txtPagina.InnerText = "Actualizar Concurso";
+
+
+                }
+                else
+                {
+                    txtPagina.InnerText = "Registrar Concurso";
+                }
+            }
         }
     }
 }
