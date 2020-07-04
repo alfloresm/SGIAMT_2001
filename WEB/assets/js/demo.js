@@ -1149,7 +1149,7 @@ demo = {
 		});
     },
 
-	showNotification: function(from, align){
+	showNotification: function(from, align,message){
         type = ['','info','success','warning','danger','rose','primary'];
 
         color = Math.floor((Math.random() * 6) + 1);
@@ -1166,6 +1166,20 @@ demo = {
                 align: align
             }
         });
-	}
+    },
+    showNotification1: function (from, align, message,type) {
+        $.notify({
+            icon: "notifications",
+            message: message
+
+        }, {
+            type: type,
+            timer: 3000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+    }
 
 }
