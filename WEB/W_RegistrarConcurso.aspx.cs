@@ -43,6 +43,7 @@ namespace WEB
             {
                 if (Request.Params["Id"] != null)
                 {
+                    objDtoConcurso.PK_IC_IdConcurso = Convert.ToInt32(txtCodigo.Text);
                     objDtoConcurso.VC_NombreCon = txtNombre.Text;
                     objDtoConcurso.VC_LugarCon = txtlugar.Text;
                     objDtoConcurso.DTC_FechaConcurso = Convert.ToDateTime(txtFecha.Text);
@@ -50,9 +51,9 @@ namespace WEB
                     objDtoConcurso.IC_CantidadNovel = Convert.ToInt32(txtcantNovel.Text);
                     objDtoConcurso.FK_IEC_IdEstado = Convert.ToInt32(ddlEstado.SelectedValue);
                     objCtrConcurso.ActualizarConcurso(objDtoConcurso);
-                    string m = "Se actualizó correctamente";
-                    ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(),"demo", "showNotification1('top','center','"+m+ "','success');", true);
-                    TimeSpan.FromSeconds(15.0);
+                    //string m = "Se actualizó correctamente";
+                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(),"demo", "showNotification1('top','center','"+m+ "','success');", true);
+                    //TimeSpan.FromSeconds(15.0);
                     Response.Redirect("~/W_GestionarConcurso.aspx");
                 }
                 else
@@ -63,15 +64,16 @@ namespace WEB
                     objDtoConcurso.IC_CantidadSeriado = Convert.ToInt32(txtcantSeriado.Text);
                     objDtoConcurso.IC_CantidadNovel = Convert.ToInt32(txtcantNovel.Text);
                     objCtrConcurso.RegistrarConcurso(objDtoConcurso);
-                    string m = "Se Registró correctamente";
-                    ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "demo", "showNotification1('top','center','" + m + "','success');", true);
-                    TimeSpan.FromSeconds(15.0);
+                    //string m = "Se Registró correctamente";
+                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "demo", "showNotification1('top','center','" + m + "','success');", true);
+                    //TimeSpan.FromSeconds(15.0);
                     Response.Redirect("~/W_GestionarConcurso.aspx");
                 }
             }
             catch(Exception ex)
             {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "demo", "showNotification1('top','center','" + ex.Message + "','danger');", true);
+                throw;
+                //ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "demo", "showNotification1('top','center','" + ex.Message + "','danger');", true);
             }
             
         }

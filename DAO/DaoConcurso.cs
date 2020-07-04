@@ -48,7 +48,7 @@ namespace DAO
 
             SqlCommand command = new SqlCommand("SP_Actualizar_Concurso", conexion);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@id", objConcurso.VC_NombreCon);
+            command.Parameters.AddWithValue("@id", objConcurso.PK_IC_IdConcurso);
             command.Parameters.AddWithValue("@nombre", objConcurso.VC_NombreCon);
             command.Parameters.AddWithValue("@direccion", objConcurso.VC_LugarCon);
             command.Parameters.AddWithValue("@fechac", objConcurso.DTC_FechaConcurso);
