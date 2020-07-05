@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,6 +14,7 @@ namespace WEB
     {
         CtrConcurso objCtrConcurso = new CtrConcurso();
         DtoConcurso objDtoConcurso = new DtoConcurso();
+        Log _log = new Log();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -41,7 +43,11 @@ namespace WEB
         {
             try
             {
-                if (Request.Params["Id"] != null)
+                if (Convert.ToDateTime(txtFecha.Text) < DateTime.Now) {
+                    string m = "fecha incorrecta";
+                    Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','danger')"); }
+                else { 
+                    if (Request.Params["Id"] != null)
                 {
                     objDtoConcurso.PK_IC_IdConcurso = Convert.ToInt32(txtCodigo.Text);
                     objDtoConcurso.VC_NombreCon = txtNombre.Text;
@@ -51,10 +57,11 @@ namespace WEB
                     objDtoConcurso.IC_CantidadNovel = Convert.ToInt32(txtcantNovel.Text);
                     objDtoConcurso.FK_IEC_IdEstado = Convert.ToInt32(ddlEstado.SelectedValue);
                     objCtrConcurso.ActualizarConcurso(objDtoConcurso);
-                    //string m = "Se actualizó correctamente";
-                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(),"demo", "showNotification1('top','center','"+m+ "','success');", true);
-                    //TimeSpan.FromSeconds(15.0);
-                    Response.Redirect("~/W_GestionarConcurso.aspx");
+                    string m = "Se actualizó correctamente";
+                    _log.CustomWriteOnLog("regConcurso", m);
+                    
+                    Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
+                    //Response.Redirect("~/W_GestionarConcurso.aspx");
                 }
                 else
                 {
@@ -64,15 +71,17 @@ namespace WEB
                     objDtoConcurso.IC_CantidadSeriado = Convert.ToInt32(txtcantSeriado.Text);
                     objDtoConcurso.IC_CantidadNovel = Convert.ToInt32(txtcantNovel.Text);
                     objCtrConcurso.RegistrarConcurso(objDtoConcurso);
-                    //string m = "Se Registró correctamente";
-                    //ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "demo", "showNotification1('top','center','" + m + "','success');", true);
-                    //TimeSpan.FromSeconds(15.0);
+                    string m = "Se Registró correctamente";
+
+                    Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
                     Response.Redirect("~/W_GestionarConcurso.aspx");
+                }
                 }
             }
             catch(Exception ex)
             {
-                throw;
+                Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + ex.Message + "','danger')");
+                
                 //ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "demo", "showNotification1('top','center','" + ex.Message + "','danger');", true);
             }
             

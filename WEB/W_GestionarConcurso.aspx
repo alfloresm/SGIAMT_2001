@@ -19,11 +19,11 @@
                                 <h3>Lista Concurso</h3>
                                 <div class="row">
                                     <div class="col-lg-3 col-md-6 col-sm-12 text-center">
-                                        <asp:Button runat="server" Text="REGISTRAR" ID="btnRegistrar" CssClass="btn bg-indigo waves-effect glyphicon-plus" OnClick="btnRegistrar_Click" />
+                                        <asp:button runat="server" text="REGISTRAR" id="btnRegistrar" cssclass="btn bg-indigo waves-effect glyphicon-plus" onclick="btnRegistrar_Click" />
 
                                     </div>
                                     <div class="col-lg-3 col-md-6 col-sm-12 text-center">
-                                        <asp:Button runat="server" Text="ACTUALIZAR CATEGORIAS" ID="btnActualizarC" CssClass="btn bg-indigo waves-effect" OnClick="btnActualizarCat_Click" />
+                                        <asp:button runat="server" text="ACTUALIZAR CATEGORIAS" id="btnActualizarC" cssclass="btn bg-indigo waves-effect" onclick="btnActualizarCat_Click" />
                                     </div>
 
                                     <form class="col-lg-6 navbar-form navbar-right" role="search">
@@ -41,10 +41,10 @@
 
                                 <div class="body table-responsive">
                                     <div class="material-datatables">
-                                        <asp:GridView ID="GVConcurso" runat="server" AutoGenerateColumns="False"
-                                            DataKeyNames="PK_IC_IdConcurso,VC_NombreCon,IC_CantidadSeriado,IC_CantidadNovel,VE_NombreEstado"
-                                            CssClass="table table-striped table-no-bordered table-hover" Style="text-align: center" PageSize="5"
-                                            AllowPaging="True" OnPageIndexChanging="GVConcurso_PageIndexChanging" OnRowCommand="GVConcurso_RowCommand">
+                                        <asp:gridview id="GVConcurso" runat="server" autogeneratecolumns="False"
+                                            datakeynames="PK_IC_IdConcurso,VC_NombreCon,IC_CantidadSeriado,IC_CantidadNovel,VE_NombreEstado"
+                                            cssclass="table table-striped table-no-bordered table-hover" style="text-align: center" pagesize="5"
+                                            allowpaging="True" onpageindexchanging="GVConcurso_PageIndexChanging" onrowcommand="GVConcurso_RowCommand">
                                             <%--<RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" />--%>
                                             <Columns>
                                                 <asp:BoundField DataField="PK_IC_IdConcurso" HeaderText="Concurso" />
@@ -59,7 +59,7 @@
                                                     <ControlStyle CssClass="btn btn-info" />
                                                 </asp:ButtonField>
                                             </Columns>
-                                        </asp:GridView>
+                                        </asp:gridview>
                                     </div>
                                 </div>
                             </div>
@@ -70,4 +70,6 @@
             </div>
         </div>
     </form>
+    
 </asp:Content>
+
