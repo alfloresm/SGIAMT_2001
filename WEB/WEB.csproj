@@ -104,6 +104,8 @@
     <Content Include="assets\img\sidebar-3.jpg" />
     <Content Include="assets\img\sidebar-4.jpg" />
     <Content Include="assets\img\sidebar-5.jpg" />
+    <Content Include="assets\jquery\jquery.js" />
+    <Content Include="assets\jquery\jquery.min.js" />
     <Content Include="assets\js\bootstrap-datetimepicker.js" />
     <Content Include="assets\js\bootstrap-notify.js" />
     <Content Include="assets\js\bootstrap.min.js" />
@@ -128,6 +130,9 @@
     <Content Include="assets\js\nouislider.min.js" />
     <Content Include="assets\js\perfect-scrollbar.jquery.min.js" />
     <Content Include="assets\js\sweetalert2.js" />
+    <Content Include="assets\momentjs\ender.js" />
+    <Content Include="assets\momentjs\moment.js" />
+    <Content Include="assets\momentjs\package.js" />
     <Content Include="examples\calendar.html" />
     <Content Include="examples\charts.html" />
     <Content Include="examples\components\buttons.html" />
@@ -158,6 +163,24 @@
     <Content Include="examples\widgets.html" />
     <Content Include="Index.aspx" />
     <Content Include="index.html" />
+    <Content Include="assets\jquery-datatable\extensions\export\buttons.flash.min.js" />
+    <Content Include="assets\jquery-datatable\extensions\export\buttons.html5.min.js" />
+    <Content Include="assets\jquery-datatable\extensions\export\buttons.print.min.js" />
+    <Content Include="assets\jquery-datatable\extensions\export\dataTables.buttons.min.js" />
+    <Content Include="assets\jquery-datatable\extensions\export\jszip.min.js" />
+    <Content Include="assets\jquery-datatable\extensions\export\pdfmake.min.js" />
+    <Content Include="assets\jquery-datatable\extensions\export\vfs_fonts.js" />
+    <Content Include="assets\jquery-datatable\jquery.dataTables.js" />
+    <Content Include="assets\jquery-datatable\skin\bootstrap\css\dataTables.bootstrap.css" />
+    <Content Include="assets\jquery-datatable\skin\bootstrap\css\dataTables.bootstrap.min.css" />
+    <Content Include="assets\jquery-datatable\skin\bootstrap\images\favicon.ico" />
+    <Content Include="assets\jquery-datatable\skin\bootstrap\images\sort_asc.png" />
+    <Content Include="assets\jquery-datatable\skin\bootstrap\images\sort_asc_disabled.png" />
+    <Content Include="assets\jquery-datatable\skin\bootstrap\images\sort_both.png" />
+    <Content Include="assets\jquery-datatable\skin\bootstrap\images\sort_desc.png" />
+    <Content Include="assets\jquery-datatable\skin\bootstrap\images\sort_desc_disabled.png" />
+    <Content Include="assets\jquery-datatable\skin\bootstrap\js\dataTables.bootstrap.js" />
+    <Content Include="assets\jquery-datatable\skin\bootstrap\js\dataTables.bootstrap.min.js" />
     <Content Include="Web.config" />
     <Content Include="W_GestionarConcurso.aspx" />
     <Content Include="W_RegistrarAlumno.aspx" />
@@ -242,6 +265,8 @@
     <Content Include="assets\fonts\google\u0TOpm082MNkS5K0Q4rhqvesZW2xOQ-xsNqO47m55DA.woff2" />
     <Content Include="assets\fonts\google\UX6i4JxQDm3fVTc1CPuwqhJtnKITppOI_IvcXXDNrsc.woff2" />
     <Content Include="assets\fonts\google\ZLqKeelYbATG60EpZBSDyxJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\jquery-datatable\skin\bootstrap\images\Sorting icons.psd" />
+    <Content Include="assets\jquery\jquery.min.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
