@@ -74,7 +74,7 @@ namespace WEB
                     string m = "Se Registró correctamente";
 
                     Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
-                    Response.Redirect("~/W_GestionarConcurso.aspx");
+                    //Response.Redirect("~/W_GestionarConcurso.aspx");
                 }
                 }
             }
