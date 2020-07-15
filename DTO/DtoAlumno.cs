@@ -13,6 +13,8 @@ namespace DTO
         public string VU_APaterno { get; set; }
         public string VU_AMaterno { get; set; }
         public DateTime DTU_FechaNacimiento { get; set; }
+        public string VU_Contrasenia { get; set; }
+        public string VU_Sexo { get; set; }
         public string VU_NAcademia { get; set; }
         public string VU_Correo { get; set; }
         public string VU_Celular { get; set; }
