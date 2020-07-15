@@ -185,6 +185,7 @@
     <Content Include="W_GestionarConcurso.aspx" />
     <Content Include="W_RegistrarAlumno.aspx" />
     <Content Include="W_RegistrarConcurso.aspx" />
+    <Content Include="W_Registrar_Pago.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Index.aspx.cs">
@@ -222,6 +223,13 @@
     </Compile>
     <Compile Include="W_RegistrarConcurso.aspx.designer.cs">
       <DependentUpon>W_RegistrarConcurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="W_Registrar_Pago.aspx.cs">
+      <DependentUpon>W_Registrar_Pago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="W_Registrar_Pago.aspx.designer.cs">
+      <DependentUpon>W_Registrar_Pago.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -51,7 +51,7 @@
                                                 CssClass="table table-bordered table-hover js-basic-example dataTable" PageSize="5"
                                                 AllowPaging="True" OnPageIndexChanging="GVConcurso_PageIndexChanging" OnRowCommand="GVConcurso_RowCommand"
                                                 Font-Size="Small" HeaderStyle-ForeColor="#FF5050" HeaderStyle-CssClass="small">
-                                                <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered"/>
+                                                <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" />
                                                 <Columns>
                                                     <asp:BoundField DataField="PK_IC_IdConcurso" HeaderText="Concurso" />
                                                     <asp:BoundField DataField="VC_NombreCon" HeaderText="Nombre" />
