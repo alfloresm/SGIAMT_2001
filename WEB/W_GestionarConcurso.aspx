@@ -27,9 +27,9 @@
                                             <asp:Button runat="server" Text="REGISTRAR" ID="btnRegistrar" CssClass="btn bg-indigo waves-effect glyphicon-plus" OnClick="btnRegistrar_Click" />
 
                                         </div>
-                                        <div class="col-md-4 col-md-offset-2 text-center">
+                                        <%--<div class="col-md-4 col-md-offset-2 text-center">
                                             <asp:Button runat="server" Text="ACTUALIZAR CATEGORIAS" ID="btnActualizarC" CssClass="btn bg-indigo waves-effect" OnClick="btnActualizarCat_Click" />
-                                        </div>
+                                        </div>--%>
                                     </div>
 
 
@@ -76,50 +76,54 @@
         <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-notice">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
-                        <h5 class="modal-title" id="myModalLabel" runat="server"></h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col-lg-12">
-                            <label class="col-md-2 label-on-left">Lugar: </label>
-                            <div class="form-group label-floating is-empty">
-                                <label class="control-label"></label>
-                                <asp:TextBox ID="txtlugar" runat="server" class="form-control " Enabled="False"></asp:TextBox>
+                    <asp:UpdatePanel runat="server" ID="updPanelModal" UpdateMode="Always">
+                        <ContentTemplate>
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                                <h5 class="modal-title" id="myModalLabel" runat="server"></h5>
                             </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="col-md-2 label-on-left">fecha: </label>
-                            <div class="form-group label-floating is-empty">
-                                <label class="control-label"></label>
-                                <asp:TextBox ID="txtFecha" runat="server" class="form-control " Enabled="False"></asp:TextBox>
+                            <div class="modal-body">
+                                <div class="col-lg-12">
+                                    <label class="col-md-2 label-on-left">Lugar: </label>
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <asp:TextBox ID="txtlugar" runat="server" class="form-control " Enabled="False"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <label class="col-md-2 label-on-left">fecha: </label>
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <asp:TextBox ID="txtFecha" runat="server" class="form-control " Enabled="False"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <label class="col-md-2 label-on-left">Cantidad Seriado: </label>
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <asp:TextBox ID="txtCantSer" runat="server" class="form-control " Enabled="False"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <label class="col-md-2 label-on-left">Cantidad Novel: </label>
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <asp:TextBox ID="txtCantNov" runat="server" class="form-control " Enabled="False"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <label class="col-md-2 label-on-left">Estado: </label>
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <asp:TextBox ID="txtEstado" runat="server" class="form-control " Enabled="False"></asp:TextBox>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="col-md-2 label-on-left">Cantidad Seriado: </label>
-                            <div class="form-group label-floating is-empty">
-                                <label class="control-label"></label>
-                                <asp:TextBox ID="txtCantSer" runat="server" class="form-control " Enabled="False"></asp:TextBox>
+                            <div class="modal-footer text-center">
+                                <button type="button" class="btn btn-info btn-round" data-dismiss="modal">Cerrar</button>
                             </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="col-md-2 label-on-left">Cantidad Novel: </label>
-                            <div class="form-group label-floating is-empty">
-                                <label class="control-label"></label>
-                                <asp:TextBox ID="txtCantNov" runat="server" class="form-control " Enabled="False"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="col-md-2 label-on-left">Estado: </label>
-                            <div class="form-group label-floating is-empty">
-                                <label class="control-label"></label>
-                                <asp:TextBox ID="txtEstado" runat="server" class="form-control " Enabled="False"></asp:TextBox>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer text-center">
-                        <button type="button" class="btn btn-info btn-round" data-dismiss="modal">Cerrar</button>
-                    </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
             </div>
         </div>
