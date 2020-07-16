@@ -181,6 +181,57 @@
     <Content Include="assets\jquery-datatable\skin\bootstrap\images\sort_desc_disabled.png" />
     <Content Include="assets\jquery-datatable\skin\bootstrap\js\dataTables.bootstrap.js" />
     <Content Include="assets\jquery-datatable\skin\bootstrap\js\dataTables.bootstrap.min.js" />
+    <Content Include="MASTER_EXTERNO\css\creative.css" />
+    <Content Include="MASTER_EXTERNO\css\creative.min.css" />
+    <Content Include="MASTER_EXTERNO\gulpfile.js" />
+    <Content Include="MASTER_EXTERNO\img\bg-masthead.jpg" />
+    <Content Include="MASTER_EXTERNO\img\portfolio\fullsize\1.jpg" />
+    <Content Include="MASTER_EXTERNO\img\portfolio\fullsize\2.jpg" />
+    <Content Include="MASTER_EXTERNO\img\portfolio\fullsize\3.jpg" />
+    <Content Include="MASTER_EXTERNO\img\portfolio\fullsize\4.jpg" />
+    <Content Include="MASTER_EXTERNO\img\portfolio\fullsize\5.jpg" />
+    <Content Include="MASTER_EXTERNO\img\portfolio\fullsize\6.jpg" />
+    <Content Include="MASTER_EXTERNO\img\portfolio\thumbnails\1.jpg" />
+    <Content Include="MASTER_EXTERNO\img\portfolio\thumbnails\2.jpg" />
+    <Content Include="MASTER_EXTERNO\img\portfolio\thumbnails\3.jpg" />
+    <Content Include="MASTER_EXTERNO\img\portfolio\thumbnails\4.jpg" />
+    <Content Include="MASTER_EXTERNO\img\portfolio\thumbnails\5.jpg" />
+    <Content Include="MASTER_EXTERNO\img\portfolio\thumbnails\6.jpg" />
+    <Content Include="MASTER_EXTERNO\index_Externo.html" />
+    <Content Include="MASTER_EXTERNO\js\creative.js" />
+    <Content Include="MASTER_EXTERNO\js\creative.min.js" />
+    <Content Include="MASTER_EXTERNO\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="MASTER_EXTERNO\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="MASTER_EXTERNO\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="MASTER_EXTERNO\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\all.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\all.min.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\brands.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\brands.min.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\fontawesome.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\regular.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\regular.min.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\solid.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\solid.min.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\v4-shims.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\css\v4-shims.min.css" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="MASTER_EXTERNO\vendor\jquery-easing\jquery.easing.compatibility.js" />
+    <Content Include="MASTER_EXTERNO\vendor\jquery-easing\jquery.easing.js" />
+    <Content Include="MASTER_EXTERNO\vendor\jquery-easing\jquery.easing.min.js" />
+    <Content Include="MASTER_EXTERNO\vendor\jquery\jquery.js" />
+    <Content Include="MASTER_EXTERNO\vendor\jquery\jquery.min.js" />
+    <Content Include="MASTER_EXTERNO\vendor\jquery\jquery.slim.js" />
+    <Content Include="MASTER_EXTERNO\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="MASTER_EXTERNO\vendor\magnific-popup\jquery.magnific-popup.js" />
+    <Content Include="MASTER_EXTERNO\vendor\magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="MASTER_EXTERNO\vendor\magnific-popup\magnific-popup.css" />
+    <Content Include="MASTER_EXTERNO\W_RegistrarParticipante.aspx" />
     <Content Include="Web.config" />
     <Content Include="W_GestionarConcurso.aspx" />
     <Content Include="W_RegistrarAlumno2.aspx" />
@@ -201,6 +252,20 @@
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MASTER_EXTERNO\Master_externo.Master.cs">
+      <DependentUpon>Master_externo.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MASTER_EXTERNO\Master_externo.Master.designer.cs">
+      <DependentUpon>Master_externo.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MASTER_EXTERNO\W_RegistrarParticipante.aspx.cs">
+      <DependentUpon>W_RegistrarParticipante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MASTER_EXTERNO\W_RegistrarParticipante.aspx.designer.cs">
+      <DependentUpon>W_RegistrarParticipante.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="W_GestionarConcurso.aspx.cs">
@@ -275,6 +340,33 @@
     <Content Include="assets\fonts\google\ZLqKeelYbATG60EpZBSDyxJtnKITppOI_IvcXXDNrsc.woff2" />
     <Content Include="assets\jquery-datatable\skin\bootstrap\images\Sorting icons.psd" />
     <Content Include="assets\jquery\jquery.min.map" />
+    <Content Include="MASTER_EXTERNO\package-lock.json" />
+    <Content Include="MASTER_EXTERNO\package.json" />
+    <Content Include="MASTER_EXTERNO\scss\creative.scss" />
+    <Content Include="MASTER_EXTERNO\scss\_global.scss" />
+    <Content Include="MASTER_EXTERNO\scss\_masthead.scss" />
+    <Content Include="MASTER_EXTERNO\scss\_navbar.scss" />
+    <Content Include="MASTER_EXTERNO\scss\_portfolio.scss" />
+    <Content Include="MASTER_EXTERNO\scss\_variables.scss" />
+    <Content Include="MASTER_EXTERNO\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="MASTER_EXTERNO\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="MASTER_EXTERNO\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="MASTER_EXTERNO\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="MASTER_EXTERNO\vendor\jquery\jquery.min.map" />
+    <Content Include="MASTER_EXTERNO\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="MASTER_EXTERNO\Master_externo.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
