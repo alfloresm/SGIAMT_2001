@@ -143,8 +143,7 @@
                                             <ContentTemplate>
                                                 <div class="col-lg-2 col-md-2 col-sm-6">
                                                     <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" CssClass="btn btn-fill btn-success" OnClick="btnRegistrar_Click" />
-                                                    <asp:Button ID="Button1" runat="server" Text="probar" CssClass="btn btn-fill btn-success" OnClick="Button1_Click" />
-                                                
+                                                    
                                                 </div>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
