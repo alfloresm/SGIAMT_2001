@@ -51,6 +51,7 @@
     <Compile Include="DtoCategoria.cs" />
     <Compile Include="DtoConcurso.cs" />
     <Compile Include="DtoEstadoconcurso.cs" />
+    <Compile Include="DtoPago.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
