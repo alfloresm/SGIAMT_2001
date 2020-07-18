@@ -50,6 +50,7 @@
     <Compile Include="ConexionBD.cs" />
     <Compile Include="DaoAlumno.cs" />
     <Compile Include="DaoConcurso.cs" />
+    <Compile Include="DaoPago.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
