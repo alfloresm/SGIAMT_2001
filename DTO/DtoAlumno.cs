@@ -21,6 +21,7 @@ namespace DTO
         public string VU_Estado { get; set; }
         public string VU_Horario { get; set; }
         public string VU_Direccion { get; set; }
+        public byte[] VBU_Archivo_usuario { get; set; }
         public int FK_ICA_CodCat { get; set; }
         public int FK_ITU_TipoUsuario { get; set; }
     }
