@@ -81,7 +81,7 @@
                                             <label class="col-md-2 label-on-left">Nombre Academia</label>
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
-                                                <asp:TextBox ID="txtNombreAcademia" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtNombreAcademia" runat="server" class="form-control" Text="TUSUY PERU"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sd-6">

@@ -29,7 +29,7 @@ namespace DAO
             command.Parameters.AddWithValue("@fechaNacimiento", objAlumno.DTU_FechaNacimiento);
             command.Parameters.AddWithValue("@contrasenia", objAlumno.VU_Contrasenia);
             command.Parameters.AddWithValue("@sexo", objAlumno.VU_Sexo);
-            command.Parameters.AddWithValue("@nombreAcademia", objAlumno.VU_NAcademia);
+            command.Parameters.AddWithValue("@nombreAcademia", "TUSUY PERU");
             command.Parameters.AddWithValue("@correo", objAlumno.VU_Correo);
             command.Parameters.AddWithValue("@celular", objAlumno.VU_Celular);
             command.Parameters.AddWithValue("@estado", objAlumno.VU_Estado);

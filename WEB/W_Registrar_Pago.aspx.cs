@@ -51,19 +51,19 @@ namespace WEB
 
         public string devolverMonto()
         {
-            if (ddlConceptoPago.SelectedValue == "Mensual")
+            if (ddlConceptoPago.SelectedValue=="Mensual")
             {
-                return txtMonto.Text = "S/. 80.00";
+                return txtMonto.Text = "80.00";
             }
             else
                 if (ddlConceptoPago.SelectedValue == "Anual")
             {
-                return txtMonto.Text = "S/.30";
+                return txtMonto.Text = "30.00";
             }
             else
                 if (ddlConceptoPago.SelectedValue == "Total")
             {
-                return txtMonto.Text = "S/.110";
+                return txtMonto.Text = "110.00";
             }
             else
                 return "Seleccione un concepto de pago válido";
