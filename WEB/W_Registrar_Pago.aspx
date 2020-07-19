@@ -29,7 +29,7 @@
                                                 <label class="col-md-2 label-on-left">DNI:</label>
                                                 <div class="form-group label-floating is-empty">
                                                     <label class="control-label"></label>
-                                                    <asp:DropDownList ID="ddlDNI" runat="server" CssClass="selectpicker" OnSelectedIndexChanged="ddlDNI_SelectedIndexChanged">
+                                                    <asp:DropDownList ID="ddlDNI" runat="server" CssClass="selectpicker">
                                                         <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
                                                         
                                                     </asp:DropDownList>
@@ -51,17 +51,22 @@
                                                 <label class="control-label"></label>
                                                 <asp:DropDownList ID="ddlConceptoPago" runat="server" CssClass="selectpicker">
                                                     <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
-                                                    <asp:ListItem Text="Mensual" Value="Mensual"></asp:ListItem>
-                                                    <asp:ListItem Text="Anual" Value="Anual"></asp:ListItem>
+                                                    <asp:ListItem Text="Mensual" Value="Anual"></asp:ListItem>
+                                                    <asp:ListItem Text="Anual" Value="Mensual"></asp:ListItem>
                                                     <asp:ListItem Text="Total" Value="Total"></asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sd-6">
+                                        <div class="col-lg-4 col-md-4 col-sd-6">
                                             <label class="col-md-2 label-on-left">Monto:</label>
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
-                                                <asp:TextBox ID="txtMonto" runat="server" class="form-control" Enabled="false"></asp:TextBox>
+                                                <asp:DropDownList ID="ddlMonto" runat="server" CssClass="selectpicker">
+                                                    <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
+                                                    <asp:ListItem Text="S/.30.00" Value="30"></asp:ListItem>
+                                                    <asp:ListItem Text="S/.80.00" Value="80"></asp:ListItem>
+                                                    <asp:ListItem Text="S/.110.00" Value="110"></asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>

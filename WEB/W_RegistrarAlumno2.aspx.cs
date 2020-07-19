@@ -54,7 +54,6 @@ namespace WEB
             {
                 _log.CustomWriteOnLog("registrar alumno", "Error : " + ex.Message + "Stac" + ex.StackTrace);
             }
-        
 
         }
 

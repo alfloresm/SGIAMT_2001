@@ -32,26 +32,12 @@ namespace DAO
             command.ExecuteNonQuery();
             conexion.Close();
         }
-        public string ObtenerDNI()
+        public void ObtenerDNI()
         {
-            try
-            {
-                string dni_retornado = "";
-                SqlCommand cmd = new SqlCommand("select PK_IU_DNI from T_Usuario", conexion);
-                Console.WriteLine(cmd);
+                SqlCommand command = new SqlCommand("select PK_IU_DNI from T_Usuario", conexion);
                 conexion.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    return dni_retornado;
-                }
+                command.ExecuteNonQuery();
                 conexion.Close();
-                return dni_retornado;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
         }
 
         public string obtenerAnio()
