@@ -16,7 +16,7 @@ namespace CTR
         {
             objDaoAlumno = new DaoAlumno();
         }
-        public void RegistrarAlumno(DtoAlumno objA)
+        public void RegistrarAlumno(DtoUsuario objA)
         {
             objDaoAlumno.RegistrarAlumno(objA);
         }

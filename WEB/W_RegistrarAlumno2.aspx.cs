@@ -13,7 +13,7 @@ namespace WEB
     public partial class W_RegistrarAlumno2 : System.Web.UI.Page
     {
         CtrAlumno objctralumno = new CtrAlumno();
-        DtoAlumno objDtoAlumno = new DtoAlumno();
+        DtoUsuario objDtoAlumno = new DtoUsuario();
         Log _log = new Log();
         protected void Page_Load(object sender, EventArgs e)
         {
