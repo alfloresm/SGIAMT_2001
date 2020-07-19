@@ -17,7 +17,7 @@ namespace DAO
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
 
-        public void RegistrarAlumno(DtoAlumno objAlumno)
+        public void RegistrarAlumno(DtoUsuario objAlumno)
         {
 
             SqlCommand command = new SqlCommand("SP_RegistrarAlumno", conexion);

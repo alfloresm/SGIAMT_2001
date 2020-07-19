@@ -85,6 +85,14 @@ namespace DAO
             conexion.Close();
             conexion.Dispose();
         }
+        public DataSet desplegableConcurso()
+        {
+            SqlDataAdapter tipomol = new SqlDataAdapter("SP_Desplegable_Concurso", conexion);
+            tipomol.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataSet DS = new DataSet();
+            tipomol.Fill(DS);
+            return DS;
+        }
 
     }
 }

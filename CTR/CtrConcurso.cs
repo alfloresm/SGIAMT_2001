@@ -32,6 +32,10 @@ namespace CTR
         {
             objDaoConcurso.ObtenerConcurso(objc);
         }
+        public DataSet desplegableConcurso()
+        {
+            return objDaoConcurso.desplegableConcurso();
+        }
 
     }
 }

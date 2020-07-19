@@ -53,6 +53,7 @@
     <Compile Include="CtrAlumno.cs" />
     <Compile Include="CtrConcurso.cs" />
     <Compile Include="CtrPago.cs" />
+    <Compile Include="CtrParticipante.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />

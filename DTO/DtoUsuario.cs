@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DtoAlumno
+    public class DtoUsuario
     {
         public string PK_IU_DNI { get; set; }
         public string VU_Nombre { get; set; }
@@ -24,5 +24,7 @@ namespace DTO
         public byte[] VBU_Archivo_usuario { get; set; }
         public int FK_ICA_CodCat { get; set; }
         public int FK_ITU_TipoUsuario { get; set; }
+        /*-------------------------------*/
+        public string nombres { get; set; }
     }
 }
