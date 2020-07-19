@@ -59,7 +59,7 @@ namespace DAO
             try
             {
                 int valor_retornado = 0;
-                SqlCommand cmd = new SqlCommand("select PK_ICA_CodCat from T_Categoria where "+ anio+" >= ICA_AnioInicio and "+anio+" < ICA_Aniofin", conexion);
+                SqlCommand cmd = new SqlCommand("select PK_ICA_CodCat from T_Categoria where " + anio + " >= ICA_AnioInicio and " + anio + " < ICA_Aniofin", conexion);
                 Console.WriteLine(cmd);
                 conexion.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -72,7 +72,9 @@ namespace DAO
             }
             catch (Exception)
             {
+
                 throw;
+
             }
         }
     }
