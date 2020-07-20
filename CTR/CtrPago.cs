@@ -20,9 +20,19 @@ namespace CTR
         {
             objDaoPago.RegistrarPago(objP);
         }
-        public void devolverDniAlumnos()
+
+        public DataSet desplegableDNI()
         {
-            objDaoPago.ObtenerDNI();
+            return objDaoPago.desplegarDni();
         }
+        public DataSet desplegableConceptoPago()
+        {
+            return objDaoPago.desplegarConceptoPago();
+        }
+        public double obtenerMontoPago(int codigo)
+        {
+            return objDaoPago.ObtenerMonto(codigo);
+        }
+
     }
 }

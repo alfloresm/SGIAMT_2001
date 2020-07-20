@@ -14,125 +14,111 @@
 
                         <form id="form1" runat="server" method="POST" class="form">
                             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                            <asp:UpdatePanel ID="upPago" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
-                                <ContentTemplate>
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sd-6">
-                                                <label class="col-md-2 label-on-left">Codigo</label>
-                                                <div class="form-group label-floating is-empty">
-                                                    <label class="control-label"></label>
-                                                    <asp:TextBox ID="txtCodigo" runat="server" class="form-control " Enabled="False" Visible="false"></asp:TextBox>
-                                                </div>
+                            <%--<asp:UpdatePanel ID="upPago" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
+                                <ContentTemplate>--%>
+                            <asp:Panel ID="Panel1" runat="server" CssClass="col-lg-6 col-md-6 col-sd-12">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sd-6">
+                                        <label class="col-md-2 label-on-left"></label>
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label"></label>
+                                            <asp:TextBox ID="txtCodigo" runat="server" class="form-control " visible="False"></asp:TextBox>
                                         </div>
-                                        <asp:Panel ID="Panel2" runat="server" CssClass="col-lg-6 col-md-6 col-sd-12">
-                                            <div class="col-lg-4 col-md-4 col-sd-6">
-                                                <label class="col-md-2 label-on-left">DNI:</label>
-                                                <div class="form-group label-floating is-empty">
-                                                    <label class="control-label"></label>
-                                                    <asp:DropDownList ID="ddlDNI" runat="server" CssClass="selectpicker">
-                                                        <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
-                                                        
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
-                                        </asp:Panel>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sd-6">
-                                            <label class="col-md-2 label-on-left">Fecha</label>
-                                            <div class="form-group label-floating is-empty">
-                                                <label class="control-label"></label>
-                                                <asp:TextBox ID="txtFecha" runat="server" class="form-control datepicker" type="date" required></asp:TextBox>
-                                            </div>
+                                </div>
+                            </asp:Panel>
+
+                            <div class="row">
+                                <asp:Panel ID="Panel2" runat="server" CssClass="col-lg-6 col-md-6 col-sd-12">
+                                    <div class="col-lg-6 col-md-6 col-sd-6">
+                                        <label class="col-md-2 label-on-left">DNI:</label>
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label"></label>
+                                            <asp:DropDownList ID="ddlDNI" runat="server" CssClass="selectpicker">
+                                                <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
+
+                                            </asp:DropDownList>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sd-6">
-                                            <label class="col-md-2 label-on-left">Concepto de Pago:</label>
-                                            <div class="form-group label-floating is-empty">
-                                                <label class="control-label"></label>
-                                                <asp:DropDownList ID="ddlConceptoPago" runat="server" CssClass="selectpicker">
-                                                    <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
-                                                    <asp:ListItem Text="Mensual" Value="Anual"></asp:ListItem>
-                                                    <asp:ListItem Text="Anual" Value="Mensual"></asp:ListItem>
-                                                    <asp:ListItem Text="Total" Value="Total"></asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-                                        </div>
+                                    </div>
+                                </asp:Panel>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sd-6">
+                                    <label class="col-md-2 label-on-left">Concepto de Pago:</label>
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+
+                                        <asp:DropDownList ID="ddlConceptoPago" runat="server" CssClass="selectpicker">
+                                        </asp:DropDownList>
+
+                                        <asp:UpdatePanel runat="server" UpdateMode="Conditional" ID="UpdatePanel1">
+                                            <ContentTemplate>
+                                                <asp:LinkButton ID="btnMonto" runat="server" CssClass="btn btn-white btn-round btn-just-icon" OnClick="btnMonto_Click">
+                                                    <i class="material-icons">calculate</i>
+                                                    <div class="ripple-container"></div>
+                                                </asp:LinkButton>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </div>
+                                </div>
+
+                                <asp:UpdatePanel ID="updPanel2" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+
                                         <div class="col-lg-4 col-md-4 col-sd-6">
                                             <label class="col-md-2 label-on-left">Monto:</label>
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
-                                                <asp:DropDownList ID="ddlMonto" runat="server" CssClass="selectpicker">
-                                                    <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
-                                                    <asp:ListItem Text="S/.30.00" Value="30"></asp:ListItem>
-                                                    <asp:ListItem Text="S/.80.00" Value="80"></asp:ListItem>
-                                                    <asp:ListItem Text="S/.110.00" Value="110"></asp:ListItem>
-                                                </asp:DropDownList>
+                                                <asp:TextBox ID="txtMonto" runat="server" class="form-control" Enabled="false"></asp:TextBox>
                                             </div>
                                         </div>
-                                    </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sd-6">
-                                            <label class="col-md-2 label-on-left">Año:</label>
-                                            <div class="form-group label-floating is-empty">
-                                                <label class="control-label"></label>
-                                                <asp:DropDownList ID="ddlAnio" runat="server" CssClass="selectpicker">
-                                                    <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
-                                                    <asp:ListItem Text="2020" Value="2020"></asp:ListItem>
+                            <div class="row">
 
-                                                </asp:DropDownList>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sd-6">
-                                            <label class="col-md-2 label-on-left">Mes:</label>
-                                            <div class="form-group label-floating is-empty">
-                                                <label class="control-label"></label>
-                                                <asp:DropDownList ID="ddlMes" runat="server" CssClass="selectpicker">
-                                                    <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
-                                                    <asp:ListItem Text="Enero" Value="Enero"></asp:ListItem>
-                                                    <asp:ListItem Text="Febrero" Value="Febrero"></asp:ListItem>
-                                                    <asp:ListItem Text="Marzo" Value="Marzo"></asp:ListItem>
-                                                    <asp:ListItem Text="Abril" Value="Abril"></asp:ListItem>
-                                                    <asp:ListItem Text="Mayo" Value="Mayo"></asp:ListItem>
-                                                    <asp:ListItem Text="Junio" Value="Junio"></asp:ListItem>
-                                                    <asp:ListItem Text="Julio" Value="Julio"></asp:ListItem>
-                                                    <asp:ListItem Text="Agosto" Value="Agosto"></asp:ListItem>
-                                                    <asp:ListItem Text="Septiembre" Value="Septiembre"></asp:ListItem>
-                                                    <asp:ListItem Text="Octubre" Value="Octubre"></asp:ListItem>
-                                                    <asp:ListItem Text="Noviembre" Value="Noviembre"></asp:ListItem>
-                                                    <asp:ListItem Text="Diciembre" Value="Diciembre"></asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sd-6">
-                                            <label class="col-md-2 label-on-left">Estado:</label>
-                                            <div class="form-group label-floating is-empty">
-                                                <label class="control-label"></label>
-                                                <asp:DropDownList ID="ddlEstado" runat="server" CssClass="selectpicker">
-                                                    <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
-                                                    <asp:ListItem Text="Pagado" Value="Pagado"></asp:ListItem>
-                                                    <asp:ListItem Text="Finalizado" Value="Finalizado"></asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-                                        </div>
+                                <div class="col-lg-4 col-md-4 col-sd-6">
+                                    <label class="col-md-2 label-on-left">Mes:</label>
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <asp:DropDownList ID="ddlMes" runat="server" CssClass="selectpicker">
+                                            <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
+                                            <asp:ListItem Text="Enero" Value="Enero"></asp:ListItem>
+                                            <asp:ListItem Text="Febrero" Value="Febrero"></asp:ListItem>
+                                            <asp:ListItem Text="Marzo" Value="Marzo"></asp:ListItem>
+                                            <asp:ListItem Text="Abril" Value="Abril"></asp:ListItem>
+                                            <asp:ListItem Text="Mayo" Value="Mayo"></asp:ListItem>
+                                            <asp:ListItem Text="Junio" Value="Junio"></asp:ListItem>
+                                            <asp:ListItem Text="Julio" Value="Julio"></asp:ListItem>
+                                            <asp:ListItem Text="Agosto" Value="Agosto"></asp:ListItem>
+                                            <asp:ListItem Text="Septiembre" Value="Septiembre"></asp:ListItem>
+                                            <asp:ListItem Text="Octubre" Value="Octubre"></asp:ListItem>
+                                            <asp:ListItem Text="Noviembre" Value="Noviembre"></asp:ListItem>
+                                            <asp:ListItem Text="Diciembre" Value="Diciembre"></asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-sm-12">
-                                            <p></p>
-                                        </div>
-                                        <asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
-                                            <ContentTemplate>
-                                                <div class="col-lg-2 col-md-2 col-sm-6">
-                                                    <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" CssClass="btn btn-fill btn-success" OnClick="btnRegistrar_Click" />
-                                                </div>
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-12">
+                                    <p></p>
+                                </div>
+                                <asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
                                         <div class="col-lg-2 col-md-2 col-sm-6">
-                                            <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-fill btn-danger" OnClick="btnRegresar_Click" />
+                                            <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" CssClass="btn btn-fill btn-success" OnClick="btnRegistrar_Click" />
                                         </div>
-                                    </div>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                                <div class="col-lg-2 col-md-2 col-sm-6">
+                                    <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-fill btn-danger" OnClick="btnRegresar_Click" />
+                                </div>
+                            </div>
+                            <%--</ContentTemplate>
+                            </asp:UpdatePanel>--%>
                         </form>
                     </div>
                 </div>

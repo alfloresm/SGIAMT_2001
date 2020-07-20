@@ -25,9 +25,8 @@ namespace DAO
             command.Parameters.AddWithValue("@monto", objPago.DP_Monto);
             command.Parameters.AddWithValue("@anio", objPago.VP_Anio);
             command.Parameters.AddWithValue("@mes", objPago.VP_Mes);
-            command.Parameters.AddWithValue("@estado", objPago.VP_Estado);
             command.Parameters.AddWithValue("@dni", objPago.FK_IU_DNI);
- 
+            command.Parameters.AddWithValue("@concepto", objPago.FK_ICP_Cod);
             conexion.Open();
             command.ExecuteNonQuery();
             conexion.Close();
@@ -40,9 +39,47 @@ namespace DAO
                 conexion.Close();
         }
 
-        public string obtenerAnio()
+        public DataSet desplegarDni()
         {
-            return DateTime.Now.Year.ToString();
+            SqlDataAdapter listadni = new SqlDataAdapter("SP_Desplegable_Dni", conexion);
+            listadni.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataSet DS = new DataSet();
+            listadni.Fill(DS);
+            return DS;
+        }
+
+        public DataSet desplegarConceptoPago()
+        {
+            SqlDataAdapter listaConcepto = new SqlDataAdapter("SP_DesplegableConceptoPago", conexion);
+            listaConcepto.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataSet DS = new DataSet();
+            listaConcepto.Fill(DS);
+            return DS;
+        }
+
+        public double ObtenerMonto(int codigo)
+        {
+            try
+            {
+                double valor_retornado = 0.0;
+                SqlCommand cmd = new SqlCommand("select DCP_Monto from T_Concepto_Pago where PK_ICP_CodConP =" + codigo, conexion);
+                Console.WriteLine(cmd);
+                conexion.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    valor_retornado= double.Parse(reader[0].ToString());
+                }
+                conexion.Close();
+                return valor_retornado;
+            }
+            catch (Exception)
+            {
+
+                throw;
+
+            }
         }
     }
+
 }
