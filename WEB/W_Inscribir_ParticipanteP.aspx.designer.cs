@@ -49,6 +49,51 @@ namespace WEB {
         protected global::System.Web.UI.WebControls.DropDownList ddlConcurso;
         
         /// <summary>
+        /// Control UpBtnIr.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpBtnIr;
+        
+        /// <summary>
+        /// Control btnIr.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnIr;
+        
+        /// <summary>
+        /// Control UpPrecios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpPrecios;
+        
+        /// <summary>
+        /// Control lblprecioS.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblprecioS;
+        
+        /// <summary>
+        /// Control lblprecioN.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblprecioN;
+        
+        /// <summary>
         /// Control RbSeriado.
         /// </summary>
         /// <remarks>
@@ -65,6 +110,15 @@ namespace WEB {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton RbNovel;
+        
+        /// <summary>
+        /// Control RbAmbos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RbAmbos;
         
         /// <summary>
         /// Control pnlParticipanteS.
@@ -148,6 +202,15 @@ namespace WEB {
         protected global::System.Web.UI.WebControls.TextBox txtGen;
         
         /// <summary>
+        /// Control txtcodCat.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtcodCat;
+        
+        /// <summary>
         /// Control pnlParticipanteN.
         /// </summary>
         /// <remarks>
@@ -220,6 +283,24 @@ namespace WEB {
         protected global::System.Web.UI.WebControls.TextBox txtCategoria2;
         
         /// <summary>
+        /// Control txtCodCatN.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCodCatN;
+        
+        /// <summary>
+        /// Control cbParticipa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbParticipa;
+        
+        /// <summary>
         /// Control upBotonEnviar.
         /// </summary>
         /// <remarks>
@@ -245,6 +326,15 @@ namespace WEB {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegresar;
+        
+        /// <summary>
+        /// Control Uppago.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel Uppago;
         
         /// <summary>
         /// Control H1.

@@ -98,14 +98,14 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <label class="col-md-2 label-on-left">Cantidad Seriado: </label>
+                                    <label class="col-md-2 label-on-left">Precio inscripcion Seriado: </label>
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
                                         <asp:TextBox ID="txtCantSer" runat="server" class="form-control " Enabled="False"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <label class="col-md-2 label-on-left">Cantidad Novel: </label>
+                                    <label class="col-md-2 label-on-left">Precio inscripcion Novel: </label>
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
                                         <asp:TextBox ID="txtCantNov" runat="server" class="form-control " Enabled="False"></asp:TextBox>

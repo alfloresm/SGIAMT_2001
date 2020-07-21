@@ -63,8 +63,8 @@ namespace WEB
                     myModalLabel.InnerText = objdtoconcurso.VC_NombreCon.ToString();
                     txtlugar.Text = objdtoconcurso.VC_LugarCon.ToString();
                     txtFecha.Text = objdtoconcurso.DTC_FechaConcurso.ToString("dd-MM-yyyy");
-                    txtCantSer.Text = objdtoconcurso.IC_CantidadSeriado.ToString();
-                    txtCantNov.Text = objdtoconcurso.IC_CantidadNovel.ToString();
+                    txtCantSer.Text ="S/."+ objdtoconcurso.DC_PrecioSeriado.ToString();
+                    txtCantNov.Text = "S/."+objdtoconcurso.DC_PrecioNovel.ToString();
                     int est = Convert.ToInt32(objdtoconcurso.FK_IEC_IdEstado);
                     if (est == 1)
                     {

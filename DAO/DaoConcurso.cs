@@ -36,8 +36,8 @@ namespace DAO
             command.Parameters.AddWithValue("@nombre", objConcurso.VC_NombreCon);
             command.Parameters.AddWithValue("@direccion", objConcurso.VC_LugarCon);
             command.Parameters.AddWithValue("@fechac", objConcurso.DTC_FechaConcurso);
-            command.Parameters.AddWithValue("@cantS", objConcurso.IC_CantidadSeriado);
-            command.Parameters.AddWithValue("@cantN", objConcurso.IC_CantidadNovel);
+            command.Parameters.AddWithValue("@cantS", objConcurso.DC_PrecioSeriado);
+            command.Parameters.AddWithValue("@cantN", objConcurso.DC_PrecioNovel);
 
             conexion.Open();
             command.ExecuteNonQuery();
@@ -52,8 +52,8 @@ namespace DAO
             command.Parameters.AddWithValue("@nombre", objConcurso.VC_NombreCon);
             command.Parameters.AddWithValue("@direccion", objConcurso.VC_LugarCon);
             command.Parameters.AddWithValue("@fechac", objConcurso.DTC_FechaConcurso);
-            command.Parameters.AddWithValue("@cantS", objConcurso.IC_CantidadSeriado);
-            command.Parameters.AddWithValue("@cantN", objConcurso.IC_CantidadNovel);
+            command.Parameters.AddWithValue("@cantS", objConcurso.DC_PrecioSeriado);
+            command.Parameters.AddWithValue("@cantN", objConcurso.DC_PrecioNovel);
             command.Parameters.AddWithValue("@est", objConcurso.FK_IEC_IdEstado);
             conexion.Open();
             command.ExecuteNonQuery();
@@ -78,8 +78,8 @@ namespace DAO
                 objConcurso.VC_NombreCon = reader[1].ToString();
                 objConcurso.VC_LugarCon = reader[2].ToString();
                 objConcurso.DTC_FechaConcurso = Convert.ToDateTime(reader[3].ToString());
-                objConcurso.IC_CantidadSeriado = int.Parse(reader[4].ToString());
-                objConcurso.IC_CantidadNovel = int.Parse(reader[5].ToString());
+                objConcurso.DC_PrecioSeriado = double.Parse(reader[4].ToString());
+                objConcurso.DC_PrecioNovel = double.Parse(reader[5].ToString());
                 objConcurso.FK_IEC_IdEstado = int.Parse(reader[6].ToString());
             }
             conexion.Close();
