@@ -59,6 +59,22 @@ namespace WEB
                 objDtoAlumno.FK_ICA_CodCat = objctralumno.devolverCategoria(anio);
                _log.CustomWriteOnLog("registrar alumno", "dato alumno: " + objDtoAlumno.PK_IU_DNI.ToString());
                 objDtoAlumno.FK_IN_CodNivel = Convert.ToInt32(ddlNivel.SelectedValue);
+
+                if (anio >= 2012 && anio < 2016)
+                {
+                    objDtoAlumno.FK_ITN_TipoNivel = 1;
+                }
+                else
+                    if (anio >= 2008 && anio < 2013)
+                    {
+                        objDtoAlumno.FK_ITN_TipoNivel = 2;
+                    }
+                else
+                    if (anio < 2007)
+                    {
+                        objDtoAlumno.FK_ITN_TipoNivel = 3;
+                    }
+
                 objctralumno.RegistrarAlumno(objDtoAlumno);
                 string m = "Se registró correctamente";
 

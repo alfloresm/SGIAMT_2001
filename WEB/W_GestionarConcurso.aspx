@@ -38,7 +38,7 @@
                                             <div class="card-content">
 
                                                 <asp:GridView ID="GVConcurso" runat="server" AutoGenerateColumns="False"
-                                                    DataKeyNames="PK_IC_IdConcurso,VC_NombreCon,IC_CantidadSeriado,IC_CantidadNovel,VE_NombreEstado"
+                                                    DataKeyNames="PK_IC_IdConcurso,VC_NombreCon,DC_PrecioSeriado,DC_PrecioNovel,VE_NombreEstado"
                                                     CssClass="table table-responsive table-bordered table-hover js-basic-example dataTable" PageSize="5"
                                                     AllowPaging="True" OnPageIndexChanging="GVConcurso_PageIndexChanging" OnRowCommand="GVConcurso_RowCommand"
                                                     Font-Size="Small" HeaderStyle-ForeColor="#FF5050" HeaderStyle-CssClass="small">
@@ -46,8 +46,8 @@
                                                     <Columns>
                                                         <asp:BoundField DataField="PK_IC_IdConcurso" HeaderText="Concurso" />
                                                         <asp:BoundField DataField="VC_NombreCon" HeaderText="Nombre" />
-                                                        <asp:BoundField DataField="IC_CantidadSeriado" HeaderText="Cantidad Seriado" />
-                                                        <asp:BoundField DataField="IC_CantidadNovel" HeaderText="Cantidad Novel" />
+                                                        <asp:BoundField DataField="DC_PrecioSeriado" HeaderText="Cantidad Seriado" />
+                                                        <asp:BoundField DataField="DC_PrecioNovel" HeaderText="Cantidad Novel" />
                                                         <asp:BoundField DataField="VE_NombreEstado" HeaderText="Estado" />
                                                         <asp:TemplateField HeaderText="">
                                                             <ItemTemplate>

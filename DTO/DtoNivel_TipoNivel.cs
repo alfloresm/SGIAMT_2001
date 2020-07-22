@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DtoNivel
+    public class DtoNivel_TipoNivel
     {
-        public int PK_IN_Cod { get; set; }
-        public string VN_NombreNivel { get; set; }
+
     }
 }

@@ -37,6 +37,7 @@ namespace DAO
             command.Parameters.AddWithValue("@direccion", objAlumno.VU_Direccion);
             command.Parameters.AddWithValue("@cat", objAlumno.FK_ICA_CodCat);
             command.Parameters.AddWithValue("@nivel", objAlumno.FK_IN_CodNivel);
+            command.Parameters.AddWithValue("@tipo_nivel", objAlumno.FK_ITN_TipoNivel);
             conexion.Open();
             command.ExecuteNonQuery();
             conexion.Close();

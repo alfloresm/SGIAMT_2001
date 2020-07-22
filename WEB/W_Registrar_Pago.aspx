@@ -15,8 +15,8 @@
                         <form id="form1" runat="server" method="POST" class="form">
                             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                             <div class="row">
-                                <asp:Panel ID="Panel2" runat="server" CssClass="col-lg-6 col-md-6 col-sd-12">
-                                    <div class="col-md-6">
+                                <%--<asp:Panel ID="Panel2" runat="server" CssClass="col-lg-6 col-md-6 col-sd-12">
+                                    --%><div class="col-lg-4 col-md-4 col-sd-6">
                                         <label class="col-md-2 label-on-left">DNI:</label>
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
@@ -36,7 +36,7 @@
                                             </asp:LinkButton>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
-                                </asp:Panel>
+                               <%-- </asp:Panel>--%>
                                 <div class="col-md-6">
                                     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>
