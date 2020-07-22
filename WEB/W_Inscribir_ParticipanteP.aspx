@@ -102,7 +102,7 @@
                                                                 <label class="control-label"></label>
                                                                 <asp:TextBox ID="txtCategoria" runat="server" CssClass="form-control"></asp:TextBox>
                                                                 <asp:TextBox ID="txtGen" runat="server" CssClass="form-control" Visible="false"></asp:TextBox>
-                                                                <asp:TextBox ID="txtcodCat" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                <asp:TextBox ID="txtcodCat" runat="server" CssClass="form-control" Visible="false"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -147,18 +147,24 @@
                                                             <div class="form-group label-floating is-empty">
                                                                 <label class="control-label"></label>
                                                                 <asp:TextBox ID="txtCategoria2" runat="server" CssClass="form-control"></asp:TextBox>
-                                                                <asp:TextBox ID="txtCodCatN" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                <asp:TextBox ID="txtCodCatN" runat="server" CssClass="form-control" Visible="false"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <label class="col-md-3"></label>
-                                                        <div class="col-md-9">
-                                                            <div class="checkbox form-horizontal-checkbox">
-                                                                <label>
-                                                                    <input type="checkbox" name="optionsCheckboxes" id="cbParticipa" runat="server">
-                                                                    Participa Seriado
-                                                                </label>
+                                                        <div class="col-md-6 checkbox-radios">
+                                                            <label class="col-md-12 label-on-left">¿Participa seriado?</label>
+                                                            </br>
+                                         </br>
+                                                             <div class="col-md-6">
+                                                                 <asp:RadioButton ID="rbSi" runat="server" Text="SI" GroupName="seriado"
+                                                                     AutoPostBack="True" OnCheckedChanged="rbSi_CheckedChanged" EnableTheming="True" CssClass="radio-inline"
+                                                                     ForeColor="Black" />
+                                                             </div>
+                                                            <div class="col-md-6">
+                                                                <asp:RadioButton ID="rbNo" runat="server" Text="NO" GroupName="seriado"
+                                                                    AutoPostBack="True" CssClass="radio-inline" OnCheckedChanged="rbNo_CheckedChanged"
+                                                                    ForeColor="Black" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -230,7 +236,7 @@
 
     //    }
     //    else if (rbSelected2){
-            
+
     //        var PS = $("#lblprecioS").text();
     //        var PN = $("#lblprecioN").text();
     //        console.log(PS);

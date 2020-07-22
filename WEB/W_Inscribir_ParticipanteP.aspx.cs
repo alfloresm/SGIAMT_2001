@@ -84,6 +84,40 @@ namespace WEB
             H1.InnerText = "S/."+sum;
             Uppago.Update();
         }
+        protected void rbSi_CheckedChanged(object sender, EventArgs e)
+        {
+            _log.CustomWriteOnLog("inscribir Participante", "rbparejaseriado ");
+            H1.InnerText = "";
+            if (RbNovel.Checked)
+            {
+                double sum = Convert.ToDouble(lblprecioS.Text) + Convert.ToDouble(lblprecioN.Text);
+                H1.InnerText = "S/." + sum;
+                Uppago.Update();
+            }
+            else if (RbAmbos.Checked)
+            {
+                double sum = Convert.ToDouble(lblprecioS.Text) + Convert.ToDouble(lblprecioN.Text) + Convert.ToDouble(lblprecioS.Text);
+                H1.InnerText = "S/." + sum;
+                Uppago.Update();
+            }
+        }
+        protected void rbNo_CheckedChanged(object sender, EventArgs e)
+        {
+            _log.CustomWriteOnLog("inscribir Participante", "rbparejaseriado ");
+            H1.InnerText = "";
+            if (RbNovel.Checked)
+            {
+                double sum = Convert.ToDouble(lblprecioN.Text);
+                H1.InnerText = "S/." + sum;
+                Uppago.Update();
+            }
+            else if (RbAmbos.Checked)
+            {
+                double sum = Convert.ToDouble(lblprecioN.Text) + Convert.ToDouble(lblprecioS.Text);
+                H1.InnerText = "S/." + sum;
+                Uppago.Update();
+            }
+        }
         protected void RbParejaSeriado_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -192,15 +226,19 @@ namespace WEB
         {
             try
             {
+                DtoUsuarioxModalidad objdtouxm2 = new DtoUsuarioxModalidad();
                 int Cat1 = Convert.ToInt32(txtcodCat.Text);
                 
                 objDtoUXM.FK_VU_Dni = txtDni.Text;
+                objdtouxm2.FK_VU_Dni = txtdni2.Text;
+                objDtoUXM.FK_IC_IdConcurso = Convert.ToInt32(ddlConcurso.SelectedValue);
+                objdtouxm2.FK_IC_IdConcurso = Convert.ToInt32(ddlConcurso.SelectedValue);
                 if (RbSeriado.Checked)
                 {
+                   
                     if (objCtrUXM.existeUXM_S(objDtoUXM)==false)
                     {
                         objDtoUXM.FK_IM_IdModalidad = 1;
-                        objDtoUXM.FK_IC_IdConcurso = Convert.ToInt32(ddlConcurso.SelectedValue);
                         objCtrUXM.registrarUXM_S(objDtoUXM);
                         _log.CustomWriteOnLog("inscribir Participante", "id UXM: " + objDtoUXM.PK_IUM_CodUM.ToString());
                         objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
@@ -214,25 +252,46 @@ namespace WEB
                         string m = "Existe Registro";
                         Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','danger')");
                     }
-                }else if (RbNovel.Checked && cbParticipa.Checked) {
+                }else if (RbNovel.Checked && rbSi.Checked) {
                     int Cat2 = Convert.ToInt32(txtCodCatN.Text);
+                    double sum = Convert.ToDouble(lblprecioS.Text) + Convert.ToDouble(lblprecioN.Text);
+                    H1.InnerText = "S/." + sum;
+                    Uppago.Update();
                     if (Cat1-Cat2==-1|| Cat1 - Cat2 == 0 || Cat1 - Cat2 == 1)
                 {
                         objDtoUXM.FK_DNI_Pareja = txtdni2.Text;
-                        if (!objCtrUXM.existeUXM_N(objDtoUXM))
+                               
+                        if (!objCtrUXM.existeUXM_N(objDtoUXM) && !objCtrUXM.existeUXM_S(objdtouxm2))
                         {
-
+                            //1° registra seriado
+                            objdtouxm2.FK_IM_IdModalidad = 1;
+                            objCtrUXM.registrarUXM_S(objdtouxm2);
+                            _log.CustomWriteOnLog("inscribir Participante", "id UXM pareja seriado: " + objdtouxm2.PK_IUM_CodUM.ToString());
+                            objDtoInscripcion.FK_IUM_CodUm = objdtouxm2.PK_IUM_CodUM;
+                            objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioS.Text);
+                            objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                            string m = "Se registró la inscripción de pareja seriado";
+                            Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
+                            //2° 
+                            objDtoUXM.FK_IM_IdModalidad = 2;
+                            objCtrUXM.registrarUXM_N(objDtoUXM);
+                            _log.CustomWriteOnLog("inscribir Participante novel", "id UXM: " + objDtoUXM.PK_IUM_CodUM.ToString());
+                            objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
+                            objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioN.Text);
+                            objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                            string m1 = "Se registró la inscripción";
+                            Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m1 + "','success')");
                         }
                         else
                         {
                             string m = "Existe Registro";
-                            Utils.AddScriptClientUpdatePanel(upnBotonBuscar2, "showMessage('top','center','" + m + "','danger')");
+                            Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','danger')");
                         }
                     }
                 else
                 {
                     string m = "No puede inscribirse con pareja mayor a una categoria";
-                    Utils.AddScriptClientUpdatePanel(upnBotonBuscar2, "showMessage('top','center','" + m + "','danger')");
+                    Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','danger')");
                 }
                 }else if (RbNovel.Checked)
                 {
@@ -240,55 +299,89 @@ namespace WEB
                     if (Cat1 - Cat2 == -1 || Cat1 - Cat2 == 0 || Cat1 - Cat2 == 1)
                     {
                         objDtoUXM.FK_DNI_Pareja = txtdni2.Text;
+                        objDtoUXM.FK_IC_IdConcurso=Convert.ToInt32(ddlConcurso.SelectedValue);
                         if (!objCtrUXM.existeUXM_N(objDtoUXM))
                         {
-
+                            objDtoUXM.FK_IM_IdModalidad = 2;
+                            objCtrUXM.registrarUXM_N(objDtoUXM);
+                            _log.CustomWriteOnLog("inscribir Participante novel", "id UXM: " + objDtoUXM.PK_IUM_CodUM.ToString());
+                            objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
+                            objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioN.Text);
+                            objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                            string m = "Se registró la inscripción de novel";
+                            Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
                         }
                         else
                         {
                             string m = "Existe Registro";
-                            Utils.AddScriptClientUpdatePanel(upnBotonBuscar2, "showMessage('top','center','" + m + "','danger')");
+                            Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','danger')");
                         }
                     }
                     else
                     {
                         string m = "No puede inscribirse con pareja mayor a una categoria";
-                        Utils.AddScriptClientUpdatePanel(upnBotonBuscar2, "showMessage('top','center','" + m + "','danger')");
+                        Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','danger')");
                     }
                 }
-                else if(RbAmbos.Checked && cbParticipa.Checked)
+                else if(RbAmbos.Checked && rbSi.Checked)
                 {
-                    DtoUsuarioxModalidad objdtoUXM2 = new DtoUsuarioxModalidad();
-                    objdtoUXM2.FK_VU_Dni = txtdni2.Text;
+                    double sum = Convert.ToDouble(lblprecioS.Text) + Convert.ToDouble(lblprecioN.Text) + Convert.ToDouble(lblprecioS.Text);
+                    H1.InnerText = "S/." + sum;
+                    Uppago.Update();
                     int Cat2 = Convert.ToInt32(txtCodCatN.Text);
                     if (Cat1 - Cat2 == -1 || Cat1 - Cat2 == 0 || Cat1 - Cat2 == 1)
                     {
-                        if (!objCtrUXM.existeUXM_S(objDtoUXM) && !objCtrUXM.existeUXM_S(objdtoUXM2))
+                        if (!objCtrUXM.existeUXM_S(objDtoUXM) && !objCtrUXM.existeUXM_S(objdtouxm2))
                         {
-
                             //registra primero seriados
+                            //1° registro seriado
+                            objDtoUXM.FK_IM_IdModalidad = 1;
+                            objCtrUXM.registrarUXM_S(objDtoUXM);
+                            _log.CustomWriteOnLog("inscribir Participante", "1° seriado id UXM: " + objDtoUXM.PK_IUM_CodUM.ToString());
+                            objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
+                            objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioS.Text);
+                            objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                            string m = "Se registró la inscripción 1° seriado";
+                            Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
+                            //2° registro seriado
+                            objdtouxm2.FK_IM_IdModalidad = 1;
+                            objCtrUXM.registrarUXM_S(objdtouxm2);
+                            _log.CustomWriteOnLog("inscribir Participante", "1° seriado id UXM: " + objDtoUXM.PK_IUM_CodUM.ToString());
+                            objDtoInscripcion.FK_IUM_CodUm = objdtouxm2.PK_IUM_CodUM;
+                            objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioS.Text);
+                            objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                            string m1 = "Se registró la inscripción 2° seriado";
+                            Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m1 + "','success')");
+                            //registra segundo novel
                             objDtoUXM.FK_DNI_Pareja = txtdni2.Text;
                             if (!objCtrUXM.existeUXM_N(objDtoUXM))
                             {
-
+                                objDtoUXM.FK_IM_IdModalidad = 2;
+                                objCtrUXM.registrarUXM_N(objDtoUXM);
+                                _log.CustomWriteOnLog("inscribir Participante", "**AMBOS: id UXM novel: " + objDtoUXM.PK_IUM_CodUM.ToString());
+                                objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
+                                objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioN.Text);
+                                objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                                string m2 = "Se registró la inscripción novel";
+                                Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m2 + "','success')");
                             }
                             else
                             {
-                                string m = "Existe Registro";
-                                Utils.AddScriptClientUpdatePanel(upnBotonBuscar2, "showMessage('top','center','" + m + "','danger')");
+                                string m3 = "Existe Registro novel";
+                                Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m3 + "','danger')");
                             }
                         }
                         else
                         {
-                            string m = "Existe Registro";
-                            Utils.AddScriptClientUpdatePanel(upnBotonBuscar2, "showMessage('top','center','" + m + "','danger')");
+                            string m = "Existe Registro en seriado";
+                            Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','danger')");
                         }
                         
                     }
                     else
                     {
                         string m = "No puede inscribirse con pareja mayor a una categoria";
-                        Utils.AddScriptClientUpdatePanel(upnBotonBuscar2, "showMessage('top','center','" + m + "','danger')");
+                        Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','danger')");
                     }
                 }
                 else if (RbAmbos.Checked)
@@ -297,29 +390,46 @@ namespace WEB
                     if (Cat1 - Cat2 == -1 || Cat1 - Cat2 == 0 || Cat1 - Cat2 == 1)
                     {
                         if (!objCtrUXM.existeUXM_S(objDtoUXM))
-                        {
+                        {   
                             //registra primero seriado
+                            objDtoUXM.FK_IM_IdModalidad = 1;
+                            objCtrUXM.registrarUXM_S(objDtoUXM);
+                            _log.CustomWriteOnLog("inscribir Participante", "**AMBOS: id UXM seriado: " + objDtoUXM.PK_IUM_CodUM.ToString());
+                            objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
+                            objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioS.Text);
+                            objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                            string m = "Se registró la inscripción seriado";
+                            Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
+                            
                             objDtoUXM.FK_DNI_Pareja = txtdni2.Text;
+
                             if (!objCtrUXM.existeUXM_N(objDtoUXM))
                             {
-
+                                objDtoUXM.FK_IM_IdModalidad = 2;
+                                objCtrUXM.registrarUXM_N(objDtoUXM);
+                                _log.CustomWriteOnLog("inscribir Participante", "**AMBOS: id UXM novel: " + objDtoUXM.PK_IUM_CodUM.ToString());
+                                objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
+                                objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioN.Text);
+                                objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                                string m1 = "Se registró la inscripción novel";
+                                Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m1+ "','success')");
                             }
                             else
                             {
-                                string m = "Existe Registro";
-                                Utils.AddScriptClientUpdatePanel(upnBotonBuscar2, "showMessage('top','center','" + m + "','danger')");
+                                string m2 = "Existe Registro en novel";
+                                Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m2 + "','danger')");
                             }
                         }
                         else
                         {
-                            string m = "Existe Registro";
-                            Utils.AddScriptClientUpdatePanel(upnBotonBuscar2, "showMessage('top','center','" + m + "','danger')");
+                            string m = "Existe Registro seriado";
+                            Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','danger')");
                         }
                     }
                     else
                     {
                         string m = "No puede inscribirse con pareja mayor a una categoria";
-                        Utils.AddScriptClientUpdatePanel(upnBotonBuscar2, "showMessage('top','center','" + m + "','danger')");
+                        Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','danger')");
                     }
                 }
             }
@@ -333,6 +443,5 @@ namespace WEB
         {
 
         }
-
     }
 }
