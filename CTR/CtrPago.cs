@@ -33,6 +33,11 @@ namespace CTR
         {
             return objDaoPago.ObtenerMonto(codigo);
         }
+        //nombres concatenados
+        public void obtenerNombreAlumno(DtoUsuario dtoUsuario, DtoCategoria objcat)
+        {
+            objDaoPago.ObtenerDatosAlumno(dtoUsuario, objcat);
+        }
 
     }
 }

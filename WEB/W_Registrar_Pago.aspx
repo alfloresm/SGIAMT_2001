@@ -16,7 +16,7 @@
                             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                             <div class="row">
                                 <asp:Panel ID="Panel2" runat="server" CssClass="col-lg-6 col-md-6 col-sd-12">
-                                    <div class="col-lg-4 col-md-4 col-sd-6">
+                                    <div class="col-md-6">
                                         <label class="col-md-2 label-on-left">DNI:</label>
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
@@ -25,8 +25,42 @@
 
                                             </asp:DropDownList>
                                         </div>
+                                        <asp:TextBox ID="txtDni" runat="server" class="form-control" placeholder="Buscar"></asp:TextBox>
+                                                
                                     </div>
+                                    <asp:UpdatePanel ID="upnBotonBuscar1" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <asp:LinkButton ID="btnBuscar1" runat="server" CssClass="btn btn-white btn-round btn-just-icon" OnClick="btnBuscar1_Click">
+                                                    <i class="material-icons">search</i>
+                                                    <div class="ripple-container"></div>
+                                            </asp:LinkButton>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
                                 </asp:Panel>
+                                <div class="col-md-6">
+                                    <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <div class="row">
+                                                <label class="col-md-3 label-on-left">Nombre:</label>
+                                                <div class="col-md-9">
+                                                    <div class="form-group label-floating is-empty">
+                                                        <label class="control-label"></label>
+                                                        <asp:TextBox ID="txtNombre2" runat="server" CssClass="form-control"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-md-3 label-on-left">Categoria:</label>
+                                                <div class="col-md-9">
+                                                    <div class="form-group label-floating is-empty">
+                                                        <label class="control-label"></label>
+                                                        <asp:TextBox ID="txtCategoria2" runat="server" CssClass="form-control"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </div>
                             </div>
 
                             <div class="row">
@@ -37,12 +71,12 @@
 
                                         <asp:DropDownList ID="ddlConceptoPago" runat="server" CssClass="selectpicker">
                                         </asp:DropDownList>
-
+                                        
                                         <asp:UpdatePanel runat="server" UpdateMode="Conditional" ID="UpdatePanel1">
                                             <ContentTemplate>
                                                 <asp:LinkButton ID="btnMonto" runat="server" CssClass="btn btn-white btn-round btn-just-icon" OnClick="btnMonto_Click">
-                                                    <i class="material-icons" style="background-color:blueviolet">calculate</i>
-                                                    <div class="ripple-container" style="background-:antiquewhite"></div>
+                                                    <i class="material-icons">calculate</i>
+                                                    <div class="ripple-container"></div>
                                                 </asp:LinkButton>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
@@ -55,7 +89,8 @@
                                         <div class="col-lg-4 col-md-4 col-sd-6">
                                             <label class="col-md-2 label-on-left">Monto:</label>
                                             <div class="form-group label-floating is-empty">
-                                                <label class="control-label"></label> S/.
+                                                <label class="control-label"></label>S/.
+                                                
                                                 <asp:TextBox ID="txtMonto" runat="server" class="form-control" Enabled="false"></asp:TextBox>
                                             </div>
                                         </div>
@@ -139,36 +174,36 @@
         }
     </script>
     <script>
-        /*
-         * OBTENER FECHA CTUAL PARA DATE
-         */
-        document.getElementById('date').valueAsDate = new Date();
-        /*
-         * LLENAR DE DATOS A YEAR
-         */
-        var year = new Date().getFullYear().toString();
-        var y = parseInt(year);
-        var j = 0;
-        let selectyear = document.getElementById('year');
-        for (var i = parseInt(y) - 1; i < parseInt(y) + 2; i++) {
-            selectyear.options[j] = new Option(i, i);
-            j++;
-        }
-        /*
-         * SELECCIONA YEAR ACTUAL QUE SIEMPRE ESTA EN LA SEGUNDA POSCION O INDEX 1
-         */
-        selectyear.selectedIndex = "1";
-        /*
-         * VINCULO ENTRE CONCEPT Y AMOUNT
-         */
-        function selectionConcept() {
-            let amount = document.getElementById('amount');
-            amount.value = document.getElementById('concept').value;
-        }
-        function selectionAmount() {
-            let concept = document.getElementById('concept');
-            concept.value = document.getElementById('amount').value;
-        }
+        ///*
+        // * OBTENER FECHA CTUAL PARA DATE
+        // */
+        //document.getElementById('date').valueAsDate = new Date();
+        ///*
+        // * LLENAR DE DATOS A YEAR
+        // */
+        //var year = new Date().getFullYear().toString();
+        //var y = parseInt(year);
+        //var j = 0;
+        //let selectyear = document.getElementById('year');
+        //for (var i = parseInt(y) - 1; i < parseInt(y) + 2; i++) {
+        //    selectyear.options[j] = new Option(i, i);
+        //    j++;
+        //}
+        ///*
+        // * SELECCIONA YEAR ACTUAL QUE SIEMPRE ESTA EN LA SEGUNDA POSCION O INDEX 1
+        // */
+        //selectyear.selectedIndex = "1";
+        ///*
+        // * VINCULO ENTRE CONCEPT Y AMOUNT
+        // */
+        //function selectionConcept() {
+        //    let amount = document.getElementById('amount');
+        //    amount.value = document.getElementById('concept').value;
+        //}
+        //function selectionAmount() {
+        //    let concept = document.getElementById('concept');
+        //    concept.value = document.getElementById('amount').value;
+        //}
     </script>
 
 </asp:Content>

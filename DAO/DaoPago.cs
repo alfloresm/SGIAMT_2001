@@ -79,6 +79,31 @@ namespace DAO
 
             }
         }
+
+        //mostrar los nombres concatenados
+        public void ObtenerDatosAlumno(DtoUsuario objUsuario, DtoCategoria objcat)
+        {
+            SqlCommand command = new SqlCommand("SP_ObtenerParticipante_I", conexion);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@dni", objUsuario.PK_IU_DNI);
+            DataSet ds = new DataSet();
+            conexion.Open();
+            SqlDataAdapter comando = new SqlDataAdapter(command);
+            comando.Fill(ds);
+            comando.Dispose();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                objUsuario.nombres = reader[0].ToString();
+                objcat.PK_ICA_CodCat = Convert.ToInt32(reader[1].ToString());
+                objcat.VCA_NomCategoria = reader[2].ToString();
+                
+            }
+            conexion.Close();
+            conexion.Dispose();
+        }
     }
 
 }
