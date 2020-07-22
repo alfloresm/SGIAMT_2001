@@ -19,26 +19,46 @@
                                     <ContentTemplate>--%>
                                 <div class="row">
 
-                                    <div class="col-md-4 col-md-offset-1">
-                                        <label class="col-md-4 label-on-left">Concurso</label>
-                                        <div class="form-group label-floating is-empty">
-                                            <label class="control-label"></label>
+                                    <div class="col-md-6">
+                                        <label class="col-md-12 label-on-left">Concurso</label>
+                                        <div class="col-md-8 form-group label-floating is-empty">
                                             <asp:DropDownList ID="ddlConcurso" runat="server" CssClass="selectpicker">
                                             </asp:DropDownList>
                                         </div>
+                                        <div class="col-md-4 form-group label-floating is-empty">
+                                            <asp:UpdatePanel ID="UpBtnIr" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:LinkButton ID="btnIr" runat="server" CssClass="btn btn-primary btn-round btn-just-icon" OnClick="btnIr_Click">
+                                                    <i class="material-icons">arrow_right_alt</i>
+                                                    <div class="ripple-container"></div>
+                                                    </asp:LinkButton>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4 col-md-offset-2 checkbox-radios">
+                                    <asp:UpdatePanel ID="UpPrecios" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <asp:Label ID="lblprecioS" runat="server" Text="" Visible="false"></asp:Label>
+                                            <asp:Label ID="lblprecioN" runat="server" Text="" Visible="false"></asp:Label>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                    <div class="col-md-6 checkbox-radios">
                                         <label class="col-md-12 label-on-left">Modalidad</label>
                                         </br>
-                                        </br>
-                                                <div class="col-md-6">
-                                                    <asp:RadioButton ID="RbSeriado" runat="server" Text="Seriado" GroupName="modalidad"
-                                                        AutoPostBack="True" OnCheckedChanged="RbSeriado_CheckedChanged" EnableTheming="True" CssClass="radio-inline"
-                                                        ForeColor="Black" />
-                                                </div>
-                                        <div class="col-md-6">
+                                         </br>
+                                         <div class="col-md-4">
+                                             <asp:RadioButton ID="RbSeriado" runat="server" Text="Seriado" GroupName="modalidad"
+                                                 AutoPostBack="True" OnCheckedChanged="RbSeriado_CheckedChanged" EnableTheming="True" CssClass="radio-inline"
+                                                 ForeColor="Black" />
+                                         </div>
+                                        <div class="col-md-4">
                                             <asp:RadioButton ID="RbNovel" runat="server" Text="Novel" GroupName="modalidad"
                                                 AutoPostBack="True" OnCheckedChanged="RbNovel_CheckedChanged" CssClass="radio-inline"
+                                                ForeColor="Black" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <asp:RadioButton ID="RbAmbos" runat="server" Text="Ambos" GroupName="modalidad"
+                                                AutoPostBack="True" OnCheckedChanged="RbAmbos_CheckedChanged" CssClass="radio-inline"
                                                 ForeColor="Black" />
                                         </div>
                                     </div>
@@ -49,7 +69,7 @@
                                     <asp:Panel ID="pnlParticipanteS" runat="server" CssClass="col-lg-12 col-md-12 col-sm-12">
                                         <div class="col-md-6">
                                             <div class="col-md-8 form-group form-search is-empty">
-                                                <asp:TextBox ID="txtDni" runat="server" class="form-control" placeholder="Buscar"></asp:TextBox>
+                                                <asp:TextBox ID="txtDni" runat="server" class="form-control" placeholder="Buscar" MinLength="8" MaxLength="8"></asp:TextBox>
                                                 <span class="material-input"></span>
                                                 <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
                                             </div>
@@ -82,6 +102,7 @@
                                                                 <label class="control-label"></label>
                                                                 <asp:TextBox ID="txtCategoria" runat="server" CssClass="form-control"></asp:TextBox>
                                                                 <asp:TextBox ID="txtGen" runat="server" CssClass="form-control" Visible="false"></asp:TextBox>
+                                                                <asp:TextBox ID="txtcodCat" runat="server" CssClass="form-control" Visible="false"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -95,7 +116,7 @@
                                     <asp:Panel ID="pnlParticipanteN" runat="server">
                                         <div class="col-md-6">
                                             <div class="col-md-8 form-group form-search is-empty">
-                                                <asp:TextBox ID="txtdni2" runat="server" class="form-control" placeholder="Buscar"></asp:TextBox>
+                                                <asp:TextBox ID="txtdni2" runat="server" class="form-control" placeholder="Buscar" MinLength="8" MaxLength="8"></asp:TextBox>
                                                 <asp:Label ID="lblmensaje2" runat="server" Text=""></asp:Label>
                                                 <span class="material-input"></span>
                                             </div>
@@ -126,13 +147,33 @@
                                                             <div class="form-group label-floating is-empty">
                                                                 <label class="control-label"></label>
                                                                 <asp:TextBox ID="txtCategoria2" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                <asp:TextBox ID="txtCodCatN" runat="server" CssClass="form-control" Visible="false"></asp:TextBox>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6 checkbox-radios">
+                                                            <label class="col-md-12 label-on-left">¿Participa seriado?</label>
+                                                            </br>
+                                         </br>
+                                                             <div class="col-md-6">
+                                                                 <asp:RadioButton ID="rbSi" runat="server" Text="SI" GroupName="seriado"
+                                                                     AutoPostBack="True" OnCheckedChanged="rbSi_CheckedChanged" EnableTheming="True" CssClass="radio-inline"
+                                                                     ForeColor="Black" />
+                                                             </div>
+                                                            <div class="col-md-6">
+                                                                <asp:RadioButton ID="rbNo" runat="server" Text="NO" GroupName="seriado"
+                                                                    AutoPostBack="True" CssClass="radio-inline" OnCheckedChanged="rbNo_CheckedChanged"
+                                                                    ForeColor="Black" />
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
+
                                         </div>
                                     </asp:Panel>
+
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-8 col-md-8 col-sm-12">
@@ -149,14 +190,16 @@
                                         <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-fill btn-danger" OnClick="btnRegresar_Click" />
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h3 class="text-left">PAGAR: </h3>
-                                        <h1 id="H1" runat="server" class="card-title">S/.20</h1>
-                                    </div>
-                                </div>
-                                <%--</ContentTemplate>
-                                </asp:UpdatePanel>--%>
+                                <asp:UpdatePanel ID="Uppago" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3 class="text-left">PAGAR: </h3>
+                                                <h1 id="H1" runat="server" class="card-title"></h1>
+                                            </div>
+                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                             </form>
                         </div>
                     </div>
@@ -164,6 +207,7 @@
             </div>
         </div>
     </div>
+    <%--<script src="assets/js/JsInscribirParticipante.js"></script>--%>
     <script>
         function showMessage(from, align, message, type) {
             $.notify({
@@ -178,6 +222,28 @@
                     align: align
                 }
             });
-        }
+        };
+    //    function cambiarlbl() {
+    //    var rbSelected1 = $('input[id*=RbNovel]').is(":checked"); 
+    //    var rbSelected2 = $('input[id*=RbAmbos]').is(":checked");
+    //    if (rbSelected1) {
+    //        var PS = $("#lblprecioS").text();
+    //        var PN = $("#lblprecioN").text();
+    //        console.log(PS);
+    //        console.log(PN);
+    //        var sum = PS + PN;
+    //        document.getElementById("H1").innerHTML = "S/."+sum;
+
+    //    }
+    //    else if (rbSelected2){
+
+    //        var PS = $("#lblprecioS").text();
+    //        var PN = $("#lblprecioN").text();
+    //        console.log(PS);
+    //        console.log(PN);
+    //        var sum = PS + PN + PS;
+    //        document.getElementById("H1").innerHTML = "S/." + sum;
+    //    }
+    //}
     </script>
 </asp:Content>

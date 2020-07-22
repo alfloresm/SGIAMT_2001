@@ -52,18 +52,18 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-5 col-md-5 col-sd-6">
-                                            <label class="col-md-2 label-on-left">Cantidad Seriado</label>
+                                            <label class="col-md-2 label-on-left">Precio Inscripcion Seriado</label>
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
-                                                <asp:TextBox ID="txtcantSeriado" runat="server" class="form-control" type="number" required></asp:TextBox>
+                                                <asp:TextBox ID="txtcantSeriado" runat="server" class="form-control"  required></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-lg-2 col-md-2"></div>
                                         <div class="col-lg-5 col-md-5 col-sd-6">
-                                            <label class="col-md-2 label-on-left">Cantidad Novel</label>
+                                            <label class="col-md-2 label-on-left">Precio Inscripcion Novel</label>
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
-                                                <asp:TextBox ID="txtcantNovel" runat="server" class="form-control" type="number" required></asp:TextBox>
+                                                <asp:TextBox ID="txtcantNovel" runat="server" class="form-control"  required></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>

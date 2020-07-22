@@ -48,12 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DtoConceptoPago.cs" />
-    <Compile Include="DtoNivel.cs" />
+    <Compile Include="DtoInscripcion.cs" />
     <Compile Include="DtoUsuario.cs" />
     <Compile Include="DtoCategoria.cs" />
     <Compile Include="DtoConcurso.cs" />
     <Compile Include="DtoEstadoconcurso.cs" />
     <Compile Include="DtoPago.cs" />
+    <Compile Include="DtoUsuarioxModalidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

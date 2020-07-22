@@ -51,8 +51,10 @@
     <Compile Include="DaoAlumno.cs" />
     <Compile Include="DaoCategoria.cs" />
     <Compile Include="DaoConcurso.cs" />
+    <Compile Include="DaoInscripcion.cs" />
     <Compile Include="DaoPago.cs" />
     <Compile Include="DaoParticipante.cs" />
+    <Compile Include="DaoUsuarioxModalidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -53,8 +53,8 @@ namespace WEB
                     objDtoConcurso.VC_NombreCon = txtNombre.Text;
                     objDtoConcurso.VC_LugarCon = txtlugar.Text;
                     objDtoConcurso.DTC_FechaConcurso = Convert.ToDateTime(txtFecha.Text);
-                    objDtoConcurso.IC_CantidadSeriado = Convert.ToInt32(txtcantSeriado.Text);
-                    objDtoConcurso.IC_CantidadNovel = Convert.ToInt32(txtcantNovel.Text);
+                    objDtoConcurso.DC_PrecioSeriado = Convert.ToDouble(txtcantSeriado.Text);
+                    objDtoConcurso.DC_PrecioNovel = Convert.ToDouble(txtcantNovel.Text);
                     objDtoConcurso.FK_IEC_IdEstado = Convert.ToInt32(ddlEstado.SelectedValue);
                     objCtrConcurso.ActualizarConcurso(objDtoConcurso);
                     string m = "Se actualizó correctamente";
@@ -68,8 +68,8 @@ namespace WEB
                     objDtoConcurso.VC_NombreCon = txtNombre.Text;
                     objDtoConcurso.VC_LugarCon = txtlugar.Text;
                     objDtoConcurso.DTC_FechaConcurso = Convert.ToDateTime(txtFecha.Text);
-                    objDtoConcurso.IC_CantidadSeriado = Convert.ToInt32(txtcantSeriado.Text);
-                    objDtoConcurso.IC_CantidadNovel = Convert.ToInt32(txtcantNovel.Text);
+                    objDtoConcurso.DC_PrecioSeriado = Convert.ToDouble(txtcantSeriado.Text);
+                    objDtoConcurso.DC_PrecioNovel = Convert.ToDouble(txtcantNovel.Text);
                     objCtrConcurso.RegistrarConcurso(objDtoConcurso);
                     string m = "Se Registró correctamente";
 
@@ -100,8 +100,8 @@ namespace WEB
             txtNombre.Text = objDtoConcurso.VC_NombreCon.ToString();
             txtlugar.Text = objDtoConcurso.VC_LugarCon.ToString();
             txtFecha.Text = objDtoConcurso.DTC_FechaConcurso.ToString("yyyy-MM-dd");
-            txtcantSeriado.Text = objDtoConcurso.IC_CantidadSeriado.ToString();
-            txtcantNovel.Text = objDtoConcurso.IC_CantidadNovel.ToString();
+            txtcantSeriado.Text = objDtoConcurso.DC_PrecioSeriado.ToString();
+            txtcantNovel.Text = objDtoConcurso.DC_PrecioNovel.ToString();
             ddlEstado.SelectedIndex = objDtoConcurso.FK_IEC_IdEstado;
         }
     }

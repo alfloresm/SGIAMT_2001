@@ -123,6 +123,7 @@
     <Content Include="assets\js\jquery.sharrre.js" />
     <Content Include="assets\js\jquery.tagsinput.js" />
     <Content Include="assets\js\jquery.validate.min.js" />
+    <Content Include="assets\js\JsInscribirParticipante.js" />
     <Content Include="assets\js\material-dashboard.js" />
     <Content Include="assets\js\material.min.js" />
     <Content Include="assets\js\mindmup-editabletable.js" />
