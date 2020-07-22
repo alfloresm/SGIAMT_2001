@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.UI;
+using System.Data;
 using System.Web.UI.WebControls;
 using CTR;
 using DTO;
@@ -13,17 +14,29 @@ namespace WEB
     public partial class W_RegistrarAlumno2 : System.Web.UI.Page
     {
         CtrAlumno objctralumno = new CtrAlumno();
+        CtrCategoria objctrcat = new CtrCategoria();
         DtoUsuario objDtoAlumno = new DtoUsuario();
+        DtoNivel objDtoNivel = new DtoNivel();
         Log _log = new Log();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 _log.CustomWriteOnLog("registrar alumno", "cargo: ");
-
+                llenarNivel();
             }
         }
 
+        public void llenarNivel()
+        {
+            DataSet ds = new DataSet();
+            ds = objctralumno.desplegableNivel();
+            ddlNivel.DataSource = ds;
+            ddlNivel.DataTextField = "VN_NombreNivel";
+            ddlNivel.DataValueField = "PK_IN_CodNivel";
+            ddlNivel.DataBind();
+            ddlNivel.Items.Insert(0, new ListItem("Seleccione", "0"));
+        }
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
             try
@@ -44,11 +57,13 @@ namespace WEB
                 objDtoAlumno.VU_Direccion = txtDireccion.Text;
                 int anio = objDtoAlumno.DTU_FechaNacimiento.Year;
                 objDtoAlumno.FK_ICA_CodCat = objctralumno.devolverCategoria(anio);
-                _log.CustomWriteOnLog("registrar alumno", "dato alumno: " + objDtoAlumno.PK_IU_DNI.ToString());
+               _log.CustomWriteOnLog("registrar alumno", "dato alumno: " + objDtoAlumno.PK_IU_DNI.ToString());
+                objDtoAlumno.FK_IN_CodNivel = Convert.ToInt32(ddlNivel.SelectedValue);
                 objctralumno.RegistrarAlumno(objDtoAlumno);
                 string m = "Se registró correctamente";
 
                 Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
+                
             }
             catch(Exception ex)
             {
@@ -61,6 +76,6 @@ namespace WEB
         {
             Response.Redirect("~/W_Index.aspx");
         }
-        
+
     }
 }

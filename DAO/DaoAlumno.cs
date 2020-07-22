@@ -29,13 +29,14 @@ namespace DAO
             command.Parameters.AddWithValue("@fechaNacimiento", objAlumno.DTU_FechaNacimiento);
             command.Parameters.AddWithValue("@contrasenia", objAlumno.VU_Contrasenia);
             command.Parameters.AddWithValue("@sexo", objAlumno.VU_Sexo);
-            command.Parameters.AddWithValue("@nombreAcademia", "TUSUY PERU");
+            command.Parameters.AddWithValue("@nombreAcademia", objAlumno.VU_NAcademia);
             command.Parameters.AddWithValue("@correo", objAlumno.VU_Correo);
             command.Parameters.AddWithValue("@celular", objAlumno.VU_Celular);
             command.Parameters.AddWithValue("@estado", objAlumno.VU_Estado);
             command.Parameters.AddWithValue("@horario", objAlumno.VU_Horario);
             command.Parameters.AddWithValue("@direccion", objAlumno.VU_Direccion);
             command.Parameters.AddWithValue("@cat", objAlumno.FK_ICA_CodCat);
+            command.Parameters.AddWithValue("@nivel", objAlumno.FK_IN_CodNivel);
             conexion.Open();
             command.ExecuteNonQuery();
             conexion.Close();
@@ -53,7 +54,7 @@ namespace DAO
             conexion.Close();
             return dtAlumno;
         }
-
+        
         public int ObtenerCategoria(int anio)
         {
             try
@@ -77,5 +78,15 @@ namespace DAO
 
             }
         }
+
+        public DataSet desplegarNivel()
+        {
+            SqlDataAdapter listanivel = new SqlDataAdapter("SP_DesplegableNivel2", conexion);
+            listanivel.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataSet DS = new DataSet();
+            listanivel.Fill(DS);
+            return DS;
+        }
+        
     }
 }

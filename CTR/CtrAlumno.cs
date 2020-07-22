@@ -30,5 +30,13 @@ namespace CTR
         {
             return objDaoAlumno.ObtenerCategoria(anio);
         }
+        public DataSet desplegableNivel()
+        {
+            return objDaoAlumno.desplegarNivel();
+        }
+        //public string devolverCategoriaNombre(int anio)
+        //{
+        //    return objDaoAlumno.ObtenerCategoria(anio);
+        //}
     }
 }

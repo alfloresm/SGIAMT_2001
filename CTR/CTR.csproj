@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CtrAlumno.cs" />
+    <Compile Include="CtrCategoria.cs" />
     <Compile Include="CtrConcurso.cs" />
     <Compile Include="CtrPago.cs" />
     <Compile Include="CtrParticipante.cs" />

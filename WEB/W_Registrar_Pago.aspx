@@ -14,23 +14,9 @@
 
                         <form id="form1" runat="server" method="POST" class="form">
                             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                            <%--<asp:UpdatePanel ID="upPago" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
-                                <ContentTemplate>--%>
-                            <asp:Panel ID="Panel1" runat="server" CssClass="col-lg-6 col-md-6 col-sd-12">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sd-6">
-                                        <label class="col-md-2 label-on-left"></label>
-                                        <div class="form-group label-floating is-empty">
-                                            <label class="control-label"></label>
-                                            <asp:TextBox ID="txtCodigo" runat="server" class="form-control " visible="False"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-                            </asp:Panel>
-
                             <div class="row">
                                 <asp:Panel ID="Panel2" runat="server" CssClass="col-lg-6 col-md-6 col-sd-12">
-                                    <div class="col-lg-6 col-md-6 col-sd-6">
+                                    <div class="col-lg-4 col-md-4 col-sd-6">
                                         <label class="col-md-2 label-on-left">DNI:</label>
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
@@ -45,7 +31,7 @@
 
                             <div class="row">
                                 <div class="col-lg-4 col-md-4 col-sd-6">
-                                    <label class="col-md-2 label-on-left">Concepto de Pago:</label>
+                                    <label class="col-md-2 label-on-left">Concepto Pago:</label>
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
 
@@ -55,8 +41,8 @@
                                         <asp:UpdatePanel runat="server" UpdateMode="Conditional" ID="UpdatePanel1">
                                             <ContentTemplate>
                                                 <asp:LinkButton ID="btnMonto" runat="server" CssClass="btn btn-white btn-round btn-just-icon" OnClick="btnMonto_Click">
-                                                    <i class="material-icons">calculate</i>
-                                                    <div class="ripple-container"></div>
+                                                    <i class="material-icons" style="background-color:blueviolet">calculate</i>
+                                                    <div class="ripple-container" style="background-:antiquewhite"></div>
                                                 </asp:LinkButton>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
@@ -69,7 +55,7 @@
                                         <div class="col-lg-4 col-md-4 col-sd-6">
                                             <label class="col-md-2 label-on-left">Monto:</label>
                                             <div class="form-group label-floating is-empty">
-                                                <label class="control-label"></label>
+                                                <label class="control-label"></label> S/.
                                                 <asp:TextBox ID="txtMonto" runat="server" class="form-control" Enabled="false"></asp:TextBox>
                                             </div>
                                         </div>
@@ -84,7 +70,7 @@
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
                                         <asp:DropDownList ID="ddlMes" runat="server" CssClass="selectpicker">
-                                            <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
+                                            <asp:ListItem Text="Seleccione" Value="0" Selected="True"></asp:ListItem>
                                             <asp:ListItem Text="Enero" Value="Enero"></asp:ListItem>
                                             <asp:ListItem Text="Febrero" Value="Febrero"></asp:ListItem>
                                             <asp:ListItem Text="Marzo" Value="Marzo"></asp:ListItem>

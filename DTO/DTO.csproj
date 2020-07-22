@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DtoConceptoPago.cs" />
+    <Compile Include="DtoNivel.cs" />
     <Compile Include="DtoUsuario.cs" />
     <Compile Include="DtoCategoria.cs" />
     <Compile Include="DtoConcurso.cs" />
