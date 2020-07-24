@@ -19,6 +19,7 @@ namespace WEB
         CtrInscripcion objCtrInscripcion = new CtrInscripcion();
         DtoUsuarioxModalidad objDtoUXM = new DtoUsuarioxModalidad();
         DtoInscripcion objDtoInscripcion = new DtoInscripcion();
+        CtrUsuario objCtrUsuario = new CtrUsuario();
         Log _log = new Log();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -244,6 +245,7 @@ namespace WEB
                         objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
                         objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioS.Text);
                         objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                        objCtrUsuario.EnviarCorreoInscripcion(objDtoUXM);
                         string m = "Se registró la inscripción";
                         Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
                     }
@@ -261,7 +263,7 @@ namespace WEB
                 {
                         objDtoUXM.FK_DNI_Pareja = txtdni2.Text;
                                
-                        if (!objCtrUXM.existeUXM_N(objDtoUXM) && !objCtrUXM.existeUXM_S(objdtouxm2))
+                        if (!objCtrUXM.existeUXM_S(objdtouxm2))
                         {
                             //1° registra seriado
                             objdtouxm2.FK_IM_IdModalidad = 1;
@@ -270,21 +272,31 @@ namespace WEB
                             objDtoInscripcion.FK_IUM_CodUm = objdtouxm2.PK_IUM_CodUM;
                             objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioS.Text);
                             objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                            objCtrUsuario.EnviarCorreoInscripcion(objDtoUXM);
                             string m = "Se registró la inscripción de pareja seriado";
                             Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
-                            //2° 
-                            objDtoUXM.FK_IM_IdModalidad = 2;
-                            objCtrUXM.registrarUXM_N(objDtoUXM);
-                            _log.CustomWriteOnLog("inscribir Participante novel", "id UXM: " + objDtoUXM.PK_IUM_CodUM.ToString());
-                            objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
-                            objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioN.Text);
-                            objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
-                            string m1 = "Se registró la inscripción";
-                            Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m1 + "','success')");
+
+                            if (!objCtrUXM.existeUXM_N(objDtoUXM)) { 
+                            //2° inscribir novel
+                                objDtoUXM.FK_IM_IdModalidad = 2;
+                                objCtrUXM.registrarUXM_N(objDtoUXM);
+                                _log.CustomWriteOnLog("inscribir Participante novel", "id UXM: " + objDtoUXM.PK_IUM_CodUM.ToString());
+                                objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
+                                objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioN.Text);
+                                objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                                objCtrUsuario.EnviarCorreoInscripcion(objDtoUXM);
+                                string m1 = "Se registró la inscripción";
+                                Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m1 + "','success')");
+                            }
+                            else
+                            {
+                                string m2 = "Existe Registro de novel";
+                                Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m2 + "','danger')");
+                            }
                         }
                         else
                         {
-                            string m = "Existe Registro";
+                            string m = "Existe Registro de pareja seriado";
                             Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','danger')");
                         }
                     }
@@ -308,6 +320,7 @@ namespace WEB
                             objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
                             objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioN.Text);
                             objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                            objCtrUsuario.EnviarCorreoInscripcion(objDtoUXM);
                             string m = "Se registró la inscripción de novel";
                             Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
                         }
@@ -341,6 +354,7 @@ namespace WEB
                             objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
                             objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioS.Text);
                             objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                            objCtrUsuario.EnviarCorreoInscripcion(objDtoUXM);
                             string m = "Se registró la inscripción 1° seriado";
                             Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
                             //2° registro seriado
@@ -350,6 +364,7 @@ namespace WEB
                             objDtoInscripcion.FK_IUM_CodUm = objdtouxm2.PK_IUM_CodUM;
                             objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioS.Text);
                             objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                            objCtrUsuario.EnviarCorreoInscripcion(objDtoUXM);
                             string m1 = "Se registró la inscripción 2° seriado";
                             Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m1 + "','success')");
                             //registra segundo novel
@@ -362,6 +377,7 @@ namespace WEB
                                 objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
                                 objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioN.Text);
                                 objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                                objCtrUsuario.EnviarCorreoInscripcion(objDtoUXM);
                                 string m2 = "Se registró la inscripción novel";
                                 Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m2 + "','success')");
                             }
@@ -398,6 +414,7 @@ namespace WEB
                             objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
                             objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioS.Text);
                             objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                            objCtrUsuario.EnviarCorreoInscripcion(objDtoUXM);
                             string m = "Se registró la inscripción seriado";
                             Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
                             
@@ -411,6 +428,7 @@ namespace WEB
                                 objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
                                 objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioN.Text);
                                 objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
+                                objCtrUsuario.EnviarCorreoInscripcion(objDtoUXM);
                                 string m1 = "Se registró la inscripción novel";
                                 Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m1+ "','success')");
                             }
@@ -442,6 +460,22 @@ namespace WEB
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
 
+        }
+        public void inscribir(DtoUsuarioxModalidad objDtoUXM, DtoInscripcion objDtoInscripcion, int m)
+        {
+            _log.CustomWriteOnLog("inscribir Participante", "****entro metodo inscribir");
+            objDtoUXM.FK_IM_IdModalidad = m;
+            objCtrUXM.registrarUXM_N(objDtoUXM);
+            _log.CustomWriteOnLog("inscribir Participante", "**metodo inscribir pk uxm" + objDtoUXM.PK_IUM_CodUM.ToString());
+            
+            objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
+            if (m == 1) { 
+                objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioS.Text);}
+            else if (m == 2)
+            {
+                objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioN.Text);
+            }
+            objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
         }
     }
 }
