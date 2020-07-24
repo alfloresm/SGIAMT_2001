@@ -124,7 +124,7 @@
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
                                                 <asp:DropDownList ID="ddlNivel" runat="server" CssClass="selectpicker">
-                                                    <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
+                                                    
                                                 </asp:DropDownList>
                                             </div>
                                         </div>

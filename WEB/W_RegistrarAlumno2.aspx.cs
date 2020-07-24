@@ -56,6 +56,7 @@ namespace WEB
                 objDtoAlumno.VU_Horario = Convert.ToString(ddlHorario.SelectedValue);
                 objDtoAlumno.VU_Direccion = txtDireccion.Text;
                 int anio = objDtoAlumno.DTU_FechaNacimiento.Year;
+                _log.CustomWriteOnLog("registrar alumno", "dato alumno: " + objctralumno.devolverCategoria(anio));
                 objDtoAlumno.FK_ICA_CodCat = objctralumno.devolverCategoria(anio);
                _log.CustomWriteOnLog("registrar alumno", "dato alumno: " + objDtoAlumno.PK_IU_DNI.ToString());
                 objDtoAlumno.FK_IN_CodNivel = Convert.ToInt32(ddlNivel.SelectedValue);
