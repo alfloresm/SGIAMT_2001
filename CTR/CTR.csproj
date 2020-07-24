@@ -55,6 +55,7 @@
     <Compile Include="CtrInscripcion.cs" />
     <Compile Include="CtrPago.cs" />
     <Compile Include="CtrParticipante.cs" />
+    <Compile Include="CtrUsuario.cs" />
     <Compile Include="CtrUsuarioxModalidad.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

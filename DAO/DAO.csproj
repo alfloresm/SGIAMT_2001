@@ -53,6 +53,7 @@
     <Compile Include="DaoInscripcion.cs" />
     <Compile Include="DaoPago.cs" />
     <Compile Include="DaoParticipante.cs" />
+    <Compile Include="DaoUsuario.cs" />
     <Compile Include="DaoUsuarioxModalidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -51,6 +51,7 @@
     <Compile Include="DtoNivel.cs" />
     <Compile Include="DtoNivel_TipoNivel.cs" />
     <Compile Include="DtoTipoNivel.cs" />
+    <Compile Include="DtoTipoUsuario.cs" />
     <Compile Include="DtoUsuario.cs" />
     <Compile Include="DtoCategoria.cs" />
     <Compile Include="DtoConcurso.cs" />
