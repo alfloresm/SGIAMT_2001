@@ -25,7 +25,10 @@ namespace CTR
         {
             return objDaoAlumno.ListarAlumnos();
         }
-
+        public DataTable ListaAlumnos_()
+        {
+            return objDaoAlumno.ListarAlumnosA();
+        }
         public int devolverCategoria(int anio)
         {
             return objDaoAlumno.ObtenerCategoria(anio);
@@ -34,9 +37,6 @@ namespace CTR
         {
             return objDaoAlumno.desplegarNivel();
         }
-        //public string devolverCategoriaNombre(int anio)
-        //{
-        //    return objDaoAlumno.ObtenerCategoria(anio);
-        //}
+
     }
 }

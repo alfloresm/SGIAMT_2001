@@ -55,7 +55,20 @@ namespace DAO
             conexion.Close();
             return dtAlumno;
         }
-        
+
+        //tabla de alumnos para administrar asistencia
+        public DataTable ListarAlumnosA()
+        {
+            DataTable dtAlumnos = null;
+            conexion.Open();
+            SqlCommand command = new SqlCommand("SP_Listar_Alumnos2", conexion);
+            SqlDataAdapter daAdaptador = new SqlDataAdapter(command);
+            command.CommandType = CommandType.StoredProcedure;
+            dtAlumnos = new DataTable();
+            daAdaptador.Fill(dtAlumnos);
+            conexion.Close();
+            return dtAlumnos;
+        }
         public int ObtenerCategoria(int anio)
         {
             try

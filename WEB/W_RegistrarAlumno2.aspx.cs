@@ -35,7 +35,7 @@ namespace WEB
             ddlNivel.DataTextField = "VN_NombreNivel";
             ddlNivel.DataValueField = "PK_IN_CodNivel";
             ddlNivel.DataBind();
-            ddlNivel.Items.Insert(0, new ListItem("Seleccione", "0"));
+            ddlNivel.Items.Insert(0, new ListItem("Seleccione","0"));
         }
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
@@ -47,9 +47,9 @@ namespace WEB
                 objDtoAlumno.VU_APaterno = txtApellidoP.Text;
                 objDtoAlumno.VU_AMaterno = txtApellidoM.Text;
                 objDtoAlumno.DTU_FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
-                objDtoAlumno.VU_Contrasenia = txtContrasenia.Text;
+                objDtoAlumno.VU_Contrasenia = txtDNI.Text;
                 objDtoAlumno.VU_Sexo = Convert.ToString(ddlSexo.SelectedValue);
-                objDtoAlumno.VU_NAcademia = txtNombreAcademia.Text;
+                objDtoAlumno.VU_NAcademia = "TUSUY PERU";
                 objDtoAlumno.VU_Correo = txtCorreo.Text;
                 objDtoAlumno.VU_Celular = txtCelular.Text;
                 objDtoAlumno.VU_Estado = Convert.ToString(ddlEstado.SelectedValue);
@@ -60,17 +60,17 @@ namespace WEB
                _log.CustomWriteOnLog("registrar alumno", "dato alumno: " + objDtoAlumno.PK_IU_DNI.ToString());
                 objDtoAlumno.FK_IN_CodNivel = Convert.ToInt32(ddlNivel.SelectedValue);
 
-                if (anio >= 2012 && anio < 2016)
+                if (anio >= 2012 && anio <= 2016)
                 {
                     objDtoAlumno.FK_ITN_TipoNivel = 1;
                 }
                 else
-                    if (anio >= 2008 && anio < 2013)
+                    if (anio >= 2008 && anio <= 2013)
                     {
                         objDtoAlumno.FK_ITN_TipoNivel = 2;
                     }
                 else
-                    if (anio < 2007)
+                    if (anio <= 2007)
                     {
                         objDtoAlumno.FK_ITN_TipoNivel = 3;
                     }
