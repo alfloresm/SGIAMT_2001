@@ -48,9 +48,11 @@
   <ItemGroup>
     <Compile Include="ConexionBD.cs" />
     <Compile Include="DaoAlumno.cs" />
+    <Compile Include="DaoAsistencia.cs" />
     <Compile Include="DaoCategoria.cs" />
     <Compile Include="DaoConcurso.cs" />
     <Compile Include="DaoInscripcion.cs" />
+    <Compile Include="DaoNivel_TipoNivel.cs" />
     <Compile Include="DaoPago.cs" />
     <Compile Include="DaoParticipante.cs" />
     <Compile Include="DaoUsuario.cs" />

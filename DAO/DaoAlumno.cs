@@ -43,19 +43,6 @@ namespace DAO
             conexion.Close();
         }
 
-        public DataTable ListarAlumnos()
-        {
-            DataTable dtAlumno = null;
-            conexion.Open();
-            SqlCommand command = new SqlCommand("SP_Listar_Alumno", conexion);
-            SqlDataAdapter daAdaptador = new SqlDataAdapter(command);
-            command.CommandType = CommandType.StoredProcedure;
-            dtAlumno = new DataTable();
-            daAdaptador.Fill(dtAlumno);
-            conexion.Close();
-            return dtAlumno;
-        }
-
         //tabla de alumnos para administrar asistencia
         public DataTable ListarAlumnosA()
         {

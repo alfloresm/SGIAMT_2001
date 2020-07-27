@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DtoAsistencia.cs" />
     <Compile Include="DtoConceptoPago.cs" />
     <Compile Include="DtoInscripcion.cs" />
     <Compile Include="DtoNivel.cs" />

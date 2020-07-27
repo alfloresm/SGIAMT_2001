@@ -8,6 +8,7 @@ namespace DTO
 {
     public class DtoTipoNivel
     {
-
+        public int PK_ITN_CodTipoNivel { get; set; }
+        public string VTN_NombreTipoVivel { get; set; }
     }
 }

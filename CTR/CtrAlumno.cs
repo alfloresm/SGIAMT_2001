@@ -21,10 +21,6 @@ namespace CTR
             objDaoAlumno.RegistrarAlumno(objA);
         }
 
-        public DataTable ListarAlumnos()
-        {
-            return objDaoAlumno.ListarAlumnos();
-        }
         public DataTable ListaAlumnos_()
         {
             return objDaoAlumno.ListarAlumnosA();

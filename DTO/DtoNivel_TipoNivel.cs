@@ -8,6 +8,8 @@ namespace DTO
 {
     public class DtoNivel_TipoNivel
     {
-
+        public int ITN_NumAlumno { get; set; }
+        public int FK_ITN_CodTipoNivel { get; set; }
+        public int FK_IN_CodNivel { get; set; }
     }
 }

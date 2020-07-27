@@ -48,7 +48,7 @@ namespace WEB
                 objDtoAlumno.VU_AMaterno = txtApellidoM.Text;
                 objDtoAlumno.DTU_FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
                 objDtoAlumno.VU_Contrasenia = txtDNI.Text;
-                objDtoAlumno.VU_Sexo = Convert.ToString(ddlSexo.SelectedValue);
+                objDtoAlumno.VU_Sexo = Convert.ToString(ddlSexo.SelectedValue); //aparezca el dni ya fijo
                 objDtoAlumno.VU_NAcademia = "TUSUY PERU";
                 objDtoAlumno.VU_Correo = txtCorreo.Text;
                 objDtoAlumno.VU_Celular = txtCelular.Text;

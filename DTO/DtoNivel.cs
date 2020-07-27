@@ -8,7 +8,7 @@ namespace DTO
 {
     public class DtoNivel
     {
-        public int PK_IN_Cod { get; set; }
+        public int PK_IN_CodNivel { get; set; }
         public string VN_NombreNivel { get; set; }
     }
 }
