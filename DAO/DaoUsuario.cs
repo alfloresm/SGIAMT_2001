@@ -19,25 +19,16 @@ namespace DAO
         }
         public void EnviarCorreoInscripcion(DtoUsuarioxModalidad objuxm)
         {
-            string Select = "select  b.VU_Nombre as NombrePrincipal,b.VU_Correo as CorreoPrincipal,p.VU_Nombre as NombrePareja,p.VU_Correo as CorreoPareja,d.VC_NombreCon,d.VC_LugarCon," +
-                            "c.DI_Monto,a.DTUM_FechaIns,e.VM_NombreMod,a.PK_IUM_CodUM"+ 
-                            "from T_Usuario_Modalidad a"+
-                            "inner join (select *from T_Usuario)b"+
-                            "on a.FK_VU_Dni = b.PK_IU_DNI"+
-                            "inner join(select* from T_Inscripcion)c"+
-                            "on a.PK_IUM_CodUM = c.FK_IUM_CodUm"+
-                            "inner join(select* from T_Concurso)d"+
-                            "on a.FK_IC_IdConcurso = d.PK_IC_IdConcurso"+
-                            "inner join(select* from T_ModalidadCon)e"+
-                            "on e.PK_IM_IdModalidad = a.FK_IM_IdModalidad"+
-                            "left join(select* from T_Usuario)p"+
-                            "on a.FK_DNI_Pareja = p.PK_IU_DNI"+
-                            "where a.PK_IUM_CodUM = "
-                            + objuxm.FK_VU_Dni ;
-
-            SqlCommand unComando = new SqlCommand(Select, conexion);
+            SqlCommand command = new SqlCommand("SP_ObtenerDatoCorreo", conexion);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@cod", objuxm.PK_IUM_CodUM);
+            DataSet ds = new DataSet();
             conexion.Open();
-            SqlDataReader reader = unComando.ExecuteReader();
+            SqlDataAdapter moldura = new SqlDataAdapter(command);
+            moldura.Fill(ds);
+            moldura.Dispose();
+
+            SqlDataReader reader = command.ExecuteReader();
 
             if (reader.Read())
             {
@@ -60,7 +51,7 @@ namespace DAO
                 if (objuxm.FK_IM_IdModalidad==1) { 
                 string body =
                     "<body>" +
-                        "<h2>Hola"+nombre1+"</h2>" +
+                        "<h2>Hola "+nombre1+"</h2>" +
                         "<h4>Tu inscripcion al concurso "+nombreC+",que se realizara en "+lugarC+" ha sido realizada correctamente el dia "+ fecha + "</h4>" +
                         "<br></br><h4>Su informacion es la siguiente:</h4>" +
                         "<br></br><span>Monto de inscripcion: " + monto + "</span>" +
@@ -79,7 +70,7 @@ namespace DAO
                 {
                     string body =
                     "<body>" +
-                        "<h2>Hola" + nombre1 + "y "+nombre2+"</h2>" +
+                        "<h2>Hola " + nombre1 + " y "+nombre2+"</h2>" +
                         "<h4>Tu inscripcion al concurso " + nombreC + ",que se realizara en " + lugarC + " ha sido realizada correctamente el dia " + fecha + "</h4>" +
                         "<br></br><h4>Su informacion es la siguiente:</h4>" +
                         "<br></br><span>Monto de inscripcion: " + monto + "</span>" +
@@ -108,7 +99,9 @@ namespace DAO
                 smtp.Credentials = nc;
 
                 smtp.Send(mail);
+                
             }
+            conexion.Close();
         }
         public int validacionLogin(string usuario, string clave)
         {
@@ -142,15 +135,13 @@ namespace DAO
                 "U.VU_Correo," +
                 "U.VU_Sexo," +
                 "U.VU_NAcademia," +
-                "U.PK_VU_Dni," +
-                "U.IU_Celular," +
+                "U.PK_IU_DNI," +
+                "U.VU_Celular," +
                 "U.VU_Estado," +
                 "U.VU_Horario," +
-                "U.FK_INTN_CodTipoNivel," +
-                "U.FK_INTN_CodNivel," +
                 "U.FK_ICA_CodCat" +
                 " from T_Usuario as U " +
-                "where U.PK_VU_Dni = '" + usuario + "'", conexion);
+                "where U.PK_IU_DNI = '" + usuario + "'", conexion);
 
             DtoUsuario usuarioDto = new DtoUsuario();
             DtoTipoUsuario tipousuarioDto = new DtoTipoUsuario();
@@ -175,9 +166,7 @@ namespace DAO
                 usuarioDto.VU_Celular = reader[8].ToString();
                 usuarioDto.VU_Estado = reader[9].ToString();
                 usuarioDto.VU_Horario = reader[10].ToString();
-                usuarioDto.FK_ITN_TipoNivel = int.Parse(reader[11].ToString());
-                usuarioDto.FK_IN_CodNivel = int.Parse(reader[12].ToString());
-                usuarioDto.FK_ICA_CodCat = int.Parse(reader[13].ToString());
+                usuarioDto.FK_ICA_CodCat = int.Parse(reader[11].ToString());
 
             }
             conexion.Close();

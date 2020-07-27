@@ -27,7 +27,8 @@ namespace CTR
 
             if (persona_id == 0)
             {
-                throw new Exception("Usuario y/o contrase&ntilde;a incorrecta(s)");
+                dtoUsuario= null;
+                return dtoUsuario;
             }
             else
             {

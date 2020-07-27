@@ -272,7 +272,7 @@ namespace WEB
                             objDtoInscripcion.FK_IUM_CodUm = objdtouxm2.PK_IUM_CodUM;
                             objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioS.Text);
                             objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
-                            objCtrUsuario.EnviarCorreoInscripcion(objDtoUXM);
+                            objCtrUsuario.EnviarCorreoInscripcion(objdtouxm2);
                             string m = "Se registró la inscripción de pareja seriado";
                             Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
 
@@ -280,7 +280,7 @@ namespace WEB
                             //2° inscribir novel
                                 objDtoUXM.FK_IM_IdModalidad = 2;
                                 objCtrUXM.registrarUXM_N(objDtoUXM);
-                                _log.CustomWriteOnLog("inscribir Participante novel", "id UXM: " + objDtoUXM.PK_IUM_CodUM.ToString());
+                                _log.CustomWriteOnLog("inscribir Participante", "NOVEL id UXM: " + objDtoUXM.PK_IUM_CodUM.ToString());
                                 objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
                                 objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioN.Text);
                                 objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
@@ -316,7 +316,7 @@ namespace WEB
                         {
                             objDtoUXM.FK_IM_IdModalidad = 2;
                             objCtrUXM.registrarUXM_N(objDtoUXM);
-                            _log.CustomWriteOnLog("inscribir Participante novel", "id UXM: " + objDtoUXM.PK_IUM_CodUM.ToString());
+                            _log.CustomWriteOnLog("inscribir Participante", "Novel id UXM: " + objDtoUXM.PK_IUM_CodUM.ToString());
                             objDtoInscripcion.FK_IUM_CodUm = objDtoUXM.PK_IUM_CodUM;
                             objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioN.Text);
                             objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
