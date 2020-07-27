@@ -60,7 +60,7 @@
                                     <a href="#">Mi Perfil</a>
                                 </li>
                                 <li>
-                                    <a href="#">Cerrar Sesion</a>
+                                    <a href="Login_.aspx">Cerrar Sesion</a>
                                 </li>
                             </ul>
                         </div>
@@ -73,8 +73,9 @@
                             <p>Inicio</p>
                         </a>
                     </li>
+                    
                     <li>
-                        <a data-toggle="collapse" href="#pagesExamples">
+                        <a data-toggle="collapse" href="#gestionConcurso">
                             <i class="material-icons">emoji_events</i>
                             <p>
                                 Gestion Concurso
@@ -82,22 +83,22 @@
                                 <b class="caret"></b>
                             </p>
                         </a>
-                        <div class="collapse" id="pagesExamples">
+                        <div class="collapse" id="gestionConcurso">
                             <ul class="nav">
                                 <li>
-                                    <a href="pages/pricing.html">Gestionar Concurso</a>
+                                    <a href="W_GestionarConcurso.aspx">Gestionar Concurso</a>
                                 </li>
                                 <li>
-                                    <a href="pages/timeline.html">Inscribir Participante</a>
+                                    <a href="W_Inscribir_ParticipanteP.aspx">Inscribir Participante</a>
                                 </li>
                                 <li>
-                                    <a href="pages/login.html">Adminitrar Participante</a>
+                                    <a href="#">Adminitrar Participante</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li>
-                        <a data-toggle="collapse" href="#componentsExamples">
+                        <a data-toggle="collapse" href="#administrarAlumnos">
                             <i class="material-icons">school</i>
                             <p>
                                 Administrar Alumno
@@ -105,10 +106,14 @@
                                 <b class="caret"></b>
                             </p>
                         </a>
-                        <div class="collapse" id="componentsExamples">
+                        <div class="collapse" id="administrarAlumnos">
                             <ul class="nav">
+                                
                                 <li>
-                                    <a href="#">Admninistrar Alumno</a>
+                                    <a href="W_RegistrarAlumno2.aspx">Registrar Alumno</a>
+                                </li>
+                                <li>
+                                    <a href="W_Registrar_Pago.aspx">Listar Alumno</a>
                                 </li>
                                 <li>
                                     <a href="#">Listar Alumno</a>
@@ -140,14 +145,14 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="MASTER_EXTERNO/index_Externo.html" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="material-icons">dashboard</i>
-                                    <p class="hidden-lg hidden-md">Dashboard</p>
+                                    <p class="hidden-lg hidden-md">Academia Tusuy Perú</p>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="material-icons">person</i>
                                     <p class="hidden-lg hidden-md">Profile</p>
                                 </a>
@@ -176,12 +181,13 @@
                                 <a href="https://sherylromancastro1.wixsite.com/tusuyperu">Inicio
                                 </a>
                             </li>
+                            
                             <li>
-                                <a href="#">Nosotros
+                                <a href="MASTER_EXTERNO/index_Externo.html">Nosotros
                                 </a>
                             </li>
                             <li>
-                                <a href="#">Ubicacion
+                                <a href="MASTER_EXTERNO/index_Externo.html">Ubicacion
                                 </a>
                             </li>
                         </ul>

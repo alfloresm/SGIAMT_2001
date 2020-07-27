@@ -28,5 +28,6 @@ namespace DTO
         public int FK_ITN_TipoNivel { get; set; }
         /*-------------------------------*/
         public string nombres { get; set; }
+        public int errror { get; set; }
     }
 }

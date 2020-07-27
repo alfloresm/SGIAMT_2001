@@ -70,6 +70,7 @@
     <Content Include="assets\css\font-awesome.css" />
     <Content Include="assets\css\font-awesome.min.css" />
     <Content Include="assets\css\google-roboto-300-700.css" />
+    <Content Include="assets\css\Login.css" />
     <Content Include="assets\css\material-dashboard.css" />
     <Content Include="assets\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
@@ -133,6 +134,9 @@
     <Content Include="assets\momentjs\ender.js" />
     <Content Include="assets\momentjs\moment.js" />
     <Content Include="assets\momentjs\package.js" />
+    <Content Include="assets\sweetalert\sweetalert-dev.js" />
+    <Content Include="assets\sweetalert\sweetalert.css" />
+    <Content Include="assets\sweetalert\sweetalert.min.js" />
     <Content Include="examples\calendar.html" />
     <Content Include="examples\charts.html" />
     <Content Include="examples\components\buttons.html" />
@@ -181,6 +185,7 @@
     <Content Include="assets\jquery-datatable\skin\bootstrap\images\sort_desc_disabled.png" />
     <Content Include="assets\jquery-datatable\skin\bootstrap\js\dataTables.bootstrap.js" />
     <Content Include="assets\jquery-datatable\skin\bootstrap\js\dataTables.bootstrap.min.js" />
+    <Content Include="Login_.aspx" />
     <Content Include="MASTER_EXTERNO\css\creative.css" />
     <Content Include="MASTER_EXTERNO\css\creative.min.css" />
     <Content Include="MASTER_EXTERNO\gulpfile.js" />
@@ -235,7 +240,6 @@
     <Content Include="Web.config" />
     <Content Include="W_GestionarConcurso.aspx" />
     <Content Include="W_Inscribir_ParticipanteP.aspx" />
-    <Content Include="W_Login.aspx" />
     <Content Include="W_RegistrarAlumno2.aspx" />
     <Content Include="W_RegistrarConcurso.aspx" />
     <Content Include="W_Registrar_Pago.aspx" />
@@ -247,6 +251,13 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login_.aspx.cs">
+      <DependentUpon>Login_.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login_.aspx.designer.cs">
+      <DependentUpon>Login_.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -283,13 +294,6 @@
     </Compile>
     <Compile Include="W_Inscribir_ParticipanteP.aspx.designer.cs">
       <DependentUpon>W_Inscribir_ParticipanteP.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="W_Login.aspx.cs">
-      <DependentUpon>W_Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="W_Login.aspx.designer.cs">
-      <DependentUpon>W_Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="W_RegistrarAlumno2.aspx.cs">
       <DependentUpon>W_RegistrarAlumno2.aspx</DependentUpon>
@@ -395,6 +399,10 @@
     <ProjectReference Include="..\CTR\CTR.csproj">
       <Project>{e6d326f8-e02f-4293-bb8f-cd91df2d1c5b}</Project>
       <Name>CTR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{57d0e395-dc95-4e4e-983d-84e1044f2d51}</Project>
+      <Name>DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{508b75ca-5f84-43f3-a0ef-334312026a0c}</Project>

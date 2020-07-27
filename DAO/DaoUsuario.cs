@@ -135,15 +135,13 @@ namespace DAO
                 "U.VU_Correo," +
                 "U.VU_Sexo," +
                 "U.VU_NAcademia," +
-                "U.PK_VU_Dni," +
-                "U.IU_Celular," +
+                "U.PK_IU_DNI," +
+                "U.VU_Celular," +
                 "U.VU_Estado," +
                 "U.VU_Horario," +
-                "U.FK_INTN_CodTipoNivel," +
-                "U.FK_INTN_CodNivel," +
                 "U.FK_ICA_CodCat" +
                 " from T_Usuario as U " +
-                "where U.PK_VU_Dni = '" + usuario + "'", conexion);
+                "where U.PK_IU_DNI = '" + usuario + "'", conexion);
 
             DtoUsuario usuarioDto = new DtoUsuario();
             DtoTipoUsuario tipousuarioDto = new DtoTipoUsuario();
@@ -168,9 +166,7 @@ namespace DAO
                 usuarioDto.VU_Celular = reader[8].ToString();
                 usuarioDto.VU_Estado = reader[9].ToString();
                 usuarioDto.VU_Horario = reader[10].ToString();
-                usuarioDto.FK_ITN_TipoNivel = int.Parse(reader[11].ToString());
-                usuarioDto.FK_IN_CodNivel = int.Parse(reader[12].ToString());
-                usuarioDto.FK_ICA_CodCat = int.Parse(reader[13].ToString());
+                usuarioDto.FK_ICA_CodCat = int.Parse(reader[11].ToString());
 
             }
             conexion.Close();
