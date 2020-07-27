@@ -16,12 +16,12 @@ namespace WEB
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Clear();
-            Session.Remove("id_perfil");
-            Session.Abandon();
-            HttpContext.Current.Session.Abandon();
-            Session.RemoveAll();
-            Session["id_perfil"] = null;
+            //Session.Clear();
+            //Session.Remove("id_perfil");
+            //Session.Abandon();
+            //HttpContext.Current.Session.Abandon();
+            //Session.RemoveAll();
+            //Session["id_perfil"] = null;
             
         }
         DtoUsuario usr = new DtoUsuario();
@@ -62,17 +62,24 @@ namespace WEB
                 Session["Horario"] = usuarioDto.VU_Horario;
 
                 //*********HAY QUE CREAR USUARIOS GERENTE Y RECEPCIONISTA***********************
-                if (Session["id_perfil"].ToString() == "1")
+                if (Session["id_perfil"].ToString() == "4")
                 {
                     string script = @"<script type='text/javascript'>
                                       location.href='../W_RegistrarAlumno2.aspx';
                                   </script>";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
                 }
-                else if(Session["id_perfil"].ToString() == "2")
+                else if(Session["id_perfil"].ToString() == "3")
                 {
                     string script = @"<script type='text/javascript'>
                                       location.href='../W_GestionarConcurso.aspx';
+                                  </script>";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
+                }
+                else if (Session["id_perfil"].ToString() == "7")
+                {
+                    string script = @"<script type='text/javascript'>
+                                      location.href='../W_Inscribir_ParticipanteP.aspx';
                                   </script>";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
                 }
