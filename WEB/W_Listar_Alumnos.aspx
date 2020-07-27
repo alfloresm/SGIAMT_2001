@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="W_Administrar_Asistencia_Alumno.aspx.cs" Inherits="WEB.W_Administrar_Asistencia_Alumno" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="W_Listar_Alumnos.aspx.cs" Inherits="WEB.W_Administrar_Asistencia_Alumno" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="assets/momentjs/moment.js"></script>

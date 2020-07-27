@@ -238,11 +238,12 @@
     <Content Include="MASTER_EXTERNO\vendor\magnific-popup\magnific-popup.css" />
     <Content Include="MASTER_EXTERNO\W_RegistrarParticipante.aspx" />
     <Content Include="Web.config" />
-    <Content Include="W_Administrar_Asistencia_Alumno.aspx" />
+    <Content Include="W_Listar_Alumnos.aspx" />
     <Content Include="W_GestionarConcurso.aspx" />
     <Content Include="W_Inscribir_ParticipanteP.aspx" />
     <Content Include="W_RegistrarAlumno2.aspx" />
     <Content Include="W_RegistrarConcurso.aspx" />
+    <Content Include="W_Administrar_Asistencia.aspx" />
     <Content Include="W_Registrar_Pago.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -282,12 +283,12 @@
       <DependentUpon>W_RegistrarParticipante.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="W_Administrar_Asistencia_Alumno.aspx.cs">
-      <DependentUpon>W_Administrar_Asistencia_Alumno.aspx</DependentUpon>
+    <Compile Include="W_Listar_Alumnos.aspx.cs">
+      <DependentUpon>W_Listar_Alumnos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="W_Administrar_Asistencia_Alumno.aspx.designer.cs">
-      <DependentUpon>W_Administrar_Asistencia_Alumno.aspx</DependentUpon>
+    <Compile Include="W_Listar_Alumnos.aspx.designer.cs">
+      <DependentUpon>W_Listar_Alumnos.aspx</DependentUpon>
     </Compile>
     <Compile Include="W_GestionarConcurso.aspx.cs">
       <DependentUpon>W_GestionarConcurso.aspx</DependentUpon>
@@ -316,6 +317,13 @@
     </Compile>
     <Compile Include="W_RegistrarConcurso.aspx.designer.cs">
       <DependentUpon>W_RegistrarConcurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="W_Administrar_Asistencia.aspx.cs">
+      <DependentUpon>W_Administrar_Asistencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="W_Administrar_Asistencia.aspx.designer.cs">
+      <DependentUpon>W_Administrar_Asistencia.aspx</DependentUpon>
     </Compile>
     <Compile Include="W_Registrar_Pago.aspx.cs">
       <DependentUpon>W_Registrar_Pago.aspx</DependentUpon>
