@@ -45,13 +45,15 @@
                 </a>
             </div>
             <div class="sidebar-wrapper">
+                
                 <div class="user">
                     <div class="photo">
-                        <img src="../assets/img/faces/avatar.jpg" />
+                        <asp:Literal ID="Literal2" runat="server"></asp:Literal>
+                        <%--<img src="../assets/img/faces/avatar.jpg" />--%>
                     </div>
                     <div class="info">
-                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">Tania Andrew
-                           
+                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                           <asp:Label ID="lblNombre" runat="server" Text="Label"></asp:Label>
                             <b class="caret"></b>
                         </a>
                         <div class="collapse" id="collapseExample">
@@ -66,7 +68,8 @@
                         </div>
                     </div>
                 </div>
-                <ul class="nav">
+                <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+                <%--<ul class="nav">
                     <li class="active">
                         <a href="dashboard.html">
                             <i class="material-icons">dashboard</i>
@@ -121,7 +124,7 @@
                             </ul>
                         </div>
                     </li>
-                </ul>
+                </ul>--%>
             </div>
         </div>
         <div class="main-panel">
