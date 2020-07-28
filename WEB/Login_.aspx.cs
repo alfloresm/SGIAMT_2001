@@ -16,13 +16,13 @@ namespace WEB
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session.Clear();
-            //Session.Remove("id_perfil");
-            //Session.Abandon();
-            //HttpContext.Current.Session.Abandon();
-            //Session.RemoveAll();
-            //Session["id_perfil"] = null;
-            
+            Session.Clear();
+            Session.Remove("id_perfil");
+            Session.Abandon();
+            HttpContext.Current.Session.Abandon();
+            Session.RemoveAll();
+            Session["id_perfil"] = null;
+
         }
         DtoUsuario usr = new DtoUsuario();
         Log log = new Log();

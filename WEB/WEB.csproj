@@ -238,6 +238,7 @@
     <Content Include="MASTER_EXTERNO\vendor\magnific-popup\magnific-popup.css" />
     <Content Include="MASTER_EXTERNO\W_RegistrarParticipante.aspx" />
     <Content Include="Web.config" />
+    <Content Include="W_Calificar_Participante.aspx" />
     <Content Include="W_Listar_Alumnos.aspx" />
     <Content Include="W_GestionarConcurso.aspx" />
     <Content Include="W_Inscribir_ParticipanteP.aspx" />
@@ -247,6 +248,9 @@
     <Content Include="W_Registrar_Pago.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CG_UpdateParticipante.ashx.cs">
+      <DependentUpon>CG_UpdateParticipante.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -283,6 +287,13 @@
       <DependentUpon>W_RegistrarParticipante.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="W_Calificar_Participante.aspx.cs">
+      <DependentUpon>W_Calificar_Participante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="W_Calificar_Participante.aspx.designer.cs">
+      <DependentUpon>W_Calificar_Participante.aspx</DependentUpon>
+    </Compile>
     <Compile Include="W_Listar_Alumnos.aspx.cs">
       <DependentUpon>W_Listar_Alumnos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -403,6 +414,7 @@
     <Content Include="MASTER_EXTERNO\vendor\jquery\jquery.min.map" />
     <Content Include="MASTER_EXTERNO\vendor\jquery\jquery.slim.min.map" />
     <Content Include="MASTER_EXTERNO\Master_externo.Master" />
+    <Content Include="CG_UpdateParticipante.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
