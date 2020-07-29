@@ -105,7 +105,7 @@ namespace WEB
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             _log.CustomWriteOnLog("registrar asistencia", "1");
-            objdtoAsis.FK_VU_DNI = txtDni.Text;
+            
             if(rbAsiste.Checked)
             {
                 objdtoAsis.VA_EstadoAsistencia = "Asistió";
@@ -117,6 +117,7 @@ namespace WEB
                     objdtoAsis.VA_EstadoAsistencia = "Faltó";
                 }
             objctrasis.RegistrarAsistencia(objdtoAsis);
+            objdtoAsis.FK_VU_DNI = txtDni.Text;
             _log.CustomWriteOnLog("registrar asistencia", "registro: ");
         }
     }
