@@ -15,5 +15,10 @@ namespace CTR
         {
             objDaoProgreso = new DaoProgreso();
         }
+
+        public void RegistrarProgresoAlumno(DtoProgreso objPro)
+        {
+            objDaoProgreso.RegistrarProgreso(objPro);
+        }
     }
 }

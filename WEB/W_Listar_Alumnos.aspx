@@ -79,7 +79,7 @@
                                                             <ControlStyle CssClass="btn btn-sm btn-info " />
                                                         </asp:ButtonField>
                                                         <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnProgreso" Text="Progreso" HeaderText="Opciones" CommandName="Progreso">
-                                                            <ControlStyle CssClass="btn btn-sm btn-info " />
+                                                            <ControlStyle CssClass="btn btn-sm dataTables_wrapper " />
                                                         </asp:ButtonField>
                                                         <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnDetalle" Text="📄" CommandName="Detalle">
                                                             <ControlStyle CssClass="btn btn-sm btn-info " />
@@ -114,6 +114,7 @@
                                         <asp:TextBox ID="txtDni" runat="server" class="form-control " Enabled="False"></asp:TextBox>
                                     </div>
                                 </div>
+                                
                                 <div class="row">
                                     <div class="col-md-6 checkbox-radios">
                                         <label class="col-md-12 label-on-left">Estado:</label>
@@ -134,16 +135,16 @@
                                 </div>
                             </div>
                             <div class="modal-footer text-center">
-                                <asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
+                                <%--<asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
                                     <ContentTemplate>
                                         <div class="col-lg-2 col-md-2 col-sm-6">
-                                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-fill btn-success" OnClick="btnGuardar_Click"/>
+                                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-fill btn-success" OnClick="btnGuardar_Click1"/>
 
                                         </div>
                                     </ContentTemplate>
-                                </asp:UpdatePanel>
+                                </asp:UpdatePanel>--%>
 
-                                <button type="button" class="btn btn-info btn-round" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-info btn-round" data-dismiss="modal">Guardar</button>
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
