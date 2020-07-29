@@ -32,12 +32,20 @@ namespace WEB
                         case 4://recepcionista
                             perfil_Recepcionista();
                             break;
+                        case 5://jurado
+                            perfil_Jurado();
+                            break;
+                        case 6://Profesor
+                            perfil_Profesor();
+                            break;
                         case 7://gestor
                             perfil_Gestor();
                             break;
                         default:
                             Session.Clear();
                             Session.Abandon();
+                            HttpContext.Current.Session.Abandon();
+                            Session.RemoveAll();
                             Response.Redirect("~/Login_.aspx");
                             break;
                     }
@@ -189,6 +197,73 @@ namespace WEB
                             </ul>
                         </div>
                     </li>
+               </ul> ");
+            string img = String.Format(@"<img src='../assets/img/default-avatar.png'/>");
+            this.Literal2.Text = img;
+            this.Literal1.Text = html;
+        }
+        public void perfil_Profesor()
+        {
+            string html = string.Format(@"
+                         
+                <ul class='nav'>
+                    <li class='active'>
+                        <a href = 'MASTER_EXTERNO/index_Externo.html'>
+                            <i class='material-icons'>dashboard</i>
+                            <p>Inicio</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle='collapse' href='#administrarAlumnos'>
+                            <i class='material-icons'>school</i>
+                            <p>
+                                Administrar Alumno
+
+                                <b class='caret'></b>
+                            </p>
+                        </a>
+                        <div class='collapse' id='administrarAlumnos'>
+                            <ul class='nav'>
+                                <li>
+                                    <a href = 'W_Listar_Alumnos.aspx' > Listar Alumno</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>    
+               </ul> ");
+            string img = String.Format(@"<img src='../assets/img/default-avatar.png'/>");
+            this.Literal2.Text = img;
+            this.Literal1.Text = html;
+        }
+        public void perfil_Jurado()
+        {
+            string html = string.Format(@"
+                         
+                <ul class='nav'>
+                    <li class='active'>
+                        <a href = 'MASTER_EXTERNO/index_Externo.html'>
+                            <i class='material-icons'>dashboard</i>
+                            <p>Inicio</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle='collapse' href='#gestionConcurso'>
+                            <i class='material-icons'>emoji_events</i>
+                            <p>
+                                Gestion Concurso
+
+                                <b class='caret'></b>
+                            </p>
+                        </a>
+                        <div class='collapse' id='gestionConcurso'>
+                            <ul class='nav'>
+                                <li>
+                                    <a href = 'W_Calificar_Participante.aspx' > Calificar Participante</a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li> 
                </ul> ");
             string img = String.Format(@"<img src='../assets/img/default-avatar.png'/>");
             this.Literal2.Text = img;

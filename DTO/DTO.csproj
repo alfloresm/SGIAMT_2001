@@ -52,7 +52,9 @@
     <Compile Include="DtoNivel.cs" />
     <Compile Include="DtoNivel_TipoNivel.cs" />
     <Compile Include="DtoProgreso.cs" />
+    <Compile Include="DtoPuntaje.cs" />
     <Compile Include="DtoSemana_Dia.cs" />
+    <Compile Include="DtoTanda.cs" />
     <Compile Include="DtoTipoNivel.cs" />
     <Compile Include="DtoTipoUsuario.cs" />
     <Compile Include="DtoUsuario.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="DtoConcurso.cs" />
     <Compile Include="DtoEstadoconcurso.cs" />
     <Compile Include="DtoPago.cs" />
+    <Compile Include="DtoUsuarioModalidadTanda.cs" />
     <Compile Include="DtoUsuarioxModalidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

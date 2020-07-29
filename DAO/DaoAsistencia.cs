@@ -16,7 +16,6 @@ namespace DAO
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-
         public void ObtenerAlumnoAsis(DtoUsuario objUsuario)
         {
             SqlCommand command = new SqlCommand("SP_Obtener_Alumno", conexion);
@@ -43,5 +42,6 @@ namespace DAO
             conexion.Close();
             conexion.Dispose();
         }
+
     }
 }
