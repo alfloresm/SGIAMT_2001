@@ -16,12 +16,12 @@ namespace WEB
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Clear();
-            Session.Remove("id_perfil");
-            Session.Abandon();
-            HttpContext.Current.Session.Abandon();
-            Session.RemoveAll();
-            Session["id_perfil"] = null;
+            //Session.Clear();
+            //Session.Remove("id_perfil");
+            //Session.Abandon();
+            //HttpContext.Current.Session.Abandon();
+            //Session.RemoveAll();
+            //Session["id_perfil"] = null;
 
         }
         DtoUsuario usr = new DtoUsuario();
@@ -57,10 +57,7 @@ namespace WEB
                 Session["FechaNacUsuario"] = usuarioDto.DTU_FechaNacimiento;
                 Session["CelularUsuario"] = usuarioDto.VU_Celular;
                 Session["Categoria"] = usuarioDto.FK_ICA_CodCat;
-                Session["Nivel"] = usuarioDto.FK_IN_CodNivel;
-                Session["TipoNivel"]= usuarioDto.FK_ITN_TipoNivel;
-                Session["Horario"] = usuarioDto.VU_Horario;
-
+                
                 //*********HAY QUE CREAR USUARIOS GERENTE Y RECEPCIONISTA***********************
                 if (Session["id_perfil"].ToString() == "4")
                 {
@@ -76,6 +73,20 @@ namespace WEB
                                   </script>";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
                 }
+                else if (Session["id_perfil"].ToString() == "5")
+                {
+                    string script = @"<script type='text/javascript'>
+                                      location.href='../W_Calificar_Participante.aspx';
+                                  </script>";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
+                }
+                else if (Session["id_perfil"].ToString() == "6")
+                {
+                    string script = @"<script type='text/javascript'>
+                                      location.href='../W_Listar_Alumnos.aspx';
+                                  </script>";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
+                }
                 else if (Session["id_perfil"].ToString() == "7")
                 {
                     string script = @"<script type='text/javascript'>
@@ -83,6 +94,7 @@ namespace WEB
                                   </script>";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
                 }
+                Session.Timeout = 60;
             }
             else
             {

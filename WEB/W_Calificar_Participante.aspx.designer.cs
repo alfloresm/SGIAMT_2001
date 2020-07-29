@@ -76,13 +76,13 @@ namespace WEB {
         protected global::System.Web.UI.WebControls.LinkButton btnBuscar1;
         
         /// <summary>
-        /// Control PaneInfo.
+        /// Control UpdatePanelInfo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneInfo;
+        protected global::System.Web.UI.UpdatePanel UpdatePanelInfo;
         
         /// <summary>
         /// Control lblCategoria.
@@ -103,21 +103,39 @@ namespace WEB {
         protected global::System.Web.UI.WebControls.Label lblModalidad;
         
         /// <summary>
-        /// Control H1.
+        /// Control UpdatePanelParticipantes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl H1;
+        protected global::System.Web.UI.UpdatePanel UpdatePanelParticipantes;
         
         /// <summary>
-        /// Control lblCod.
+        /// Control LiteralParticipantes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCod;
+        protected global::System.Web.UI.WebControls.Literal LiteralParticipantes;
+        
+        /// <summary>
+        /// Control hfBoton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfBoton;
+        
+        /// <summary>
+        /// Control hfParticipante.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfParticipante;
     }
 }

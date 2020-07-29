@@ -32,7 +32,7 @@ namespace WEB
                         case 4://recepcionista
                             perfil_Recepcionista();
                             break;
-                        case 5:
+                        case 5://jurado
                             perfil_Jurado();
                             break;
                         case 6://Profesor

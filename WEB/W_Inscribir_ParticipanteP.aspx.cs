@@ -477,5 +477,25 @@ namespace WEB
             }
             objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
         }
+        public void limpiar()
+        {
+            ddlConcurso.SelectedValue="0";
+            pnlParticipanteN.Visible = false;
+            H1.InnerText = "S/.";
+            lblMensaje1.Text = "";
+            lblmensaje2.Text = "";
+            txtCategoria.Text = "";
+            txtCategoria2.Text = "";
+            txtcodCat.Text = "";
+            txtCodCatN.Text = "";
+            txtDni.Text = "";
+            txtdni2.Text = "";
+            txtGen.Text = "";
+            txtNombre1.Text = "";
+            txtNombre2.Text = "";
+            RbSeriado.Checked = false;
+            RbNovel.Checked = false;
+            RbAmbos.Checked = false;
+        }
     }
 }

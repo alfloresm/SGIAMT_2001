@@ -55,6 +55,8 @@
     <Compile Include="DaoNivel_TipoNivel.cs" />
     <Compile Include="DaoPago.cs" />
     <Compile Include="DaoParticipante.cs" />
+    <Compile Include="DaoPuntaje.cs" />
+    <Compile Include="DaoTanda.cs" />
     <Compile Include="DaoUsuario.cs" />
     <Compile Include="DaoUsuarioxModalidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
