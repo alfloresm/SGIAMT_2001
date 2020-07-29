@@ -16,7 +16,7 @@ namespace WEB
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/W_Listar_Alumnos.aspx");
         }
     }
 }

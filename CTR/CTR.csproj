@@ -57,6 +57,7 @@
     <Compile Include="CtrNivel_TipoNivel.cs" />
     <Compile Include="CtrPago.cs" />
     <Compile Include="CtrParticipante.cs" />
+    <Compile Include="CtrProgreso.cs" />
     <Compile Include="CtrUsuario.cs" />
     <Compile Include="CtrUsuarioxModalidad.cs" />
     <Compile Include="Log.cs" />

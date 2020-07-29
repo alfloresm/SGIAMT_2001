@@ -51,6 +51,8 @@
     <Compile Include="DtoInscripcion.cs" />
     <Compile Include="DtoNivel.cs" />
     <Compile Include="DtoNivel_TipoNivel.cs" />
+    <Compile Include="DtoProgreso.cs" />
+    <Compile Include="DtoSemana_Dia.cs" />
     <Compile Include="DtoTipoNivel.cs" />
     <Compile Include="DtoTipoUsuario.cs" />
     <Compile Include="DtoUsuario.cs" />

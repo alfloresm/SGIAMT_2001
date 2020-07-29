@@ -75,7 +75,7 @@
                                                             <ItemTemplate>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>--%>
-                                                                <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnAdministrar" Text="Asistencia" HeaderText="Opciones">
+                                                                <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnAdministrar" Text="Asistencia" HeaderText="Opciones" CommandName="Asistencia">
                                                                     <ControlStyle CssClass="btn btn-sm btn-info " />
                                                                 </asp:ButtonField>
                                                                 <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnDetalle" Text="📄" CommandName="Detalle">
@@ -106,27 +106,13 @@
                             </div>
                             <div class="modal-body">
                                 <div class="col-lg-12">
-                                    <label class="col-md-2 label-on-left">Nombres y Apellidos: </label>
+                                    <label class="col-md-2 label-on-left">Estado:</label>
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <asp:TextBox ID="txtlugar" runat="server" class="form-control " Enabled="False"></asp:TextBox>
+                                        <asp:DropDownList ID="ddlEstado" runat="server" CssClass="selectpicker"></asp:DropDownList>
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
-                                    <label class="col-md-2 label-on-left">Fecha:: </label>
-                                    <div class="form-group label-floating is-empty">
-                                        <label class="control-label"></label>
-                                        <asp:TextBox ID="txtFecha" runat="server" class="form-control " Enabled="False"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <label class="col-md-2 label-on-left">Estado: </label>
-                                    <div class="form-group label-floating is-empty">
-                                        <label class="control-label"></label>
-                                        <asp:TextBox ID="txtCantSer" runat="server" class="form-control " Enabled="False"></asp:TextBox>
-                                    </div>
-                                </div>
-                            </div>
+                             </div>
                             <div class="modal-footer text-center">
                                 <button type="button" class="btn btn-info btn-round" data-dismiss="modal">Cerrar</button>
                             </div>
@@ -147,7 +133,7 @@
     <script src="../../assets/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="../../assets/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
-    <script>$(function () {
+    <%--<script>$(function () {
             $(".dataTable").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable({
                 "bProcessing": false,
                 "bLengthChange": false,
@@ -163,6 +149,6 @@
                 responsive: true
             });
         });
-    </script>
+    </script>--%>
 
 </asp:Content>

@@ -8,11 +8,10 @@ namespace DTO
 {
     public class DtoAsistencia
     {
-        public int PK_IA_CodsAs { get; set; }
-        public string VA_Semana { get; set; }
-        public string VA_Hora { get; set; }
+        public int PK_IA_CodAsi { get; set; }
         public string VA_EstadoAsistencia { get; set; }
-        public string FK_VU_Dni { get; set; }
-        public int FK_ISD_CodSemanaDia { get; set; }
+        public string FK_VU_DNI { get; set; }
+        public int FK_IS_CodSemana { get; set; }
+        public int FK_ID_CodDia { get; set; }
     }
 }

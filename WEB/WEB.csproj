@@ -238,6 +238,7 @@
     <Content Include="MASTER_EXTERNO\vendor\magnific-popup\magnific-popup.css" />
     <Content Include="MASTER_EXTERNO\W_RegistrarParticipante.aspx" />
     <Content Include="Web.config" />
+    <Content Include="W_Gestionar_Progreso.aspx" />
     <Content Include="W_Listar_Alumnos.aspx" />
     <Content Include="W_GestionarConcurso.aspx" />
     <Content Include="W_Inscribir_ParticipanteP.aspx" />
@@ -283,6 +284,13 @@
       <DependentUpon>W_RegistrarParticipante.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="W_Gestionar_Progreso.aspx.cs">
+      <DependentUpon>W_Gestionar_Progreso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="W_Gestionar_Progreso.aspx.designer.cs">
+      <DependentUpon>W_Gestionar_Progreso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="W_Listar_Alumnos.aspx.cs">
       <DependentUpon>W_Listar_Alumnos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

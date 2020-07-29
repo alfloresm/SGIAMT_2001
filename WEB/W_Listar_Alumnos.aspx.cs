@@ -16,6 +16,7 @@ namespace WEB
         DtoUsuario objdtoalumno = new DtoUsuario();
         CtrNivel_TipoNivel objCtrNivelTipoNivel = new CtrNivel_TipoNivel();
         DtoNivel_TipoNivel objDtoNivelTipoNivel = new DtoNivel_TipoNivel();
+        CtrAsistencia objctrasis = new CtrAsistencia();
         Log _log = new Log();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -58,33 +59,37 @@ namespace WEB
 
         protected void GVAlumnos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            //if (e.CommandName == "Detalle")
-            //{
-            //    try
-            //    {
-            //        int index = Convert.ToInt32(e.CommandArgument);
-            //        var colsNoVisible = GVAlumnos.DataKeys[index].Values;
-            //        string id = colsNoVisible[0].ToString();
-            //        objdtoalumno.PK_IU_DNI = id;
-            //        objctrConcurso.ObtenerConcurso(objdtoconcurso);
-            //        _log.CustomWriteOnLog("gestionar concurso", "dato concurso: " + objdtoalumno.VU_Nombre.ToString());
-            //        _log.CustomWriteOnLog("gestionar concurso", "dato concurso: " + objdtoalumno.VU_APaterno.ToString());
-            //        _log.CustomWriteOnLog("gestionar concurso", "dato concurso: " + objdtoalumno.VU_AMaterno.ToString());
-            //        //.Text = objdtoconcurso.PK_IC_IdConcurso.ToString();
-            //        myModalLabel.InnerText = objdtoconcurso.VC_NombreCon.ToString();
-            //        txtlugar.Text = objdtoconcurso.VC_LugarCon.ToString();
-            //        txtFecha.Text = objdtoconcurso.DTC_FechaConcurso.ToString("dd-MM-yyyy");
-            //        txtCantSer.Text = "S/." + objdtoconcurso.DC_PrecioSeriado.ToString();
-            //        txtCantNov.Text = "S/." + objdtoconcurso.DC_PrecioNovel.ToString();
-            //        int est = Convert.ToInt32(objdtoconcurso.FK_IEC_IdEstado);
+            if (e.CommandName == "Detalle")
+            {
+                try
+                {
+                    int index = Convert.ToInt32(e.CommandArgument);
+                    var colsNoVisible = GVAlumnos.DataKeys[index].Values;
+                    string id = colsNoVisible[0].ToString();
+                    objdtoalumno.PK_IU_DNI = int.Parse(id).ToString();
+                    objctrasis.ObtenerDatosAlumno(objdtoalumno);
                     
-            //        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#noticeModal').modal('show');</script>", false);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        _log.CustomWriteOnLog("gestionar concurso", ex.Message);
-            //    }
-            //}
+                    
+                    txtDni.Text = objdtoalumno.PK_IU_DNI;
+                    txtNombre.Text = objdtoalumno.VU_Nombre;
+                    txtApellidoP.Text = objdtoalumno.VU_APaterno;
+                    txtApellidoM.Text = objdtoalumno.VU_AMaterno;
+                    txtTipoNivel.Text = objdtoalumno.FK_ITN_TipoNivel.ToString();
+                    txtNivel.Text = objdtoalumno.FK_IN_CodNivel.ToString();
+                    txtHorario.Text = objdtoalumno.VU_Horario;
+
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#noticeModal').modal('show');</script>", false);
+                }
+                catch (Exception ex)
+                {
+                    _log.CustomWriteOnLog("listar alumnos", ex.Message);
+                }
+            }
+            else if (e.CommandName == "Asistencia")
+            {
+                //int index = Convert.ToInt32(e.CommandArgument);
+                Response.Redirect("~/W_Administrar_Asistencia.aspx");
+            }
         }
     }
 }

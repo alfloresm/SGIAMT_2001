@@ -59,7 +59,7 @@
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
                                         <div class="col-lg-2 col-md-2 col-sm-6">
-                                            <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-fill btn-danger" OnClick="btnRegresar_Click" />
+                                            <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-fill btn-danger" OnClick="btnRegresar_Click"/>
                                         </div>
                                     </div>
                                 </ContentTemplate>
