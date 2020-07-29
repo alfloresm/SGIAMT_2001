@@ -11,6 +11,7 @@ namespace DTO
         public int PK_IA_CodAsi { get; set; }
         public string VA_EstadoAsistencia { get; set; }
         public string FK_VU_DNI { get; set; }
+        public DateTime fecha { get; set; }
         public int FK_IS_CodSemana { get; set; }
         public int FK_ID_CodDia { get; set; }
     }

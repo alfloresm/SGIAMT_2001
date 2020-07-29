@@ -14,6 +14,7 @@ namespace WEB
     {
         CtrAlumno objctrAlumno = new CtrAlumno();
         DtoUsuario objdtoalumno = new DtoUsuario();
+        DtoAsistencia objdtoAsis = new DtoAsistencia();
         CtrNivel_TipoNivel objCtrNivelTipoNivel = new CtrNivel_TipoNivel();
         DtoNivel_TipoNivel objDtoNivelTipoNivel = new DtoNivel_TipoNivel();
         CtrAsistencia objctrasis = new CtrAsistencia();
@@ -70,13 +71,13 @@ namespace WEB
                     objctrasis.ObtenerDatosAlumno(objdtoalumno);
                     
                     
-                    txtDni.Text = objdtoalumno.PK_IU_DNI;
-                    txtNombre.Text = objdtoalumno.VU_Nombre;
-                    txtApellidoP.Text = objdtoalumno.VU_APaterno;
-                    txtApellidoM.Text = objdtoalumno.VU_AMaterno;
-                    txtTipoNivel.Text = objdtoalumno.FK_ITN_TipoNivel.ToString();
-                    txtNivel.Text = objdtoalumno.FK_IN_CodNivel.ToString();
-                    txtHorario.Text = objdtoalumno.VU_Horario;
+                    //txtDni.Text = objdtoalumno.PK_IU_DNI;
+                    //txtNombre.Text = objdtoalumno.VU_Nombre;
+                    //txtApellidoP.Text = objdtoalumno.VU_APaterno;
+                    //txtApellidoM.Text = objdtoalumno.VU_AMaterno;
+                    //txtTipoNivel.Text = objdtoalumno.FK_ITN_TipoNivel.ToString();
+                    //txtNivel.Text = objdtoalumno.FK_IN_CodNivel.ToString();
+                    //txtHorario.Text = objdtoalumno.VU_Horario;
 
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#noticeModal').modal('show');</script>", false);
                 }
@@ -87,9 +88,36 @@ namespace WEB
             }
             else if (e.CommandName == "Asistencia")
             {
-                //int index = Convert.ToInt32(e.CommandArgument);
-                Response.Redirect("~/W_Administrar_Asistencia.aspx");
+               
+                int index = Convert.ToInt32(e.CommandArgument);
+                var colsNoVisible = GVAlumnos.DataKeys[index].Values;
+                string id = colsNoVisible[0].ToString();
+                txtDni.Text = id;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#noticeModal').modal('show');</script>", false);
+
             }
+            else if (e.CommandName == "Progreso")
+            {
+                Response.Redirect("~/W_Gestionar_Progreso.aspx");
+            }
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            _log.CustomWriteOnLog("registrar asistencia", "1");
+            objdtoAsis.FK_VU_DNI = txtDni.Text;
+            if(rbAsiste.Checked)
+            {
+                objdtoAsis.VA_EstadoAsistencia = "Asistió";
+            }
+
+            else
+                if(rbFalta.Checked)
+                {
+                    objdtoAsis.VA_EstadoAsistencia = "Faltó";
+                }
+            objctrasis.RegistrarAsistencia(objdtoAsis);
+            _log.CustomWriteOnLog("registrar asistencia", "registro: ");
         }
     }
 }

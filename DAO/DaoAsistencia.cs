@@ -43,5 +43,25 @@ namespace DAO
             conexion.Dispose();
         }
 
+        public void RegistrarAsistencia(DtoAsistencia objdtoAsis)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SP_RegistrarAsistencia", conexion);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@estado", objdtoAsis.VA_EstadoAsistencia);
+                command.Parameters.AddWithValue("@dni", objdtoAsis.FK_VU_DNI);
+
+                conexion.Open();
+                command.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+
+            }
+        }
     }
 }

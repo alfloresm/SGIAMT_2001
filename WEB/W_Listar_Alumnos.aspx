@@ -40,9 +40,9 @@
                                                 </asp:UpdatePanel>
                                             </div>
                                             <asp:Button runat="server" Text="BUSCAR" ID="btnBuscar" CssClass="btn btn-fill btn-success" />
-                                        <div class="col-md-6">
-                                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-                                                
+                                            <div class="col-md-6">
+                                                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+
                                             </div>
                                         </div>
                                         <%--<div class="col-md-4 col-md-offset-2 text-center">
@@ -54,38 +54,40 @@
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-1">
                                             <div class="card-content">
-                                                <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-                                                    <ContentTemplate>
+                                                <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                                                    <ContentTemplate>--%>
 
-                                                        <asp:GridView ID="GVAlumnos" runat="server" AutoGenerateColumns="False"
-                                                            DataKeyNames="Apellidos,VU_Correo,VCA_NomCategoria,VTN_NombreTipoNivel,VN_NombreNivel,VU_Horario"
-                                                            CssClass="table table-responsive table-bordered table-hover js-basic-example dataTable" PageSize="5"
-                                                            AllowPaging="True" OnPageIndexChanging="GVAlumnos_PageIndexChanging" OnRowCommand="GVAlumnos_RowCommand"
-                                                            Font-Size="Small" HeaderStyle-ForeColor="#FF5050" HeaderStyle-CssClass="small">
-                                                            <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" />
-                                                            <Columns>
-                                                                <%--<asp:BoundField DataField="VU_Nombre" HeaderText="Nombres" />--%>
-                                                                <asp:BoundField DataField="Apellidos" HeaderText="Nombres y Apellidos" />
-                                                                <asp:BoundField DataField="VU_Correo" HeaderText="Correo" />
-                                                                <asp:BoundField DataField="VCA_NomCategoria" HeaderText="Categoria" />
-                                                                <asp:BoundField DataField="VTN_NombreTipoNivel" HeaderText="Tipo de Nivel" />
-                                                                <asp:BoundField DataField="VN_NombreNivel" HeaderText="Nivel" />
-                                                                <asp:BoundField DataField="VU_Horario" HeaderText="Horario" />
-                                                                <%--<asp:TemplateField HeaderText="">
+                                                <asp:GridView ID="GVAlumnos" runat="server" AutoGenerateColumns="False"
+                                                    DataKeyNames="PK_IU_DNI,Apellidos,VU_Correo,VCA_NomCategoria,VTN_NombreTipoNivel,VN_NombreNivel,VU_Horario"
+                                                    CssClass="table table-responsive table-bordered table-hover js-basic-example dataTable" PageSize="5"
+                                                    AllowPaging="True" OnPageIndexChanging="GVAlumnos_PageIndexChanging" OnRowCommand="GVAlumnos_RowCommand"
+                                                    Font-Size="Small" HeaderStyle-ForeColor="#FF5050" HeaderStyle-CssClass="small">
+                                                    <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" />
+                                                    <Columns>
+                                                        <asp:BoundField DataField="PK_IU_DNI" HeaderText="DNI" />
+                                                        <asp:BoundField DataField="Apellidos" HeaderText="Nombres y Apellidos" />
+                                                        <asp:BoundField DataField="VU_Correo" HeaderText="Correo" />
+                                                        <asp:BoundField DataField="VCA_NomCategoria" HeaderText="Categoria" />
+                                                        <asp:BoundField DataField="VTN_NombreTipoNivel" HeaderText="Tipo de Nivel" />
+                                                        <asp:BoundField DataField="VN_NombreNivel" HeaderText="Nivel" />
+                                                        <asp:BoundField DataField="VU_Horario" HeaderText="Horario" />
+                                                        <%--<asp:TemplateField HeaderText="">
                                                             <ItemTemplate>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>--%>
-                                                                <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnAdministrar" Text="Asistencia" HeaderText="Opciones" CommandName="Asistencia">
-                                                                    <ControlStyle CssClass="btn btn-sm btn-info " />
-                                                                </asp:ButtonField>
-                                                                <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnDetalle" Text="📄" CommandName="Detalle">
-                                                                    <ControlStyle CssClass="btn btn-sm btn-info " />
-                                                                </asp:ButtonField>
-                                                            </Columns>
-                                                        </asp:GridView>
-                                                    </ContentTemplate>
-                                                </asp:UpdatePanel>
-
+                                                        <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnAdministrar" Text="Asistencia" HeaderText="Opciones" CommandName="Asistencia">
+                                                            <ControlStyle CssClass="btn btn-sm btn-info " />
+                                                        </asp:ButtonField>
+                                                        <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnProgreso" Text="Progreso" HeaderText="Opciones" CommandName="Progreso">
+                                                            <ControlStyle CssClass="btn btn-sm btn-info " />
+                                                        </asp:ButtonField>
+                                                        <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnDetalle" Text="📄" CommandName="Detalle">
+                                                            <ControlStyle CssClass="btn btn-sm btn-info " />
+                                                        </asp:ButtonField>
+                                                    </Columns>
+                                                </asp:GridView>
+                                                <%--</ContentTemplate>
+                                                </asp:UpdatePanel>--%>
                                             </div>
                                         </div>
                                     </div>
@@ -106,14 +108,41 @@
                             </div>
                             <div class="modal-body">
                                 <div class="col-lg-12">
-                                    <label class="col-md-2 label-on-left">Estado:</label>
+                                    <label class="col-md-2 label-on-left">DNI: </label>
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <asp:DropDownList ID="ddlEstado" runat="server" CssClass="selectpicker"></asp:DropDownList>
+                                        <asp:TextBox ID="txtDni" runat="server" class="form-control " Enabled="False"></asp:TextBox>
                                     </div>
                                 </div>
-                             </div>
+                                <div class="row">
+                                    <div class="col-md-6 checkbox-radios">
+                                        <label class="col-md-12 label-on-left">Estado:</label>
+                                        </br>
+                                        <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <div class="col-md-6">
+                                                    <asp:RadioButton ID="rbAsiste" runat="server" Text="Asistió" GroupName="Asistencia" 
+                                                        AutoPostBack="false" EnableTheming="True" CssClass="radio-inline" ForeColor="Black" />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <asp:RadioButton ID="rbFalta" runat="server" Text="Faltó" GroupName="Asistencia" 
+                                                        AutoPostBack="false" CssClass="radio-inline" ForeColor="Black" />
+                                                </div>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="modal-footer text-center">
+                                <asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <div class="col-lg-2 col-md-2 col-sm-6">
+                                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-fill btn-success" OnClick="btnGuardar_Click"/>
+
+                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+
                                 <button type="button" class="btn btn-info btn-round" data-dismiss="modal">Cerrar</button>
                             </div>
                         </ContentTemplate>
@@ -150,5 +179,4 @@
             });
         });
     </script>--%>
-
 </asp:Content>

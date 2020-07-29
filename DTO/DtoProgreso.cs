@@ -8,8 +8,8 @@ namespace DTO
 {
     public class DtoProgreso
     {
-        public int PK_IA_CodAsi { get; set; }
-        public int VP_NombreProgreso { get; set; }
+        public int PK_IP_CodProgreso { get; set; }
+        public string VP_NombreProgreso { get; set; }
         public double DP_NotaPasos { get; set; }
         public double DP_NotaTecnica { get; set; }
         public double DP_NotaInteres { get; set; }

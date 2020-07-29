@@ -21,5 +21,10 @@ namespace CTR
         {
             objDaoAsistencia.ObtenerAlumnoAsis(objUsu);
         }
+
+        public void RegistrarAsistencia(DtoAsistencia objAsis)
+        {
+            objDaoAsistencia.RegistrarAsistencia(objAsis);
+        }
     }
 }
