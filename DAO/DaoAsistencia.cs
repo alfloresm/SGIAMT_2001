@@ -64,5 +64,21 @@ namespace DAO
 
             }
         }
+        public DataSet desplegarTipoNivel()
+        {
+            SqlDataAdapter listanivel = new SqlDataAdapter("SP_DesplegableTipoNivel", conexion);
+            listanivel.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataSet DS = new DataSet();
+            listanivel.Fill(DS);
+            return DS;
+        }
+        public DataSet desplegarNivel()
+        {
+            SqlDataAdapter listanivel = new SqlDataAdapter("SP_DesplegableNivel2", conexion);
+            listanivel.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataSet DS = new DataSet();
+            listanivel.Fill(DS);
+            return DS;
+        }
     }
 }

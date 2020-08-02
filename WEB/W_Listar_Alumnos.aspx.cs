@@ -104,25 +104,41 @@ namespace WEB
 
         protected void btnGuardar_Click1(object sender, EventArgs e)
         {
+
             _log.CustomWriteOnLog("registrar asistencia", "1");
 
-            if (rbAsiste.Checked)
-            {
-                objdtoAsis.VA_EstadoAsistencia = "Asistió";
-            }
+            //if (rbAsiste.Checked)
+            //{
+            //    objdtoAsis.VA_EstadoAsistencia = "Asistió";
 
-            else
-                if (rbFalta.Checked)
-            {
-                objdtoAsis.VA_EstadoAsistencia = "Faltó";
-            }
+            //}
+
+            //else
+
+            //{
+            //    objdtoAsis.VA_EstadoAsistencia = "Faltó";
+            //}
+           
+            string b= this.Request.Form["tipopersona"];
+            _log.CustomWriteOnLog("registrar asistencia", "es:"+b);
             objdtoAsis.fecha = DateTime.Now;
             objdtoAsis.FK_VU_Dni = txtDni.Text;
             objctrasis.RegistrarAsistencia(objdtoAsis);
             string m = "Se registró correctamente";
 
-            //Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
+            Utils.AddScriptClientUpdatePanel(upBotonEnviar2, "showMessage('top','center','" + m + "','success')");
             //_log.CustomWriteOnLog("registrar asistencia", "registro: ");
+            //UpdatePanel1.Update();
+        }
+
+        protected void btnGuardarAsis_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/W_Listar_Alumnos.aspx");
         }
     }
 }

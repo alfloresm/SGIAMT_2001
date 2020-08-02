@@ -4,12 +4,22 @@
     <script src="assets/momentjs/moment.js"></script>
 
     <link href="assets/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+    <script src="http://www.codeproject.com/ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>        $(document).ready(function () {            $("input[type='button']").click(function () {                var radioValue = $("input[name='gender']:checked").val();                if (radioValue) {                    alert("Your are a - " + radioValue);                }            });        });
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
         <div class="col-lg-12 col-md-12 col-sm-12 card-header">
             <h2>Administrar Asistencia</h2>
         </div>
+        <p>If you click on me, I will disappear.</p>
+        <p>Click me away!</p>
+        <p>Click me too!</p>
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -39,7 +49,7 @@
                                                     </ContentTemplate>
                                                 </asp:UpdatePanel>
                                             </div>
-                                            <asp:Button runat="server" Text="BUSCAR" ID="btnBuscar" CssClass="btn btn-fill btn-success" />
+                                            <%--<asp:Button runat="server" Text="BUSCAR" ID="btnBuscar" CssClass="btn btn-fill btn-success" />--%>
                                             <div class="col-md-6">
                                                 <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
 
@@ -91,6 +101,21 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-8 col-sm-12">
+                                            <p></p>
+                                        </div>
+                                        <asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <div class="col-lg-2 col-md-2 col-sm-6">
+                                                    <asp:Button ID="btnGuardarAsis" runat="server" Text="Guardar" CssClass="btn btn-fill btn-success" OnClick="btnGuardarAsis_Click" />
+                                                </div>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                        <div class="col-lg-2 col-md-2 col-sm-6">
+                                            <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-fill btn-danger" OnClick="btnRegresar_Click" />
+                                        </div>
+                                    </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
@@ -114,37 +139,46 @@
                                         <asp:TextBox ID="txtDni" runat="server" class="form-control " Enabled="False"></asp:TextBox>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-md-6 checkbox-radios">
                                         <label class="col-md-12 label-on-left">Estado:</label>
                                         </br>
-                                        <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
-                                            <ContentTemplate>
+                                        <%--<asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
+                                            <ContentTemplate>--%>
+
+
+                                                
+                                                    <input type="radio" name="tipopersona" value="cliente" />
+                                                    <input type="radio" name="tipopersona" value="proveedor" />
+
+                               
+
+                                                <%--<div class="col-md-6">
+                                                    <%--<asp:RadioButton ID="rbAsiste" runat="server" Text="Asistió" GroupName="Asistencia"--%>
+                                                <%--AutoPostBack="false" EnableTheming="True" CssClass="radio-inline" ForeColor="Black" />--%>
+                                                <%--</div>
                                                 <div class="col-md-6">
-                                                    <asp:RadioButton ID="rbAsiste" runat="server" Text="Asistió" GroupName="Asistencia" 
-                                                        AutoPostBack="false" EnableTheming="True" CssClass="radio-inline" ForeColor="Black" />
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <asp:RadioButton ID="rbFalta" runat="server" Text="Faltó" GroupName="Asistencia" 
+                                                    <asp:RadioButton ID="rbFalta" runat="server" Text="Faltó" GroupName="Asistencia"
                                                         AutoPostBack="false" CssClass="radio-inline" ForeColor="Black" />
-                                                </div>
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
+                                                </div>--%>
+                                            <%--</ContentTemplate>
+                                        </asp:UpdatePanel>--%>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer text-center">
-                                <%--<asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
+                                <asp:UpdatePanel ID="upBotonEnviar2" runat="server" UpdateMode="Conditional">
                                     <ContentTemplate>
                                         <div class="col-lg-2 col-md-2 col-sm-6">
-                                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-fill btn-success" OnClick="btnGuardar_Click1"/>
+                                            <asp:Button ID="btnGuardar" type="submit" runat="server" Text="Guardar" CssClass="btn btn-fill btn-success" UseSubmitBehavior="false" OnClick="btnGuardar_Click1" data-dismiss="modal" />
+                                            
 
                                         </div>
                                     </ContentTemplate>
-                                </asp:UpdatePanel>--%>
+                                </asp:UpdatePanel>
 
-                                <button type="button" class="btn btn-info btn-round" data-dismiss="modal">Guardar</button>
+                                <button type="button" class="btn btn-info btn-round" data-dismiss="modal">Cerrar</button>
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>

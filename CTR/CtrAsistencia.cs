@@ -26,5 +26,13 @@ namespace CTR
         {
             objDaoAsistencia.RegistrarAsistencia(objAsis);
         }
+        public DataSet desplegableTipoNivel()
+        {
+            return objDaoAsistencia.desplegarTipoNivel();
+        }
+        public DataSet desplegableNivel()
+        {
+            return objDaoAsistencia.desplegarNivel();
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace WEB
         {
             if (!Page.IsPostBack)
             {
+                
                 if (Request.Params["Id"] != null)
                 {
 
@@ -57,6 +58,8 @@ namespace WEB
                 _log.CustomWriteOnLog("registrar progreso", Convert.ToDouble(txtNota4.Text).ToString());
                 objDtoProgreso.DP_NotaHabilidad = Convert.ToDouble(txtNota4.Text);
                 _log.CustomWriteOnLog("registrar progreso", calcularNotas().ToString());
+                txtNotaTotal.Text=calcularNotas().ToString();
+                
                 objDtoProgreso.DP_TotalNota = Convert.ToDouble(txtNotaTotal.Text);
                 _log.CustomWriteOnLog("registrar progreso", txtObservacion.Text);
                 objDtoProgreso.VP_Observacion = txtObservacion.Text;
@@ -89,8 +92,10 @@ namespace WEB
             double n3 = double.Parse(txtNota3.Text);
             double n4 = double.Parse(txtNota4.Text);
             double total = (n1 + n2 + n3 + n4) / 4;
+            _log.CustomWriteOnLog("registrar progreso", "promedio:"+txtNotaTotal);
             txtNotaTotal.Text = total.ToString();
-            txtProgreso.Text =((total * 100) / 20).ToString()+" %";
+            _log.CustomWriteOnLog("registrar progreso", "porcentaje:"+txtProgresoP);
+            txtProgresoP.Text =((total * 100) / 20).ToString()+" %";
             return total;
         }
 
@@ -112,8 +117,9 @@ namespace WEB
             double n3 = double.Parse(txtNota3.Text);
             double n4 = double.Parse(txtNota4.Text);
             double total = (n1 + n2 + n3 + n4) / 4;
-            txtProgreso.Text = ((total * 100) / 20).ToString() + " %";
-            txtNotaTotal.Text = total.ToString();
+            txtProgresoP.Text = ((total * 100) / 20).ToString() + " %";
+            txtNotaTotal.Text = ""+total.ToString();
+            
         }
     }
 }
