@@ -102,23 +102,27 @@ namespace WEB
             }
         }
 
-        protected void btnGuardar_Click(object sender, EventArgs e)
+        protected void btnGuardar_Click1(object sender, EventArgs e)
         {
             _log.CustomWriteOnLog("registrar asistencia", "1");
-            
-            if(rbAsiste.Checked)
+
+            if (rbAsiste.Checked)
             {
                 objdtoAsis.VA_EstadoAsistencia = "Asistió";
             }
 
             else
-                if(rbFalta.Checked)
-                {
-                    objdtoAsis.VA_EstadoAsistencia = "Faltó";
-                }
+                if (rbFalta.Checked)
+            {
+                objdtoAsis.VA_EstadoAsistencia = "Faltó";
+            }
+            objdtoAsis.fecha = DateTime.Now;
+            objdtoAsis.FK_VU_Dni = txtDni.Text;
             objctrasis.RegistrarAsistencia(objdtoAsis);
-            objdtoAsis.FK_VU_DNI = txtDni.Text;
-            _log.CustomWriteOnLog("registrar asistencia", "registro: ");
+            string m = "Se registró correctamente";
+
+            //Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
+            //_log.CustomWriteOnLog("registrar asistencia", "registro: ");
         }
     }
 }

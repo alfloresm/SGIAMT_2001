@@ -50,7 +50,8 @@ namespace DAO
                 SqlCommand command = new SqlCommand("SP_RegistrarAsistencia", conexion);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@estado", objdtoAsis.VA_EstadoAsistencia);
-                command.Parameters.AddWithValue("@dni", objdtoAsis.FK_VU_DNI);
+                command.Parameters.AddWithValue("@fecha", objdtoAsis.fecha);
+                command.Parameters.AddWithValue("@dni", objdtoAsis.FK_VU_Dni);
 
                 conexion.Open();
                 command.ExecuteNonQuery();
