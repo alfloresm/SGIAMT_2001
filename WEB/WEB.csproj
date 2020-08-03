@@ -106,6 +106,7 @@
     <Content Include="assets\img\sidebar-5.jpg" />
     <Content Include="assets\jquery\jquery.js" />
     <Content Include="assets\jquery\jquery.min.js" />
+    <Content Include="assets\js\App\UploadFile.js" />
     <Content Include="assets\js\bootstrap-datetimepicker.js" />
     <Content Include="assets\js\bootstrap-notify.js" />
     <Content Include="assets\js\bootstrap.min.js" />
@@ -130,6 +131,7 @@
     <Content Include="assets\js\moment.min.js" />
     <Content Include="assets\js\nouislider.min.js" />
     <Content Include="assets\js\perfect-scrollbar.jquery.min.js" />
+    <Content Include="assets\js\sweetalert.min.js" />
     <Content Include="assets\js\sweetalert2.js" />
     <Content Include="assets\momentjs\ender.js" />
     <Content Include="assets\momentjs\moment.js" />
@@ -190,6 +192,8 @@
     <Content Include="MASTER_EXTERNO\css\creative.min.css" />
     <Content Include="MASTER_EXTERNO\gulpfile.js" />
     <Content Include="MASTER_EXTERNO\img\bg-masthead.jpg" />
+    <Content Include="MASTER_EXTERNO\img\facebook.png" />
+    <Content Include="MASTER_EXTERNO\img\instagram.jpg" />
     <Content Include="MASTER_EXTERNO\img\portfolio\fullsize\1.jpg" />
     <Content Include="MASTER_EXTERNO\img\portfolio\fullsize\2.jpg" />
     <Content Include="MASTER_EXTERNO\img\portfolio\fullsize\3.jpg" />
@@ -226,6 +230,9 @@
     <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-brands-400.svg" />
     <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-regular-400.svg" />
     <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\facebook.svg" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\instagram.svg" />
+    <Content Include="MASTER_EXTERNO\vendor\fontawesome-free\webfonts\tiktok.svg" />
     <Content Include="MASTER_EXTERNO\vendor\jquery-easing\jquery.easing.compatibility.js" />
     <Content Include="MASTER_EXTERNO\vendor\jquery-easing\jquery.easing.js" />
     <Content Include="MASTER_EXTERNO\vendor\jquery-easing\jquery.easing.min.js" />
@@ -236,6 +243,7 @@
     <Content Include="MASTER_EXTERNO\vendor\magnific-popup\jquery.magnific-popup.js" />
     <Content Include="MASTER_EXTERNO\vendor\magnific-popup\jquery.magnific-popup.min.js" />
     <Content Include="MASTER_EXTERNO\vendor\magnific-popup\magnific-popup.css" />
+    <Content Include="MASTER_EXTERNO\W_Login.aspx" />
     <Content Include="MASTER_EXTERNO\W_RegistrarParticipante.aspx" />
     <Content Include="Web.config" />
     <Content Include="W_Calificar_Participante.aspx" />
@@ -249,9 +257,6 @@
     <Content Include="W_Registrar_Pago.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CG_UpdateParticipante.ashx.cs">
-      <DependentUpon>CG_UpdateParticipante.ashx</DependentUpon>
-    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -279,6 +284,13 @@
     </Compile>
     <Compile Include="MASTER_EXTERNO\Master_externo.Master.designer.cs">
       <DependentUpon>Master_externo.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MASTER_EXTERNO\W_Login.aspx.cs">
+      <DependentUpon>W_Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MASTER_EXTERNO\W_Login.aspx.designer.cs">
+      <DependentUpon>W_Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MASTER_EXTERNO\W_RegistrarParticipante.aspx.cs">
       <DependentUpon>W_RegistrarParticipante.aspx</DependentUpon>
@@ -422,7 +434,7 @@
     <Content Include="MASTER_EXTERNO\vendor\jquery\jquery.min.map" />
     <Content Include="MASTER_EXTERNO\vendor\jquery\jquery.slim.min.map" />
     <Content Include="MASTER_EXTERNO\Master_externo.Master" />
-    <Content Include="CG_UpdateParticipante.ashx" />
+    <Content Include="MASTER_EXTERNO\ghUploadFile.ashx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

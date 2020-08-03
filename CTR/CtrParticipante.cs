@@ -31,5 +31,13 @@ namespace CTR
         {
             objdaoParticipante.ObtenerParticipante(dtoUsuario, objcat);
         }
+        public void registrarParticipante(DtoUsuario obju)
+        {
+            objdaoParticipante.RegistrarParticipante(obju);
+        }
+        public void registrarImgP(byte[] bytes, string id)
+        {
+            objdaoParticipante.RegistrarImgUsuario(bytes, id);
+        }
     }
 }

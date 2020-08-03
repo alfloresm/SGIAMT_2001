@@ -30,6 +30,7 @@ namespace WEB
                 H1.InnerText = "S/.";
                 lblMensaje1.Text = "";
                 lblmensaje2.Text = "";
+                PanelModalidades.Visible = false;
             }
 
         }
@@ -54,6 +55,9 @@ namespace WEB
             _log.CustomWriteOnLog("inscribir Participante", "precioNovel: " + objCon.DC_PrecioNovel.ToString());
             lblprecioS.Text = objCon.DC_PrecioSeriado.ToString();
             lblprecioN.Text = objCon.DC_PrecioNovel.ToString();
+            string m = "Precios Calculados";
+            Utils.AddScriptClientUpdatePanel(upnBotonBuscar1, "showMessage('top','center','" + m + "','successs')");
+            PanelModalidades.Visible = true;
            
         }
         protected void RbSeriado_CheckedChanged(object sender, EventArgs e)
@@ -364,7 +368,7 @@ namespace WEB
                             objDtoInscripcion.FK_IUM_CodUm = objdtouxm2.PK_IUM_CodUM;
                             objDtoInscripcion.DI_Monto = Convert.ToDouble(lblprecioS.Text);
                             objCtrInscripcion.RegistrarInscripcionP(objDtoInscripcion);
-                            objCtrUsuario.EnviarCorreoInscripcion(objDtoUXM);
+                            objCtrUsuario.EnviarCorreoInscripcion(objdtouxm2);
                             string m1 = "Se registró la inscripción 2° seriado";
                             Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m1 + "','success')");
                             //registra segundo novel
