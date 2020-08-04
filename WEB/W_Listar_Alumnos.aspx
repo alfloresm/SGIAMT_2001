@@ -1,25 +1,46 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="W_Listar_Alumnos.aspx.cs" Inherits="WEB.W_Administrar_Asistencia_Alumno" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="W_Listar_Alumnos.aspx.cs" Inherits="WEB.W_Listar_Alumnos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="assets/momentjs/moment.js"></script>
 
     <link href="assets/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
-    <script src="http://www.codeproject.com/ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>        $(document).ready(function () {            $("input[type='button']").click(function () {                var radioValue = $("input[name='gender']:checked").val();                if (radioValue) {                    alert("Your are a - " + radioValue);                }            });        });
-    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function marcarAsistencia() {
+            
 
+            var dni = document.getElementById("<%=txtDni.ClientID %>").value;
+            sessionStorage.setItem("dni", dni);
+            alert("El valor del dni de la sesion es :"+sessionStorage.getItem("dni"));
+            var estado = $('input:radio[name=asistencia]:checked').val();
+            //var estado = document.getElementById("<%--<%=txtEstado.ClientID %>--%>").value;
+            alert("hola" + dni + " y " + estado);
+            $.ajax({
+                type: "POST",
+                url: "W_Listar_Alumnos.aspx/GetCurrentTime",
+                data: '{dni: "' + dni + '",estado: "' + estado + '" }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess,
+                failure: function (response) {
+                    alert("fallò" + response.d);
+                }
+            });
+        }
+        function OnSuccess(response) {
+            alert("hola"+response.d);
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+
+    <form id="form2" runat="server" method="POST">
+        
+
         <div class="col-lg-12 col-md-12 col-sm-12 card-header">
             <h2>Administrar Asistencia</h2>
         </div>
-        <p>If you click on me, I will disappear.</p>
-        <p>Click me away!</p>
-        <p>Click me too!</p>
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -39,6 +60,16 @@
                                                     <asp:DropDownList ID="ddlClase" runat="server" CssClass="selectpicker"></asp:DropDownList>
                                                     <span class="material-input"></span>
                                                     <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
+                                                </div>
+                                                <div class="col-md-8 form-group form-search is-empty">
+                                                    <asp:DropDownList ID="ddlTipoNivel" runat="server" CssClass="selectpicker"></asp:DropDownList>
+                                                    <span class="material-input"></span>
+                                                    <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                                                </div>
+                                                <div class="col-md-8 form-group form-search is-empty">
+                                                    <asp:DropDownList ID="ddlNivel" runat="server" CssClass="selectpicker"></asp:DropDownList>
+                                                    <span class="material-input"></span>
+                                                    <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
                                                 </div>
                                                 <asp:UpdatePanel ID="upnBotonBuscar1" runat="server" UpdateMode="Conditional">
                                                     <ContentTemplate>
@@ -86,16 +117,19 @@
                                                             </ItemTemplate>
                                                         </asp:TemplateField>--%>
                                                         <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnAdministrar" Text="Asistencia" HeaderText="Opciones" CommandName="Asistencia">
-                                                            <ControlStyle CssClass="btn btn-sm btn-info " />
+                                                            <ControlStyle CssClass="btn btn-sm btn-round" BackColor="#00BCD4" />
                                                         </asp:ButtonField>
                                                         <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnProgreso" Text="Progreso" HeaderText="Opciones" CommandName="Progreso">
-                                                            <ControlStyle CssClass="btn btn-sm dataTables_wrapper " />
+                                                            <ControlStyle CssClass="btn btn-default" />
                                                         </asp:ButtonField>
-                                                        <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnDetalle" Text="📄" CommandName="Detalle">
-                                                            <ControlStyle CssClass="btn btn-sm btn-info " />
+                                                        <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnDetalle" Text="📄" HeaderText="Ver" CommandName="Detalle">
+                                                            <ControlStyle CssClass="btn btn-sm btn-round" BackColor="#4CAF50" />
                                                         </asp:ButtonField>
+
                                                     </Columns>
+
                                                 </asp:GridView>
+
                                                 <%--</ContentTemplate>
                                                 </asp:UpdatePanel>--%>
                                             </div>
@@ -144,26 +178,12 @@
                                     <div class="col-md-6 checkbox-radios">
                                         <label class="col-md-12 label-on-left">Estado:</label>
                                         </br>
-                                        <%--<asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
-                                            <ContentTemplate>--%>
-
-
-                                                
-                                                    <input type="radio" name="tipopersona" value="cliente" />
-                                                    <input type="radio" name="tipopersona" value="proveedor" />
-
-                               
-
-                                                <%--<div class="col-md-6">
-                                                    <%--<asp:RadioButton ID="rbAsiste" runat="server" Text="Asistió" GroupName="Asistencia"--%>
-                                                <%--AutoPostBack="false" EnableTheming="True" CssClass="radio-inline" ForeColor="Black" />--%>
-                                                <%--</div>
-                                                <div class="col-md-6">
-                                                    <asp:RadioButton ID="rbFalta" runat="server" Text="Faltó" GroupName="Asistencia"
-                                                        AutoPostBack="false" CssClass="radio-inline" ForeColor="Black" />
-                                                </div>--%>
-                                            <%--</ContentTemplate>
-                                        </asp:UpdatePanel>--%>
+                                        <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <input type="radio" name="asistencia" id="asistencia1" value="Asistio">Asistio<br>
+                                                <input type="radio" name="asistencia" id="asistencia2" value="Faltó">Falto<br>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
                                     </div>
                                 </div>
                             </div>
@@ -171,9 +191,7 @@
                                 <asp:UpdatePanel ID="upBotonEnviar2" runat="server" UpdateMode="Conditional">
                                     <ContentTemplate>
                                         <div class="col-lg-2 col-md-2 col-sm-6">
-                                            <asp:Button ID="btnGuardar" type="submit" runat="server" Text="Guardar" CssClass="btn btn-fill btn-success" UseSubmitBehavior="false" OnClick="btnGuardar_Click1" data-dismiss="modal" />
-                                            
-
+                                            <asp:Button ID="btnGuardar" type="button" runat="server" Text="Guardar" CssClass="btn btn-info btn-round" BackColor="#4CAF50" UseSubmitBehavior="false" OnClientClick="marcarAsistencia()" data-dismiss="modal" />
                                         </div>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
@@ -186,32 +204,4 @@
             </div>
         </div>
     </form>
-
-    <script src="assets/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="assets/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-    <script src="../../assets/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-    <script src="../../assets/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-    <script src="../../assets/jquery-datatable/extensions/export/jszip.min.js"></script>
-    <script src="../../assets/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-    <script src="../../assets/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-    <script src="../../assets/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="../../assets/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-
-    <%--<script>$(function () {
-            $(".dataTable").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable({
-                "bProcessing": false,
-                "bLengthChange": false,
-                language: {
-                    search: "_INPUT_",
-                    searchPlaceholder: "Buscar registros",
-                    lengthMenu: "Mostrar _MENU_ registros",
-                    paginate: false,
-
-                },
-                "paging": false,
-                "info": false,
-                responsive: true
-            });
-        });
-    </script>--%>
 </asp:Content>

@@ -34,5 +34,13 @@ namespace CTR
         {
             return objDaoAsistencia.desplegarNivel();
         }
+        public DataSet buscarDdl()
+        {
+            return objDaoAsistencia.BuscarTipoNivel_Nivel();
+        }
+        public int obtenerIdAsis(string dni)
+        {
+            return objDaoAsistencia.obtenerPKdni(dni);
+        }
     }
 }

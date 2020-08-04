@@ -1,9 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="W_Gestionar_Progreso.aspx.cs" Inherits="WEB.W_Gestionar_Progreso" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="assets/momentjs/moment.js"></script>
 
     <link href="assets/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
@@ -13,20 +11,75 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script type="text/javascript">
+        var nota1;
+        var nota2;
+        var nota3;
+        var nota4;
+        var total;
+        var promedio;
+        var porcentaje;
+        var nota1;
+        var progreso;
+        var observacion;
+
         function prueba() {
-            var nota1 = document.getElementById("txtNota1").value;
-            alert(nota1);
-            var nota2 = document.getElementById("txtNota2").value);
-            var nota3 = document.getElementById("txtNota3").value);
-            var nota4 = parseFloat(document.getElementById("txtNota4").value);
+            
+
+
+            nota1 = parseInt((document.getElementById("<%=txtNota1.ClientID %>").value), 10);
+            nota2 = parseInt((document.getElementById("<%=txtNota2.ClientID %>").value), 10);
+            nota3 = parseInt((document.getElementById("<%=txtNota3.ClientID %>").value), 10);
+            nota4 = parseInt((document.getElementById("<%=txtNota4.ClientID %>").value), 10);
+            progreso = document.getElementById("<%=txtNombreProgreso.ClientID %>").value;
+            observacion = document.getElementById("<%=txtObservacion.ClientID %>").value;
+
             total = (nota1 + nota2 + nota3 + nota4);
-            promedio = parseFloat(total);
-            promedio = (total / 400);
+            promedio = total / 4;
+            porcentaje = promedio * 5;
+             alert(nota1);
+            alert(total);
             alert(promedio);
-            document.getElementById("txtNotaTotal").value = promedio;
+            alert(porcentaje);
+            document.getElementById("<%=txtNotaTotal.ClientID%>").value = promedio;
+            document.getElementById("<%=txtProgresoP.ClientID%>").value = porcentaje + "%";
+
+            
+        }
+        function volver() {
+            alert("me voy");
+            document.getElementById("<%=txtNombreProgreso.ClientID%>").value = " ";
+            document.getElementById("<%=txtNota1.ClientID%>").value = " ";
+            document.getElementById("<%=txtNota2.ClientID%>").value = " ";
+            document.getElementById("<%=txtNota3.ClientID%>").value = " ";
+            document.getElementById("<%=txtNota4.ClientID%>").value = " ";
+            location.href = "http://localhost:65359/W_Listar_Alumnos.aspx";
+        }
+        function registrar() {
+            prueba();
+            var dni=sessionStorage.getItem("dni");
+            $.ajax({
+                type: "POST",
+                url: "W_Gestionar_Progreso.aspx/registrar",
+                data: '{VP_NombreProgreso: "' + progreso + '",DP_NotaPasos: "' + nota1 + '",DP_NotaTecnica: "' + nota2 + '",DP_NotaInteres: "' + nota3 + '",DP_NotaHabilidad: "' + nota4 + '",DP_TotalNota: "' + promedio + '",VP_Observacion: "' + observacion + '",dni: "' + dni + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess,
+                failure: function (response) {
+                    alert("fallò" + response.d);
+                }
+            });
 
         }
+        function OnSuccess(response) {
+            alert(response.d);
+            alert("Me voy");
+            location.href = "http://localhost:65359/W_Listar_Alumnos.aspx";
+        }
+
     </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+  
     <div class="col-lg-12 col-md-12 col-sm-12 card-header">
         <h2>Gestionar Progreso</h2>
     </div>
@@ -91,7 +144,7 @@
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
                                             <ContentTemplate>
                                                 <div class="col-lg-2 col-md-2 col-sm-6">
-                                                    <asp:Button ID="btnCalcular" runat="server" Text="Calcular" CssClass="btn btn-fill btn-info" OnClick="btnCalcular_Click"/>
+                                                    <asp:Button ID="btnCalcular" runat="server" Text="Calcular" CssClass="btn btn-fill btn-info" OnClientClick="prueba()"/>
                                                 </div>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
@@ -99,7 +152,7 @@
                                             <label class="col-md-2 label-on-left">Promedio:</label>
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
-                                                <asp:TextBox ID="txtNotaTotal" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtNotaTotal"  runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sd-6">
@@ -126,12 +179,12 @@
                                         <asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
                                             <ContentTemplate>
                                                 <div class="col-lg-2 col-md-2 col-sm-6">
-                                                    <asp:Button ID="btnRegistrar" runat="server" Text="Guardar" CssClass="btn btn-fill btn-success" OnClick="btnRegistrar_Click" />
+                                                    <asp:Button ID="btnRegistrar" runat="server" Text="Guardar" CssClass="btn btn-fill btn-success" OnClientClick="registrar()" />
                                                 </div>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
                                         <div class="col-lg-2 col-md-2 col-sm-6">
-                                            <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-fill btn-danger" OnClick="btnRegresar_Click" />
+                                              <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-fill btn-danger" UseSubmitBehavior="false" OnClientClick="volver()"/>
                                         </div>
                                     </div>
                                 </ContentTemplate>
@@ -143,3 +196,4 @@
         </div>
     </div>
 </asp:Content>
+

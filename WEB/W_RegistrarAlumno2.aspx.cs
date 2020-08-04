@@ -52,7 +52,7 @@ namespace WEB
                 objDtoAlumno.VU_NAcademia = "TUSUY PERU";
                 objDtoAlumno.VU_Correo = txtCorreo.Text;
                 objDtoAlumno.VU_Celular = txtCelular.Text;
-                objDtoAlumno.VU_Estado = Convert.ToString(ddlEstado.SelectedValue);
+                objDtoAlumno.VU_Estado = "Activo";
                 objDtoAlumno.VU_Horario = Convert.ToString(ddlHorario.SelectedValue);
                 objDtoAlumno.VU_Direccion = txtDireccion.Text;
                 int anio = objDtoAlumno.DTU_FechaNacimiento.Year;

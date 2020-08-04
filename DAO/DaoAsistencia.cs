@@ -12,8 +12,10 @@ namespace DAO
     public class DaoAsistencia
     {
         SqlConnection conexion;
+        
         public DaoAsistencia()
         {
+           
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
         public void ObtenerAlumnoAsis(DtoUsuario objUsuario)
@@ -50,7 +52,7 @@ namespace DAO
                 SqlCommand command = new SqlCommand("SP_RegistrarAsistencia", conexion);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@estado", objdtoAsis.VA_EstadoAsistencia);
-                command.Parameters.AddWithValue("@fecha", objdtoAsis.fecha);
+                command.Parameters.AddWithValue("@fecha", objdtoAsis.DTA_Fecha);
                 command.Parameters.AddWithValue("@dni", objdtoAsis.FK_VU_Dni);
 
                 conexion.Open();
@@ -80,5 +82,40 @@ namespace DAO
             listanivel.Fill(DS);
             return DS;
         }
+        public DataSet BuscarTipoNivel_Nivel()
+        {
+            SqlDataAdapter listanivel = new SqlDataAdapter("SP_MostrarTipoNivel_Nivel", conexion);
+            listanivel.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataSet DS = new DataSet();
+            listanivel.Fill(DS);
+            return DS;
+        }
+        public int obtenerPKdni(string dni)
+        {
+            int result=0;
+
+            conexion.Open();
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SP_ObtenerCodAsi", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@dni", dni);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    result = (int)reader["PK_IA_CodAsi"];
+                }
+              //  return result;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Oops!." + ex.Message);
+            }
+
+            return result;
+        } 
+
     }
 }
