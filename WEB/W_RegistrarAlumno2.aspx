@@ -76,12 +76,19 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sd-6">
+                                            <label class="col-md-2 label-on-left">Direccion:</label>
+                                            <div class="form-group label-floating is-empty">
+                                                <label class="control-label"></label>
+                                                <asp:TextBox ID="txtDireccion" runat="server" placeHolder="Ingresa tu direccion" class="form-control" MaxLength="50" required></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <%--<div class="col-lg-4 col-md-4 col-sd-6">
                                             <label class="col-md-2 label-on-left">Academia</label>
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
-                                                <asp:TextBox ID="txtNombreAcademia" runat="server" class="form-control" Text="TUSUY PERU" Enabled="false"></asp:TextBox>
+                                                <asp:TextBox ID="txtNombreAcademia" runat="server" class="form-control" Text="TUSUY PERU"></asp:TextBox>
                                             </div>
-                                        </div>
+                                        </div>--%>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4 col-sd-6">
@@ -98,21 +105,18 @@
                                                 <asp:TextBox ID="txtCelular" runat="server" class="form-control" required></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sd-6">
-                                            <label class="col-md-2 label-on-left">Direccion:</label>
-                                            <div class="form-group label-floating is-empty">
-                                                <label class="control-label"></label>
-                                                <asp:TextBox ID="txtDireccion" runat="server" placeHolder="Ingresa tu direccion" class="form-control" MaxLength="50" required></asp:TextBox>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                     <div class="row">
                                         <%--<div class="col-lg-4 col-md-4 col-sd-6">
                                             <label class="col-md-2 label-on-left">Estado:</label>
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
-                                                <asp:TextBox ID="TextBox1" runat="server" class="form-control" Text="TUSUY PERU" Enabled="false"></asp:TextBox>
-                                            
+                                                <asp:DropDownList ID="ddlEstado" runat="server" CssClass="selectpicker">
+                                                    <asp:ListItem Text="---Seleccione----" Value="0" Selected="True"></asp:ListItem>
+                                                    <asp:ListItem Text="Activo" Value="Activo"></asp:ListItem>
+                                                    <asp:ListItem Text="Inactivo" Value="Inactivo"></asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>--%>
                                         <%--<asp:Panel ID="Panel2" runat="server" CssClass="col-lg-6 col-md-6 col-sd-12">--%>

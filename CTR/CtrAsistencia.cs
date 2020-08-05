@@ -42,5 +42,10 @@ namespace CTR
         {
             return objDaoAsistencia.obtenerPKdni(dni);
         }
+
+        public DataTable ListarAsistencias_()
+        {
+            return objDaoAsistencia.ListarAsistenciasA();
+        }
     }
 }

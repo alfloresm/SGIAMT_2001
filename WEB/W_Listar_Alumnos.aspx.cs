@@ -29,7 +29,7 @@ namespace WEB
             if (!IsPostBack)
             {
                 _log.CustomWriteOnLog("administrar asistencia", "cargo: ");
-                llenarClases();
+                //llenarClases();
                 llenarTipoNivel();
                 llenarNivel();
                 Label1.Text = DateTime.Today.Date.ToString("dd-MM-yyyy");
@@ -37,16 +37,16 @@ namespace WEB
             }
         }
 
-        public void llenarClases()
-        {
-            DataSet ds = new DataSet();
-            ds = objCtrNivelTipoNivel.desplegableClase();
-            ddlClase.DataSource = ds;
-            ddlClase.DataTextField = "FK_ITN_CodTipoNivel";
-            ddlClase.DataValueField = "FK_ITN_CodTipoNivel";
-            ddlClase.DataBind();
-            ddlClase.Items.Insert(0, new ListItem("Seleccione", "0"));
-        }
+        //public void llenarClases()
+        //{
+        //    DataSet ds = new DataSet();
+        //    ds = objCtrNivelTipoNivel.desplegableClase();
+        //    ddlClase.DataSource = ds;
+        //    ddlClase.DataTextField = "FK_ITN_CodTipoNivel";
+        //    ddlClase.DataValueField = "FK_ITN_CodTipoNivel";
+        //    ddlClase.DataBind();
+        //    ddlClase.Items.Insert(0, new ListItem("Seleccione", "0"));
+        //}
         public void llenarTipoNivel()
         {
             DataSet ds = new DataSet();
@@ -80,8 +80,7 @@ namespace WEB
             dtoNiivelTipoNivel.FK_ITN_CodTipoNivel = Convert.ToInt32(ddlTipoNivel.SelectedValue);
             dtoNiivelTipoNivel.FK_IN_CodNivel = Convert.ToInt32(ddlNivel.SelectedValue);
             objctrasis.buscarDdl();
-            _log.CustomWriteOnLog("administrar asistencia", Convert.ToInt32(ddlClase.SelectedValue).ToString());
-
+            //_log.CustomWriteOnLog("administrar asistencia", Convert.ToInt32(ddlClase.SelectedValue).ToString());
         }
 
         protected void GVAlumnos_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -130,47 +129,6 @@ namespace WEB
             }
         }
 
-        //protected void btnGuardar_Click1(object sender, EventArgs e)
-        //{
-        //    string m = "Holaaa";
-
-        //    Utils.AddScriptClientUpdatePanel(upBotonEnviar2, "showMessage('top','center','" + m + "','success')");
-
-        //    _log.CustomWriteOnLog("registrar asistencia", "1");
-
-        //    _log.CustomWriteOnLog("registrar asistencia", "es:" + objdtoAsis.VA_EstadoAsistencia.ToString());
-        //    if (rbAsiste.Checked)
-        //    {
-
-        //        objdtoAsis.VA_EstadoAsistencia = "Asistió";
-
-        //    }
-
-        //    else if (rbFalta.Checked)
-
-        //    {
-        //        objdtoAsis.VA_EstadoAsistencia = "Faltó";
-        //    }
-
-
-        //    _log.CustomWriteOnLog("registrar asistencia", "es:" + objdtoAsis.DTA_Fecha.ToString());
-        //    objdtoAsis.DTA_Fecha = DateTime.Now;
-
-        //    _log.CustomWriteOnLog("registrar asistencia", "es:" + objdtoAsis.FK_VU_Dni.ToString());
-        //    objdtoAsis.FK_VU_Dni = txtDni.Text;
-        //    objctrasis.RegistrarAsistencia(objdtoAsis);
-        //    //string m = "Se registró correctamente";
-
-        //    //Utils.AddScriptClientUpdatePanel(upBotonEnviar2, "showMessage('top','center','" + m + "','success')");
-        //    //_log.CustomWriteOnLog("registrar asistencia", "registro: ");
-        //    //UpdatePanel1.Update();
-        //}
-
-        protected void btnGuardarAsis_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/W_Listar_Alumnos.aspx");
@@ -208,6 +166,14 @@ namespace WEB
 
         }
 
+        protected void btnVerAsistencia_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/W_Listar_Asistencias.aspx");
+        }
 
+        protected void btnVerProgreso_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/W_Listar_Progresos.aspx");
+        }
     }
 }

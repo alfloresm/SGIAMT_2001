@@ -12,10 +12,8 @@
 
             var dni = document.getElementById("<%=txtDni.ClientID %>").value;
             sessionStorage.setItem("dni", dni);
-            alert("El valor del dni de la sesion es :"+sessionStorage.getItem("dni"));
             var estado = $('input:radio[name=asistencia]:checked').val();
-            //var estado = document.getElementById("<%--<%=txtEstado.ClientID %>--%>").value;
-            alert("hola" + dni + " y " + estado);
+            
             $.ajax({
                 type: "POST",
                 url: "W_Listar_Alumnos.aspx/GetCurrentTime",
@@ -24,12 +22,29 @@
                 dataType: "json",
                 success: OnSuccess,
                 failure: function (response) {
-                    alert("fallò" + response.d);
+                    alert("falló" + response.d);
                 }
             });
         }
         function OnSuccess(response) {
-            alert("hola"+response.d);
+            //alert("hola"+response.d);
+            $(document).ready(function () {                //toastr.options.timeOut = 1000; // 1s                //toastr.info('Page Loaded!');                //toastr.success('Se ha registrado la asistencia con éxito');                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-center",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "1000",
+                    "hideDuration": "1000",
+                    "timeOut": "1000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }            });
         }
     </script>
 </asp:Content>
@@ -56,11 +71,11 @@
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-1 text-center">
                                             <div class="col-md-6">
-                                                <div class="col-md-8 form-group form-search is-empty">
+                                                <%--<div class="col-md-8 form-group form-search is-empty">
                                                     <asp:DropDownList ID="ddlClase" runat="server" CssClass="selectpicker"></asp:DropDownList>
                                                     <span class="material-input"></span>
                                                     <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
-                                                </div>
+                                                </div>--%>
                                                 <div class="col-md-8 form-group form-search is-empty">
                                                     <asp:DropDownList ID="ddlTipoNivel" runat="server" CssClass="selectpicker"></asp:DropDownList>
                                                     <span class="material-input"></span>
@@ -81,17 +96,13 @@
                                                 </asp:UpdatePanel>
                                             </div>
                                             <%--<asp:Button runat="server" Text="BUSCAR" ID="btnBuscar" CssClass="btn btn-fill btn-success" />--%>
-                                            <div class="col-md-6">
-                                                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-
-                                            </div>
+                                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                                         </div>
                                         <%--<div class="col-md-4 col-md-offset-2 text-center">
                                             <asp:Button runat="server" Text="ACTUALIZAR CATEGORIAS" ID="btnActualizarC" CssClass="btn bg-indigo waves-effect" OnClick="btnActualizarCat_Click" />
                                         </div>--%>
                                     </div>
-
-
+                                    
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-1">
                                             <div class="card-content">
@@ -120,7 +131,7 @@
                                                             <ControlStyle CssClass="btn btn-sm btn-round" BackColor="#00BCD4" />
                                                         </asp:ButtonField>
                                                         <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnProgreso" Text="Progreso" HeaderText="Opciones" CommandName="Progreso">
-                                                            <ControlStyle CssClass="btn btn-default" />
+                                                            <ControlStyle CssClass="btn btn-sm btn-round" BackColor="#FF9800" />
                                                         </asp:ButtonField>
                                                         <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnDetalle" Text="📄" HeaderText="Ver" CommandName="Detalle">
                                                             <ControlStyle CssClass="btn btn-sm btn-round" BackColor="#4CAF50" />
@@ -142,13 +153,20 @@
                                         <asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
                                             <ContentTemplate>
                                                 <div class="col-lg-2 col-md-2 col-sm-6">
-                                                    <asp:Button ID="btnGuardarAsis" runat="server" Text="Guardar" CssClass="btn btn-fill btn-success" OnClick="btnGuardarAsis_Click" />
+                                                    <asp:Button ID="btnVerAsistencia" runat="server" Text="Ver Asistencia" CssClass="btn btn-fill btn-success" OnClick="btnVerAsistencia_Click" />
                                                 </div>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
-                                        <div class="col-lg-2 col-md-2 col-sm-6">
+                                        <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <div class="col-lg-2 col-md-2 col-sm-6">
+                                                    <asp:Button ID="btnVerProgreso" runat="server" Text="Ver Progreso" CssClass="btn btn-fill btn-success" OnClick="btnVerProgreso_Click" />
+                                                </div>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                        <%--<div class="col-lg-2 col-md-2 col-sm-6">
                                             <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-fill btn-danger" OnClick="btnRegresar_Click" />
-                                        </div>
+                                        </div>--%>
                                     </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
@@ -204,4 +222,21 @@
             </div>
         </div>
     </form>
+    <script>$(function () {
+            $(".dataTable").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable({
+                "bProcessing": false,
+                "bLengthChange": false,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Buscar registros",
+                    lengthMenu: "Mostrar _MENU_ registros",
+                    paginate: false,
+
+                },
+                "paging": false,
+                "info": false,
+                responsive: true
+            });
+        });
+    </script>
 </asp:Content>

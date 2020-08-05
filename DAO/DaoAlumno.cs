@@ -16,7 +16,6 @@ namespace DAO
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-
         public void RegistrarAlumno(DtoUsuario objAlumno)
         {
 
@@ -80,7 +79,6 @@ namespace DAO
 
             }
         }
-
         public DataSet desplegarNivel()
         {
             SqlDataAdapter listanivel = new SqlDataAdapter("SP_DesplegableNivel2", conexion);
@@ -89,6 +87,18 @@ namespace DAO
             listanivel.Fill(DS);
             return DS;
         }
-        
+        public DataTable ListarAlumnosTodosA()
+        {
+            SqlConnection con = new SqlConnection(@"data source=LAPTOP-VLJRLSBM\SQLEXPRESS; initial catalog=BD_SGIAMT; integrated security=SSPI;");
+            DataTable dtAsistencia = null;
+            con.Open();
+            SqlCommand command = new SqlCommand("SP_Listar_Alumnos_Total", con);
+            SqlDataAdapter daAdaptador = new SqlDataAdapter(command);
+            command.CommandType = CommandType.StoredProcedure;
+            dtAsistencia = new DataTable();
+            daAdaptador.Fill(dtAsistencia);
+            con.Close();
+            return dtAsistencia;
+        }
     }
 }

@@ -40,24 +40,6 @@ namespace WEB {
         protected global::System.Web.UI.UpdatePanel UpdatePanel;
         
         /// <summary>
-        /// Control ddlClase.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlClase;
-        
-        /// <summary>
-        /// Control lblMensaje1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMensaje1;
-        
-        /// <summary>
         /// Control ddlTipoNivel.
         /// </summary>
         /// <remarks>
@@ -139,22 +121,31 @@ namespace WEB {
         protected global::System.Web.UI.UpdatePanel upBotonEnviar;
         
         /// <summary>
-        /// Control btnGuardarAsis.
+        /// Control btnVerAsistencia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardarAsis;
+        protected global::System.Web.UI.WebControls.Button btnVerAsistencia;
         
         /// <summary>
-        /// Control btnRegresar.
+        /// Control UpdatePanel2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegresar;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        
+        /// <summary>
+        /// Control btnVerProgreso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVerProgreso;
         
         /// <summary>
         /// Control updPanelModal.

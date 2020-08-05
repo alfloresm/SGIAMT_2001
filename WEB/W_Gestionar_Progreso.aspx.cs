@@ -18,6 +18,7 @@ namespace WEB
         DtoAsistencia objdtoAsistencia = new DtoAsistencia();
 
         Log _log = new Log();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -28,20 +29,18 @@ namespace WEB
 
                     txtPagina.InnerText = "Actualizar Progreso";
                     btnRegistrar.Text = "Actualizar";
-                    //Panel1.Visible = true;
-                    //Panel2.Visible = true;
-                    //obtenerConcurso(Request.Params["Id"]);
+                    
 
                 }
                 else
                 {
                     txtPagina.InnerText = "Registrar Progreso";
                     btnRegistrar.Text = "Registrar";
-                    //Panel1.Visible = false;
-                    //Panel2.Visible = false;
+                    
                 }
             }
         }
+ 
 
         [System.Web.Services.WebMethod]
         public static string registrar(string VP_NombreProgreso, double DP_NotaPasos, double DP_NotaTecnica, double DP_NotaInteres, double DP_NotaHabilidad, double DP_TotalNota, string VP_Observacion,string dni)
@@ -50,11 +49,13 @@ namespace WEB
             CtrProgreso objCtrprogreso = new CtrProgreso();
             CtrAsistencia objctrasis = new CtrAsistencia();
             Log _log = new Log();
+       
             
             String valor;
             try
             {
                 _log.CustomWriteOnLog("listar alumnos", "el valor del dni es:" + dni);
+
                 int codigopk = objctrasis.obtenerIdAsis(dni);
                 _log.CustomWriteOnLog("listar alumnos", "el valor del codigopk es:" + codigopk);
 
@@ -67,7 +68,10 @@ namespace WEB
                 objDtoProgreso.VP_Observacion = VP_Observacion;
                 objDtoProgreso.FK_IA_CodAsi = codigopk;
                 objCtrprogreso.RegistrarProgresoAlumno(objDtoProgreso);
-                valor = "todo Bien, todo Correcto";
+                valor = "Todo Bien, todo Correcto";
+
+                //string m = "Se registró correctamente el progreso del alumno";
+                //Utils.AddScriptClientUpdatePanel(upBotonEnviar2, "showMessage('top','center','" + m + "','success')");
             }
             catch (Exception e)
             {
@@ -86,7 +90,7 @@ namespace WEB
                 objDtoProgreso.DP_NotaTecnica = Convert.ToDouble(txtNota2.Text);
                 objDtoProgreso.DP_NotaInteres = Convert.ToDouble(txtNota3.Text);
                 objDtoProgreso.DP_NotaHabilidad = Convert.ToDouble(txtNota4.Text);
-                txtNotaTotal.Text = calcularNotas().ToString();
+                //txtNotaTotal.Text = calcularNotas().ToString();
 
                 objDtoProgreso.DP_TotalNota = Convert.ToDouble(txtNotaTotal.Text);
                 _log.CustomWriteOnLog("registrar progreso", txtObservacion.Text);
@@ -97,12 +101,12 @@ namespace WEB
                 objCtrprogreso.RegistrarProgresoAlumno(objDtoProgreso);
                 string m = "Se registró correctamente el progreso del alumno";
 
-                Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
+                Utils.AddScriptClientUpdatePanel(upBotonEnviar2, "showMessage('top','center','" + m + "','success')");
             }
 
             catch (Exception ex)
             {
-                _log.CustomWriteOnLog("registrar pago", "Error : " + ex.Message + "Stac" + ex.StackTrace);
+                _log.CustomWriteOnLog("registrar progreso", "Error : " + ex.Message + "Stac" + ex.StackTrace);
             }
         }
 
@@ -111,41 +115,19 @@ namespace WEB
             Response.Redirect("~/W_Listar_Alumnos.aspx");
         }
 
-        public double calcularNotas()
-        {
-            double n1 = double.Parse(txtNota1.Text);
-            double n2 = double.Parse(txtNota2.Text);
-            double n3 = double.Parse(txtNota3.Text);
-            double n4 = double.Parse(txtNota4.Text);
-            double total = (n1 + n2 + n3 + n4) / 4;
-            _log.CustomWriteOnLog("registrar progreso", "promedio:" + txtNotaTotal);
-            txtNotaTotal.Text = total.ToString();
-            _log.CustomWriteOnLog("registrar progreso", "porcentaje:" + txtProgresoP);
-            txtProgresoP.Text = ((total * 100) / 20).ToString() + " %";
-            return total;
-        }
+        //public double calcularNotas()
+        //{
+        //    double n1 = double.Parse(txtNota1.Text);
+        //    double n2 = double.Parse(txtNota2.Text);
+        //    double n3 = double.Parse(txtNota3.Text);
+        //    double n4 = double.Parse(txtNota4.Text);
+        //    double total = (n1 + n2 + n3 + n4) / 4;
+        //    _log.CustomWriteOnLog("registrar progreso", "promedio:" + txtNotaTotal);
+        //    txtNotaTotal.Text = total.ToString();
+        //    _log.CustomWriteOnLog("registrar progreso", "porcentaje:" + txtProgresoP);
+        //    txtProgresoP.Text = ((total * 100) / 20).ToString() + " %";
+        //    return total;
+        //}
 
-        protected void btnCalcular_Click(object sender, EventArgs e)
-        {
-            double n1 = double.Parse(txtNota1.Text);
-            double n2 = double.Parse(txtNota2.Text);
-            double n3 = double.Parse(txtNota3.Text);
-            double n4 = double.Parse(txtNota4.Text);
-            double total = (n1 + n2 + n3 + n4) / 4;
-            txtNotaTotal.Text = total.ToString();
-            //txtProgreso.Text = ((total * 100) / 20).ToString() + " %";
-        }
-
-        protected void btnCalcular_Click1(object sender, EventArgs e)
-        {
-            double n1 = double.Parse(txtNota1.Text);
-            double n2 = double.Parse(txtNota2.Text);
-            double n3 = double.Parse(txtNota3.Text);
-            double n4 = double.Parse(txtNota4.Text);
-            double total = (n1 + n2 + n3 + n4) / 4;
-            txtProgresoP.Text = ((total * 100) / 20).ToString() + " %";
-            txtNotaTotal.Text = "" + total.ToString();
-
-        }
     }
 }

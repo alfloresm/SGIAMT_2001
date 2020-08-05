@@ -33,6 +33,9 @@ namespace CTR
         {
             return objDaoAlumno.desplegarNivel();
         }
-
+        public DataTable ListarAlumnosTodos_()
+        {
+            return objDaoAlumno.ListarAlumnosTodosA();
+        }
     }
 }

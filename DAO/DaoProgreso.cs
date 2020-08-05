@@ -33,5 +33,19 @@ namespace DAO
             command.ExecuteNonQuery();
             conexion.Close();
         }
+
+        public DataTable ListarProgresosA()
+        {
+            SqlConnection con = new SqlConnection(@"data source=LAPTOP-VLJRLSBM\SQLEXPRESS; initial catalog=BD_SGIAMT; integrated security=SSPI;");
+            DataTable dtAsistencia = null;
+            con.Open();
+            SqlCommand command = new SqlCommand("SP_Listar_Alumnos_Progreso", con);
+            SqlDataAdapter daAdaptador = new SqlDataAdapter(command);
+            command.CommandType = CommandType.StoredProcedure;
+            dtAsistencia = new DataTable();
+            daAdaptador.Fill(dtAsistencia);
+            con.Close();
+            return dtAsistencia;
+        }
     }
 }
