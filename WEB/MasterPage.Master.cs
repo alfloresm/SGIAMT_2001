@@ -13,7 +13,8 @@ namespace WEB
         Log log = new Log();
         protected void Page_Load(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 if (!IsPostBack)
                 {
 
@@ -23,7 +24,7 @@ namespace WEB
                     int perfil = int.Parse(Session["id_perfil"].ToString());
                     lblNombre.Text = Session["NombreUsuario"].ToString() + " " + Session["ApellidoP"].ToString() + " " + Session["ApellidoM"].ToString();
 
-                    
+
                     switch (perfil)
                     {
                         case 3://gerente
@@ -52,17 +53,17 @@ namespace WEB
                     //Session.Clear();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 log.CustomWriteOnLog("Master", "Error : " + ex.Message + "Stac" + ex.StackTrace);
             }
         }
         public void perfil_Usuario_Gerente()
         {
-            
+
             log.CustomWriteOnLog("Master", " Session['NombreUsuario'] " + Session["NombreUsuario"]);
             string dni = Session["DNIUsuario"].ToString();
-            
+
             string html = string.Format(@"
                          
                 <ul class='nav'>
@@ -156,7 +157,7 @@ namespace WEB
                                     <a href = 'W_Registrar_Pago.aspx' > Registrar Pago</a>
                                 </li>
                                 <li>
-                                    <a href = '#' > Listar Alumno</a>
+                                    <a href = 'W_Listado_Alumnos_General.aspx'> Listado Alumnos</a>
                                 </li>
                             </ul>
                         </div>
@@ -226,6 +227,12 @@ namespace WEB
                             <ul class='nav'>
                                 <li>
                                     <a href = 'W_Listar_Alumnos.aspx' > Listar Alumno</a>
+                                </li>
+                                <li>
+                                    <a href = 'W_Listar_Asistencias.aspx' > Listar Asistencias</a>
+                                </li>
+                                <li>
+                                    <a href = 'W_Listar_Progresos.aspx' > Listar Progresos</a>
                                 </li>
                             </ul>
                         </div>
