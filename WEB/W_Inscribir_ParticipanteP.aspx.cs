@@ -30,7 +30,6 @@ namespace WEB
                 H1.InnerText = "S/.";
                 lblMensaje1.Text = "";
                 lblmensaje2.Text = "";
-                PanelModalidades.Visible = false;
             }
 
         }
@@ -57,7 +56,7 @@ namespace WEB
             lblprecioN.Text = objCon.DC_PrecioNovel.ToString();
             string m = "Precios Calculados";
             Utils.AddScriptClientUpdatePanel(upnBotonBuscar1, "showMessage('top','center','" + m + "','successs')");
-            PanelModalidades.Visible = true;
+            
            
         }
         protected void RbSeriado_CheckedChanged(object sender, EventArgs e)

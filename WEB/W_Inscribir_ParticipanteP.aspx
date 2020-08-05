@@ -42,7 +42,7 @@
                                             <asp:Label ID="lblprecioN" runat="server" Text="" Visible="false"></asp:Label>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
-                                    <asp:Panel ID="PanelModalidades" runat="server">
+                                   
                                         <div class="col-md-6 checkbox-radios">
                                             <label class="col-md-12 label-on-left">Modalidad</label>
                                             </br>
@@ -63,7 +63,7 @@
                                                     ForeColor="Black" />
                                             </div>
                                         </div>
-                                    </asp:Panel>
+                                    
                                 </div>
                                 <br />
                                 <br />
