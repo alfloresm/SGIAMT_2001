@@ -35,9 +35,9 @@ namespace WEB
             ddlNivel.DataTextField = "VN_NombreNivel";
             ddlNivel.DataValueField = "PK_IN_CodNivel";
             ddlNivel.DataBind();
-            ddlNivel.Items.Insert(0, new ListItem("Seleccione","0"));
+            ddlNivel.Items.Insert(0, new ListItem("Seleccione", "0"));
         }
-        protected void btnRegistrar_Click(object sender, EventArgs e)
+        public void btnRegistrar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -52,13 +52,13 @@ namespace WEB
                 objDtoAlumno.VU_NAcademia = "TUSUY PERU";
                 objDtoAlumno.VU_Correo = txtCorreo.Text;
                 objDtoAlumno.VU_Celular = txtCelular.Text;
-                objDtoAlumno.VU_Estado = Convert.ToString(ddlEstado.SelectedValue);
+                objDtoAlumno.VU_Estado = "Activo";
                 objDtoAlumno.VU_Horario = Convert.ToString(ddlHorario.SelectedValue);
                 objDtoAlumno.VU_Direccion = txtDireccion.Text;
                 int anio = objDtoAlumno.DTU_FechaNacimiento.Year;
                 _log.CustomWriteOnLog("registrar alumno", "dato alumno: " + objctralumno.devolverCategoria(anio));
                 objDtoAlumno.FK_ICA_CodCat = objctralumno.devolverCategoria(anio);
-               _log.CustomWriteOnLog("registrar alumno", "dato alumno: " + objDtoAlumno.PK_IU_DNI.ToString());
+                _log.CustomWriteOnLog("registrar alumno", "dato alumno: " + objDtoAlumno.PK_IU_DNI.ToString());
                 objDtoAlumno.FK_IN_CodNivel = Convert.ToInt32(ddlNivel.SelectedValue);
 
                 if (anio >= 2012 && anio <= 2016)
@@ -67,14 +67,14 @@ namespace WEB
                 }
                 else
                     if (anio >= 2008 && anio <= 2013)
-                    {
-                        objDtoAlumno.FK_ITN_TipoNivel = 2;
-                    }
+                {
+                    objDtoAlumno.FK_ITN_TipoNivel = 2;
+                }
                 else
                     if (anio <= 2007)
-                    {
-                        objDtoAlumno.FK_ITN_TipoNivel = 3;
-                    }
+                {
+                    objDtoAlumno.FK_ITN_TipoNivel = 3;
+                }
 
                 objctralumno.RegistrarAlumno(objDtoAlumno);
                 string m = "Se registró correctamente";
@@ -82,7 +82,7 @@ namespace WEB
                 Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
                 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _log.CustomWriteOnLog("registrar alumno", "Error : " + ex.Message + "Stac" + ex.StackTrace);
             }
@@ -91,7 +91,7 @@ namespace WEB
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/W_Index.aspx");
+            Response.Redirect("~/W_Listado_Alumnos_General.aspx");
         }
 
     }

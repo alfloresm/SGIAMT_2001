@@ -247,10 +247,13 @@
     <Content Include="MASTER_EXTERNO\W_RegistrarParticipante.aspx" />
     <Content Include="Web.config" />
     <Content Include="W_Calificar_Participante.aspx" />
-    <Content Include="W_Gestionar_Progreso.aspx" />
-    <Content Include="W_Listar_Alumnos.aspx" />
     <Content Include="W_GestionarConcurso.aspx" />
+    <Content Include="W_Gestionar_Progreso.aspx" />
     <Content Include="W_Inscribir_ParticipanteP.aspx" />
+    <Content Include="W_Listado_Alumnos_General.aspx" />
+    <Content Include="W_Listar_Alumnos.aspx" />
+    <Content Include="W_Listar_Asistencias.aspx" />
+    <Content Include="W_Listar_Progresos.aspx" />
     <Content Include="W_RegistrarAlumno2.aspx" />
     <Content Include="W_RegistrarConcurso.aspx" />
     <Content Include="W_Administrar_Asistencia.aspx" />
@@ -307,12 +310,33 @@
     <Compile Include="W_Calificar_Participante.aspx.designer.cs">
       <DependentUpon>W_Calificar_Participante.aspx</DependentUpon>
     </Compile>
+    <Compile Include="W_GestionarConcurso.aspx.cs">
+      <DependentUpon>W_GestionarConcurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="W_GestionarConcurso.aspx.designer.cs">
+      <DependentUpon>W_GestionarConcurso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="W_Gestionar_Progreso.aspx.cs">
       <DependentUpon>W_Gestionar_Progreso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="W_Gestionar_Progreso.aspx.designer.cs">
       <DependentUpon>W_Gestionar_Progreso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="W_Inscribir_ParticipanteP.aspx.cs">
+      <DependentUpon>W_Inscribir_ParticipanteP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="W_Inscribir_ParticipanteP.aspx.designer.cs">
+      <DependentUpon>W_Inscribir_ParticipanteP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="W_Listado_Alumnos_General.aspx.cs">
+      <DependentUpon>W_Listado_Alumnos_General.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="W_Listado_Alumnos_General.aspx.designer.cs">
+      <DependentUpon>W_Listado_Alumnos_General.aspx</DependentUpon>
     </Compile>
     <Compile Include="W_Listar_Alumnos.aspx.cs">
       <DependentUpon>W_Listar_Alumnos.aspx</DependentUpon>
@@ -321,19 +345,19 @@
     <Compile Include="W_Listar_Alumnos.aspx.designer.cs">
       <DependentUpon>W_Listar_Alumnos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="W_GestionarConcurso.aspx.cs">
-      <DependentUpon>W_GestionarConcurso.aspx</DependentUpon>
+    <Compile Include="W_Listar_Asistencias.aspx.cs">
+      <DependentUpon>W_Listar_Asistencias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="W_GestionarConcurso.aspx.designer.cs">
-      <DependentUpon>W_GestionarConcurso.aspx</DependentUpon>
+    <Compile Include="W_Listar_Asistencias.aspx.designer.cs">
+      <DependentUpon>W_Listar_Asistencias.aspx</DependentUpon>
     </Compile>
-    <Compile Include="W_Inscribir_ParticipanteP.aspx.cs">
-      <DependentUpon>W_Inscribir_ParticipanteP.aspx</DependentUpon>
+    <Compile Include="W_Listar_Progresos.aspx.cs">
+      <DependentUpon>W_Listar_Progresos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="W_Inscribir_ParticipanteP.aspx.designer.cs">
-      <DependentUpon>W_Inscribir_ParticipanteP.aspx</DependentUpon>
+    <Compile Include="W_Listar_Progresos.aspx.designer.cs">
+      <DependentUpon>W_Listar_Progresos.aspx</DependentUpon>
     </Compile>
     <Compile Include="W_RegistrarAlumno2.aspx.cs">
       <DependentUpon>W_RegistrarAlumno2.aspx</DependentUpon>

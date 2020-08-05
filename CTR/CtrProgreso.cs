@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DTO;
+using System.Data;
 using DAO;
+using DTO;
 
 namespace CTR
 {
@@ -19,6 +20,11 @@ namespace CTR
         public void RegistrarProgresoAlumno(DtoProgreso objPro)
         {
             objDaoProgreso.RegistrarProgreso(objPro);
+        }
+
+        public DataTable ListarProgresos_()
+        {
+            return objDaoProgreso.ListarProgresosA();
         }
     }
 }

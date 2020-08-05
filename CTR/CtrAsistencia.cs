@@ -26,5 +26,26 @@ namespace CTR
         {
             objDaoAsistencia.RegistrarAsistencia(objAsis);
         }
+        public DataSet desplegableTipoNivel()
+        {
+            return objDaoAsistencia.desplegarTipoNivel();
+        }
+        public DataSet desplegableNivel()
+        {
+            return objDaoAsistencia.desplegarNivel();
+        }
+        public DataSet buscarDdl()
+        {
+            return objDaoAsistencia.BuscarTipoNivel_Nivel();
+        }
+        public int obtenerIdAsis(string dni)
+        {
+            return objDaoAsistencia.obtenerPKdni(dni);
+        }
+
+        public DataTable ListarAsistencias_()
+        {
+            return objDaoAsistencia.ListarAsistenciasA();
+        }
     }
 }
