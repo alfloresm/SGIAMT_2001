@@ -42,26 +42,28 @@
                                             <asp:Label ID="lblprecioN" runat="server" Text="" Visible="false"></asp:Label>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
-                                    <div class="col-md-6 checkbox-radios">
-                                        <label class="col-md-12 label-on-left">Modalidad</label>
-                                        </br>
+                                    <asp:Panel ID="PanelModalidades" runat="server">
+                                        <div class="col-md-6 checkbox-radios">
+                                            <label class="col-md-12 label-on-left">Modalidad</label>
+                                            </br>
                                          </br>
                                          <div class="col-md-4">
                                              <asp:RadioButton ID="RbSeriado" runat="server" Text="Seriado" GroupName="modalidad"
                                                  AutoPostBack="True" OnCheckedChanged="RbSeriado_CheckedChanged" EnableTheming="True" CssClass="radio-inline"
                                                  ForeColor="Black" />
                                          </div>
-                                        <div class="col-md-4">
-                                            <asp:RadioButton ID="RbNovel" runat="server" Text="Novel" GroupName="modalidad"
-                                                AutoPostBack="True" OnCheckedChanged="RbNovel_CheckedChanged" CssClass="radio-inline"
-                                                ForeColor="Black" />
+                                            <div class="col-md-4">
+                                                <asp:RadioButton ID="RbNovel" runat="server" Text="Novel" GroupName="modalidad"
+                                                    AutoPostBack="True" OnCheckedChanged="RbNovel_CheckedChanged" CssClass="radio-inline"
+                                                    ForeColor="Black" />
+                                            </div>
+                                            <div class="col-md-4">
+                                                <asp:RadioButton ID="RbAmbos" runat="server" Text="Ambos" GroupName="modalidad"
+                                                    AutoPostBack="True" OnCheckedChanged="RbAmbos_CheckedChanged" CssClass="radio-inline"
+                                                    ForeColor="Black" />
+                                            </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <asp:RadioButton ID="RbAmbos" runat="server" Text="Ambos" GroupName="modalidad"
-                                                AutoPostBack="True" OnCheckedChanged="RbAmbos_CheckedChanged" CssClass="radio-inline"
-                                                ForeColor="Black" />
-                                        </div>
-                                    </div>
+                                    </asp:Panel>
                                 </div>
                                 <br />
                                 <br />

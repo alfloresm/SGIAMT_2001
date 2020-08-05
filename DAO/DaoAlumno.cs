@@ -45,7 +45,7 @@ namespace DAO
         //tabla de alumnos para administrar asistencia
         public DataTable ListarAlumnosA()
         {
-            SqlConnection con = new SqlConnection(@"data source=LAPTOP-VLJRLSBM\SQLEXPRESS; initial catalog=BD_SGIAMT; integrated security=SSPI;");
+            SqlConnection con = new SqlConnection(@"data source=ALE\SQLEXPRESS; initial catalog=BD_SGIAMT; integrated security=SSPI;");
             DataTable dtAlumnos = null;
             con.Open();
             SqlCommand command = new SqlCommand("SP_Listar_Alumnos2", con);
