@@ -89,6 +89,7 @@
     <Content Include="assets\img\flags\DE.png" />
     <Content Include="assets\img\flags\GB.png" />
     <Content Include="assets\img\flags\RO.png" />
+    <Content Include="assets\img\flags\trofeo.png" />
     <Content Include="assets\img\flags\US.png" />
     <Content Include="assets\img\image_placeholder.jpg" />
     <Content Include="assets\img\lock.jpg" />
@@ -246,6 +247,7 @@
     <Content Include="MASTER_EXTERNO\W_Login.aspx" />
     <Content Include="MASTER_EXTERNO\W_RegistrarParticipante.aspx" />
     <Content Include="Web.config" />
+    <Content Include="W_Mostrar_Resultado.aspx" />
     <Content Include="W_Calificar_Participante.aspx" />
     <Content Include="W_GestionarConcurso.aspx" />
     <Content Include="W_Gestionar_Progreso.aspx" />
@@ -303,6 +305,13 @@
       <DependentUpon>W_RegistrarParticipante.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="W_Mostrar_Resultado.aspx.cs">
+      <DependentUpon>W_Mostrar_Resultado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="W_Mostrar_Resultado.aspx.designer.cs">
+      <DependentUpon>W_Mostrar_Resultado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="W_Calificar_Participante.aspx.cs">
       <DependentUpon>W_Calificar_Participante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

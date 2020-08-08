@@ -42,6 +42,9 @@ namespace WEB
                         case 7://gestor
                             perfil_Gestor();
                             break;
+                        case 8://gestor
+                            perfil_Presentador();
+                            break;
                         default:
                             Session.Clear();
                             Session.Abandon();
@@ -271,6 +274,42 @@ namespace WEB
                             </ul>
                         </div>
                     </li> 
+               </ul> ");
+            string img = String.Format(@"<img src='../assets/img/default-avatar.png'/>");
+            this.Literal2.Text = img;
+            this.Literal1.Text = html;
+        }
+        public void perfil_Presentador()
+        {
+            string html = string.Format(@"
+                         
+                <ul class='nav'>
+                    <li class='active'>
+                        <a href = 'MASTER_EXTERNO/index_Externo.html'>
+                            <i class='material-icons'>dashboard</i>
+                            <p>Inicio</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle='collapse' href='#gestionConcurso'>
+                            <i class='material-icons'>emoji_events</i>
+                            <p>
+                                Gestion Concurso
+
+                                <b class='caret'></b>
+                            </p>
+                        </a>
+                        <div class='collapse' id='gestionConcurso'>
+                            <ul class='nav'>
+                                <li>
+                                    <a href = 'W_Mostrar_Resultado.aspx' > Mostrar Resultado</a>
+                                </li>
+                                <li>
+                                    <a href = '#' > Adminitrar Participante</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                </ul> ");
             string img = String.Format(@"<img src='../assets/img/default-avatar.png'/>");
             this.Literal2.Text = img;
