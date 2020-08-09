@@ -5,7 +5,14 @@
 
     <link href="assets/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
     <script type="text/javascript">
         function marcarAsistencia() {
 
@@ -28,25 +35,20 @@
         }
         function OnSuccess(response) {
             //alert("hola"+response.d);
-            $(document).ready(function () {                //toastr.options.timeOut = 1000; // 1s                //toastr.info('Page Loaded!');                //toastr.success('Se ha registrado la asistencia con éxito');                toastr.options = {
-                    "closeButton": true,
-                    "debug": false,
-                    "newestOnTop": false,
-                    "progressBar": false,
-                    "positionClass": "toast-top-center",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "1000",
-                    "hideDuration": "1000",
-                    "timeOut": "1000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                }            });
+            $(document).ready(function () {                toastr.options = {                    timeOut: 0,                    extendedTimeOut: 100,                    tapToDismiss: true,                    debug: false,                    fadeOut: 10,                    positionClass: "toast-top-center"                };
+                Command: toastr["success"]("Se guardó con éxito la asistencia", "Registro exitoso")
+
+            });
         }
+
     </script>
+    <style>
+        .toast-top-center {
+            top: 12px;
+        }
+    </style>
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -180,7 +182,7 @@
                         <ContentTemplate>
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
-                                <h5 class="modal-title" id="myModalLabel" runat="server"></h5>
+                                <h5 class="modal-title" id="myModalLabel" runat="server">Marcar la asistencia:</h5>
                             </div>
                             <div class="modal-body">
                                 <div class="col-lg-12">
@@ -197,8 +199,10 @@
                                         </br>
                                         <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
                                             <ContentTemplate>
-                                                <input type="radio" name="asistencia" id="asistencia1" value="Asistio">Asistio<br>
-                                                <input type="radio" name="asistencia" id="asistencia2" value="Faltó">Falto<br>
+                                            
+                                                    <input type="radio" name="asistencia" id="asistencia1" value="Asistio">Asistio<br>
+                                                    <input type="radio" name="asistencia" id="asistencia2" value="Faltó">Falto<br>
+                                              
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
                                     </div>

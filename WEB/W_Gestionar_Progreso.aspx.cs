@@ -90,8 +90,7 @@ namespace WEB
                 objDtoProgreso.DP_NotaTecnica = Convert.ToDouble(txtNota2.Text);
                 objDtoProgreso.DP_NotaInteres = Convert.ToDouble(txtNota3.Text);
                 objDtoProgreso.DP_NotaHabilidad = Convert.ToDouble(txtNota4.Text);
-                //txtNotaTotal.Text = calcularNotas().ToString();
-
+ 
                 objDtoProgreso.DP_TotalNota = Convert.ToDouble(txtNotaTotal.Text);
                 _log.CustomWriteOnLog("registrar progreso", txtObservacion.Text);
                 objDtoProgreso.VP_Observacion = txtObservacion.Text;
