@@ -81,21 +81,42 @@
                             </div>
                             <div class="card-content">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="assets/img/flags/trofeo.png" class="img-fluid rounded" alt="Responsive image" width="500" height="500" />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="col-lg-12 col-md-12 col-sm-13 text-center">
-                                            <h2 class="text-center">EL GANADOR ES!</h2>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-13 text-center">
-                                            <h1 class="text-center" runat="server" id="codGanador">N° 101</h1>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-13 text-center">
-                                            <h3 class="text-center" runat="server" id="nombre">Nombre:</h3>
-                                        </div>
+                                    <asp:UpdatePanel runat="server" ID="UpdatePanelCalificacion" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <div class="col-md-6">
+                                                <img src="assets/img/flags/trofeo.png" class="img-fluid rounded" alt="Responsive image" width="500" height="500" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="col-lg-12 col-md-12 col-sm-13 text-center">
+                                                    <h2 class="text-center">EL GANADOR ES!</h2>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-13 text-center">
+                                                    <h1 class="text-center" runat="server" id="codGanador">N° 101</h1>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-13 text-center">
+                                                    <h3 class="text-center" runat="server" id="nombre">Nombre:</h3>
+                                                </div>
+                                                <div class="col-md-10 col-md-offset-1">
+                                                    <div class="card-content">
 
-                                    </div>
+                                                        <asp:GridView ID="GVCalificacion" runat="server" AutoGenerateColumns="False"
+                                                            DataKeyNames="FK_IUM_CodUM,Nombres,IUMT_PuntajeTotal"
+                                                            CssClass="table table-responsive table-bordered table-hover js-basic-example dataTable" PageSize="5"
+                                                            AllowPaging="True"
+                                                            Font-Size="Small" HeaderStyle-ForeColor="#FF5050" HeaderStyle-CssClass="small">
+                                                            <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" />
+                                                            <Columns>
+                                                                <asp:BoundField DataField="FK_IUM_CodUM" HeaderText="#Cod Participante" />
+                                                                <asp:BoundField DataField="Nombres" HeaderText="Nombres" />
+                                                                <asp:BoundField DataField="IUMT_PuntajeTotal" HeaderText="Calificación" />
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
                                 </div>
                             </div>
                         </div>

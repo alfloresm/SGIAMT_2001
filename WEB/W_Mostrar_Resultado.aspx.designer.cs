@@ -103,6 +103,15 @@ namespace WEB {
         protected global::System.Web.UI.WebControls.Label lblModalidad;
         
         /// <summary>
+        /// Control UpdatePanelCalificacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelCalificacion;
+        
+        /// <summary>
         /// Control codGanador.
         /// </summary>
         /// <remarks>
@@ -119,5 +128,14 @@ namespace WEB {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl nombre;
+        
+        /// <summary>
+        /// Control GVCalificacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVCalificacion;
     }
 }

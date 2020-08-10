@@ -24,9 +24,30 @@ namespace CTR
         {
             objDaoTanda.ObtenerTanda(objtanda);
         }
+        public void obtenerTandaP(DtoTanda objtanda)
+        {
+            objDaoTanda.ObtenerTandaP(objtanda);
+        }
+        public DataTable listar_calificados_S(DtoTanda objtanda)
+        {
+            return objDaoTanda.listar_calificados_S(objtanda);
+        }
+        //pasar a ctr_usuarioModalidadTanda
         public DataTable obtenerParticipantesxTanda(DtoUsuarioModalidadTanda objUMT)
         {
             return objDaoTanda.ListarParticipantesXtanda(objUMT);
+        }
+        public void actualizarEstadoUMT(DtoUsuarioModalidadTanda objUMT)
+        {
+            objDaoTanda.actualizar_estado_umt(objUMT);
+        }
+        public int sumaPuntajes(DtoUsuarioModalidadTanda objUMT)
+        {
+           return objDaoTanda.sumaPuntaje(objUMT);
+        }
+        public void actualizarPuntajeT(DtoUsuarioModalidadTanda objUMT)
+        {
+            objDaoTanda.actualizar_PuntajeT_umt(objUMT);
         }
     }
 }
