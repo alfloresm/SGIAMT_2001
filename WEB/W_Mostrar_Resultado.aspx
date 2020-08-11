@@ -16,7 +16,7 @@
 
                         <div class="card">
                             <div class="row">
-                                <div class="col-md-6 col-md-offset-3">
+                                <div class="col-md-6 col-md-offset-3" hidden="hidden">
                                     <div class="col-md-6 text-center">
                                         <h5 class="text-danger">La ultima tanda calificada fue: </h5>
                                     </div>
@@ -34,7 +34,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="col-md-8 form-group form-search is-empty">
-                                            <asp:TextBox ID="txtTanda" runat="server" class="form-control" placeholder="Buscar Tanda" MaxLength="8" TextMode="Number" Font-Size="Large"></asp:TextBox>
+                                            <asp:TextBox ID="txtTanda" runat="server" class="form-control" placeholder="Buscar Tanda" MaxLength="8" TextMode="Number" Font-Size="Large" required></asp:TextBox>
                                             <span class="material-input"></span>
                                             <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
                                         </div>
@@ -55,7 +55,7 @@
                                                     <div class="col-md-9">
                                                         <div class="form-group label-floating is-empty">
                                                             <label class="control-label"></label>
-                                                            <asp:Label ID="lblCategoria" runat="server" Text="" CssClass="text-uppercase"></asp:Label>
+                                                            <asp:Label ID="lblCategoria" runat="server" Text="" CssClass="text-uppercase" Font-Size="X-Large"></asp:Label>
 
                                                         </div>
                                                     </div>
@@ -65,7 +65,7 @@
                                                     <div class="col-md-9">
                                                         <div class="form-group label-floating is-empty">
                                                             <label class="control-label"></label>
-                                                            <asp:Label ID="lblModalidad" runat="server" Text="" CssClass="text-uppercase"></asp:Label>
+                                                            <asp:Label ID="lblModalidad" runat="server" Text="" CssClass="text-uppercase" Font-Size="X-Large"></asp:Label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -83,18 +83,27 @@
                                 <div class="row">
                                     <asp:UpdatePanel runat="server" ID="UpdatePanelCalificacion" UpdateMode="Conditional">
                                         <ContentTemplate>
-                                            <div class="col-md-6">
-                                                <img src="assets/img/flags/trofeo.png" class="img-fluid rounded" alt="Responsive image" width="500" height="500" />
+                                            <div class="col-md-6 text-center">
+                                                <div class="col-lg-12 col-md-12">
+                                                <img src="assets/img/flags/trofeo.png"  Width="200px" Height="200px"/>
+                                                <%--<img src="assets/img/first-place-ribbon.png" class="img-fluid rounded" alt="Responsive image" width="200" height="200" />--%>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12">
+                                                    <br />
+                                                    <p> </p>
+                                                    <br />
+
+                                                    </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="col-lg-12 col-md-12 col-sm-13 text-center">
                                                     <h2 class="text-center">EL GANADOR ES!</h2>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-13 text-center">
-                                                    <h1 class="text-center" runat="server" id="codGanador">N° 101</h1>
+                                                    <h1 class="text-center" runat="server" id="codGanador"></h1>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-13 text-center">
-                                                    <h3 class="text-center" runat="server" id="nombre">Nombre:</h3>
+                                                    <h3 class="text-center" runat="server" id="nombre"></h3>
                                                 </div>
                                                 <div class="col-md-10 col-md-offset-1">
                                                     <div class="card-content">
@@ -103,7 +112,7 @@
                                                             DataKeyNames="FK_IUM_CodUM,Nombres,IUMT_PuntajeTotal"
                                                             CssClass="table table-responsive table-bordered table-hover js-basic-example dataTable" PageSize="5"
                                                             AllowPaging="True"
-                                                            Font-Size="Small" HeaderStyle-ForeColor="#FF5050" HeaderStyle-CssClass="small">
+                                                            Font-Size="Larger" HeaderStyle-ForeColor="#FF5050" HeaderStyle-CssClass="Larger">
                                                             <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" />
                                                             <Columns>
                                                                 <asp:BoundField DataField="FK_IUM_CodUM" HeaderText="#Cod Participante" />
@@ -125,4 +134,20 @@
             </div>
         </div>
     </div>
+    <script>
+         function showMessage(from, align, message, type) {
+            $.notify({
+                icon: "notifications",
+                message: message
+
+            }, {
+                type: type,
+                timer: 3000,
+                placement: {
+                    from: from,
+                    align: align
+                }
+            });
+        }
+    </script>
 </asp:Content>

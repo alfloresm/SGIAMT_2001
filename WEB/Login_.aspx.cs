@@ -94,6 +94,13 @@ namespace WEB
                                   </script>";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
                 }
+                else if (Session["id_perfil"].ToString() == "8")
+                {
+                    string script = @"<script type='text/javascript'>
+                                      location.href='../W_Mostrar_Resultado.aspx';
+                                  </script>";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
+                }
                 Session.Timeout = 60;
             }
             else

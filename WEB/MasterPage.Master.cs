@@ -304,14 +304,11 @@ namespace WEB
                                 <li>
                                     <a href = 'W_Mostrar_Resultado.aspx' > Mostrar Resultado</a>
                                 </li>
-                                <li>
-                                    <a href = '#' > Adminitrar Participante</a>
-                                </li>
-                            </ul>
+                           </ul>
                         </div>
                     </li>
                </ul> ");
-            string img = String.Format(@"<img src='../assets/img/default-avatar.png'/>");
+            string img = String.Format(@"<img src='../assets/img/flags/trofeo.png'/>");
             this.Literal2.Text = img;
             this.Literal1.Text = html;
         }

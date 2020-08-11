@@ -84,6 +84,7 @@
     <Content Include="assets\img\faces\card-profile1-square.jpg" />
     <Content Include="assets\img\faces\marc.jpg" />
     <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\first-place-ribbon.png" />
     <Content Include="assets\img\flags\AU.png" />
     <Content Include="assets\img\flags\BR.png" />
     <Content Include="assets\img\flags\DE.png" />

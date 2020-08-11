@@ -75,14 +75,14 @@ namespace DAO
             while (reader.Read())
             {
                 objTanda.PK_IT_CodTan = Convert.ToInt32(reader[0].ToString());
-                if (reader[1].ToString() != null)
-                {
-                    objTanda.IT_Ganador = Convert.ToInt32(reader[1].ToString());
-                }
-                else
-                {
-                    objTanda.IT_Ganador = 0;
-                }
+                //if (reader[1].ToString() != null)
+                //{
+                //    objTanda.IT_Ganador = Convert.ToInt32(reader[1].ToString());
+                //}
+                //else
+                //{
+                //    objTanda.IT_Ganador = 0;
+                //}
 
                 objTanda.VT_TipoTanda = Convert.ToInt32(reader[2].ToString());
                 objTanda.VT_Estado = reader[3].ToString();
@@ -105,6 +105,40 @@ namespace DAO
             conexion.Close();
             return dtParticipantes;
         }
+        public void actualizar_estadoT(DtoTanda objT)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SP_Actualiza_Estado_Tanda", conexion);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id", objT.PK_IT_CodTan);
+                conexion.Open();
+                command.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public void actualizar_ganadorT(DtoTanda objT)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SP_Actualiza_Ganador", conexion);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id", objT.PK_IT_CodTan);
+                command.Parameters.AddWithValue("@ganador", objT.IT_Ganador);
+                conexion.Open();
+                command.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
         //mover a DAO_Usuario_modalidad_tanda
         public DataTable ListarParticipantesXtanda(DtoUsuarioModalidadTanda objUMT)
         {
@@ -155,6 +189,7 @@ namespace DAO
                 {
                     suma = Convert.ToInt32(reader[0].ToString());
                 }
+                conexion.Close();
                 return suma;
             }
             catch (Exception)

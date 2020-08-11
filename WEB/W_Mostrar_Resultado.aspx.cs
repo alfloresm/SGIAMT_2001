@@ -53,7 +53,8 @@ namespace WEB
                     {
                         objdtotanda.PK_IT_CodTan = Convert.ToInt32(txtTanda.Text);
                         _log.CustomWriteOnLog("mostrar resultado", "entra boton");
-                        objctrTanda.obtenerTanda(objdtotanda);
+                        CtrTanda CTRT = new CtrTanda();
+                        CTRT.obtenerTanda(objdtotanda);
                         if (objdtotanda.VT_Estado == "NO CALIFICADO")
                         {
                             //info de tanda
@@ -74,30 +75,37 @@ namespace WEB
 
                             CtrTanda ctrT = new CtrTanda();
                             DataTable dt = new DataTable();
+                            objdtoUMT.FK_IT_CodTan = Convert.ToInt32(txtTanda.Text);
                             dt = ctrT.obtenerParticipantesxTanda(objdtoUMT);
                             foreach (DataRow row in dt.Rows)
                             {
-                                objdtoUMT.PK_IUMT_CodUsuModTan = row["FK_IUMT_UsuModTan"].ToString();
-                                _log.CustomWriteOnLog("mostrar resultado", "codigo: " + row["FK_IUMT_UsuModTan"].ToString());
+                                
+                                objdtoUMT.PK_IUMT_CodUsuModTan = row["PK_IUMT_CodUsuModTan"].ToString();
+                                _log.CustomWriteOnLog("mostrar resultado", "codigo: " + row["PK_IUMT_CodUsuModTan"].ToString());
                                 objdtoUMT.IUMT_PuntajeTotal = ctrT.sumaPuntajes(objdtoUMT);
                                 ctrT.actualizarPuntajeT(objdtoUMT);
-
+                                _log.CustomWriteOnLog("mostrar resultado", "SE ACTUALIZO EL PUNTAJE");
                             }
+                            //actualiza estado a CALIFICADO
+                            ctrT.actualizarEstadoT(objdtotanda);
 
-                                //TABLA CALIFICADOS
-                                GVCalificacion.DataSource = objctrTanda.listar_calificados_S(objdtotanda);
+                            //TABLA CALIFICADOS
+                            CtrTanda ctr = new CtrTanda();
+                            GVCalificacion.DataSource = ctr.listar_calificados_S(objdtotanda);
                             GVCalificacion.DataBind();
 
-                            CtrTanda ctr = new CtrTanda();
+
                             DataTable dtC = ctr.listar_calificados_S(objdtotanda);
                             DataRow rowC = dtC.Rows[0];
 
                             codGanador.InnerText = "N° " + rowC["FK_IUM_CodUM"].ToString();
-
                             nombre.InnerText = rowC["Nombres"].ToString();
+                            objdtotanda.IT_Ganador = Convert.ToInt32(rowC["FK_IUM_CodUM"].ToString());
+                            //actualiza ganador
+                            ctr.actualizarganadorT(objdtotanda);
 
                             UpdatePanelCalificacion.Update();
-                            
+
                         }
                         else
                         {
@@ -116,24 +124,20 @@ namespace WEB
                             }
                             UpdatePanelInfo.Update();
                             //TABLA CALIFICADOS
-                            GVCalificacion.DataSource = objctrTanda.listar_calificados_S(objdtotanda);
+                            CtrTanda ctr = new CtrTanda();
+                            GVCalificacion.DataSource = ctr.listar_calificados_S(objdtotanda);
                             GVCalificacion.DataBind();
 
-                            CtrTanda ctr = new CtrTanda();
-                            DataTable dt= ctr.listar_calificados_S(objdtotanda);
+                            
+                            DataTable dt = ctr.listar_calificados_S(objdtotanda);
                             DataRow row = dt.Rows[0];
 
-                             codGanador.InnerText= "N° " + row["FK_IUM_CodUM"].ToString();
+                            codGanador.InnerText = "N° " + row["FK_IUM_CodUM"].ToString();
 
                             nombre.InnerText = row["Nombres"].ToString();
 
                             UpdatePanelCalificacion.Update();
-
-
-
                         }
-
-
                     }
                     else
                     {
@@ -161,7 +165,8 @@ namespace WEB
             {
                 objdtotanda.PK_IT_CodTan = Convert.ToInt32(txtTanda.Text);
                 _log.CustomWriteOnLog("mostrar resultado", "entra validacion");
-                objctrTanda.obtenerTanda(objdtotanda);
+                objctrTanda.obtenerTandaP(objdtotanda);
+                objdtoUMT.FK_IT_CodTan= Convert.ToInt32(txtTanda.Text);
                 CtrTanda ctrT = new CtrTanda();
                 DataTable dt = new DataTable();
                 dt = ctrT.obtenerParticipantesxTanda(objdtoUMT);
@@ -181,7 +186,7 @@ namespace WEB
                         {
                             valor = valor + 0;
                         }
-                        _log.CustomWriteOnLog("mostrar resultado", "valor="+valor.ToString());
+                        _log.CustomWriteOnLog("mostrar resultado", "valor=" + valor.ToString());
                     }
                     int cfilas = dt.Rows.Count;
                     if (cfilas == valor)

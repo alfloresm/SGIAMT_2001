@@ -32,6 +32,14 @@ namespace CTR
         {
             return objDaoTanda.listar_calificados_S(objtanda);
         }
+        public void actualizarEstadoT(DtoTanda objtanda)
+        {
+            objDaoTanda.actualizar_estadoT(objtanda);
+        }
+        public void actualizarganadorT(DtoTanda objtanda)
+        {
+            objDaoTanda.actualizar_ganadorT(objtanda);
+        }
         //pasar a ctr_usuarioModalidadTanda
         public DataTable obtenerParticipantesxTanda(DtoUsuarioModalidadTanda objUMT)
         {
