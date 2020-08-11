@@ -56,10 +56,11 @@
                                                         <asp:BoundField DataField="VN_NombreNivel" HeaderText="Nivel" />
                                                         <asp:BoundField DataField="VU_Horario" HeaderText="Horario" />
                                                         
-                                                        <%--<asp:TemplateField HeaderText="">
+                                                        <asp:TemplateField HeaderText="">
                                                             <ItemTemplate>
+                                                                <asp:Button runat="server" Text="✏️" CommandName="Actualizar" CssClass="btn btn-sm btn-warning" />
                                                             </ItemTemplate>
-                                                        </asp:TemplateField>--%>
+                                                        </asp:TemplateField>
                                                         <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnDetalle" Text="📄" HeaderText="Ver" CommandName="Detalle">
                                                             <ControlStyle CssClass="btn btn-sm btn-round" BackColor="#4CAF50" />
                                                         </asp:ButtonField>

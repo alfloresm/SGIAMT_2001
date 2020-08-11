@@ -32,7 +32,16 @@ namespace WEB
 
         protected void GVAlumnosTotal_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            if (e.CommandName == "Actualizar")
+            {
+                {
+                    int index = Convert.ToInt32(e.CommandArgument);
+                    var colsNoVisible = GVAlumnosTotal.DataKeys[index].Values;
+                    string id = colsNoVisible[0].ToString();
+                    Response.Redirect("~/W_RegistrarAlumno2.aspx?ID=" + id);
+                    
+                }
+            }
         }
 
         protected void btnIrARegistro_Click(object sender, EventArgs e)

@@ -42,6 +42,68 @@ namespace DAO
             conexion.Close();
         }
 
+        public void ActualizarAlumno(DtoUsuario objAlumno)
+        {
+
+            SqlCommand command = new SqlCommand("SP_ActualizarAlumno", conexion);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@dni", objAlumno.PK_IU_DNI);
+            command.Parameters.AddWithValue("@nombre", objAlumno.VU_Nombre);
+            command.Parameters.AddWithValue("@apellidoP", objAlumno.VU_APaterno);
+            command.Parameters.AddWithValue("@apellidoM", objAlumno.VU_AMaterno);
+            command.Parameters.AddWithValue("@fechaNacimiento", objAlumno.DTU_FechaNacimiento);
+            command.Parameters.AddWithValue("@contrasenia", objAlumno.VU_Contrasenia);
+            command.Parameters.AddWithValue("@sexo", objAlumno.VU_Sexo);
+            command.Parameters.AddWithValue("@nombreAcademia", objAlumno.VU_NAcademia);
+            command.Parameters.AddWithValue("@correo", objAlumno.VU_Correo);
+            command.Parameters.AddWithValue("@celular", objAlumno.VU_Celular);
+            command.Parameters.AddWithValue("@estado", objAlumno.VU_Estado);
+            command.Parameters.AddWithValue("@horario", objAlumno.VU_Horario);
+            command.Parameters.AddWithValue("@direccion", objAlumno.VU_Direccion);
+            command.Parameters.AddWithValue("@cat", objAlumno.FK_ICA_CodCat);
+            command.Parameters.AddWithValue("@nivel", objAlumno.FK_IN_CodNivel);
+            command.Parameters.AddWithValue("@tipo_nivel", objAlumno.FK_ITN_TipoNivel);
+            conexion.Open();
+            command.ExecuteNonQuery();
+            conexion.Close();
+        }
+        public void ObtenerAlumno2(DtoUsuario objAlumno)
+        {
+            SqlCommand command = new SqlCommand("SP_Obtener_Alumno", conexion);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@id", objAlumno.PK_IU_DNI);
+            DataSet ds = new DataSet();
+            conexion.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter(command);
+            adapt.Fill(ds);
+            adapt.Dispose();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                //cambiar estos campos
+                objAlumno.PK_IU_DNI = reader[0].ToString();
+                objAlumno.VU_Nombre = reader[1].ToString();
+                objAlumno.VU_APaterno = reader[2].ToString();
+                objAlumno.VU_AMaterno = reader[3].ToString();
+                objAlumno.DTU_FechaNacimiento = Convert.ToDateTime(reader[4].ToString());
+                objAlumno.VU_Contrasenia = reader[5].ToString();
+                objAlumno.VU_Sexo = reader[6].ToString();
+                objAlumno.VU_NAcademia = reader[7].ToString();
+                objAlumno.VU_Correo = reader[8].ToString();
+                objAlumno.VU_Celular = reader[9].ToString();
+                objAlumno.VU_Estado = reader[10].ToString();
+                objAlumno.VU_Horario = reader[11].ToString();
+                objAlumno.VU_Direccion = reader[12].ToString();
+                objAlumno.FK_ICA_CodCat = int.Parse(reader[13].ToString());
+                objAlumno.FK_ITN_TipoNivel = int.Parse(reader[14].ToString());
+                objAlumno.FK_IN_CodNivel = int.Parse(reader[15].ToString());
+            }
+            conexion.Close();
+            conexion.Dispose();
+        }
+
         //tabla de alumnos para administrar asistencia
         public DataTable ListarAlumnosA()
         {
