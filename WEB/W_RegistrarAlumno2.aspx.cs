@@ -24,7 +24,7 @@ namespace WEB
             {
                 if (Request.Params["Id"] != null)
                 {
-                    _log.CustomWriteOnLog("registrar alumno", "cargo: ");
+                    _log.CustomWriteOnLog("actualizar alumno", "cargo: ");
                     llenarNivel();
                     txtPagina.InnerText = "Actualizar Alumno";
                     btnRegistrar.Text = "Actualizar";
@@ -35,8 +35,10 @@ namespace WEB
 
                 else
                 {
-                    txtPagina.InnerText = "Registrar Concurso";
+                    _log.CustomWriteOnLog("registrar alumno", "cargo: ");
+                    txtPagina.InnerText = "Registrar Alumno";
                     btnRegistrar.Text = "Registrar";
+                    llenarNivel();
                     //Panel1.Visible = false;
                     //Panel2.Visible = false;
                 }
@@ -161,7 +163,7 @@ namespace WEB
 
         public void obtenerAlumno2(string cod)
         {
-            //cambiar estos cambios
+            
             objDtoAlumno.PK_IU_DNI = cod;
             objctralumno.ObtenerAlumno2(objDtoAlumno);
 
