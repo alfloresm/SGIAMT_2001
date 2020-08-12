@@ -5,15 +5,22 @@
 
     <link href="assets/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
     <script type="text/javascript">
         function marcarAsistencia() {
-            
+
 
             var dni = document.getElementById("<%=txtDni.ClientID %>").value;
             sessionStorage.setItem("dni", dni);
             var estado = $('input:radio[name=asistencia]:checked').val();
-            
+
             $.ajax({
                 type: "POST",
                 url: "W_Listar_Alumnos.aspx/GetCurrentTime",
@@ -28,30 +35,25 @@
         }
         function OnSuccess(response) {
             //alert("hola"+response.d);
-            $(document).ready(function () {                //toastr.options.timeOut = 1000; // 1s                //toastr.info('Page Loaded!');                //toastr.success('Se ha registrado la asistencia con éxito');                toastr.options = {
-                    "closeButton": true,
-                    "debug": false,
-                    "newestOnTop": false,
-                    "progressBar": false,
-                    "positionClass": "toast-top-center",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "1000",
-                    "hideDuration": "1000",
-                    "timeOut": "1000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                }            });
+            $(document).ready(function () {                toastr.options = {                    timeOut: 0,                    extendedTimeOut: 100,                    tapToDismiss: true,                    debug: false,                    fadeOut: 10,                    positionClass: "toast-top-center"                };
+                Command: toastr["success"]("Se guardó con éxito la asistencia", "Registro exitoso")
+
+            });
         }
+
     </script>
+    <style>
+        .toast-top-center {
+            top: 12px;
+        }
+    </style>
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <form id="form2" runat="server" method="POST">
-        
+
 
         <div class="col-lg-12 col-md-12 col-sm-12 card-header">
             <h2>Administrar Asistencia</h2>
@@ -96,13 +98,13 @@
                                                 </asp:UpdatePanel>
                                             </div>
                                             <%--<asp:Button runat="server" Text="BUSCAR" ID="btnBuscar" CssClass="btn btn-fill btn-success" />--%>
-                                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                                         </div>
                                         <%--<div class="col-md-4 col-md-offset-2 text-center">
                                             <asp:Button runat="server" Text="ACTUALIZAR CATEGORIAS" ID="btnActualizarC" CssClass="btn bg-indigo waves-effect" OnClick="btnActualizarCat_Click" />
                                         </div>--%>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-1">
                                             <div class="card-content">
@@ -147,26 +149,25 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-sm-12">
+                                        <div class="col-md-10 col-md-offset-1">
                                             <p></p>
+
+                                            <asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <div class="col-lg-2 col-md-2 col-sm-6">
+                                                        <asp:Button ID="btnVerAsistencia" runat="server" Text="Ver Asistencia" CssClass="btn btn-fill btn-success" OnClick="btnVerAsistencia_Click" />
+                                                    </div>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                            <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <div class="col-lg-2 col-md-2 col-sm-6">
+                                                        <asp:Button ID="btnVerProgreso" runat="server" Text="Ver Progreso" CssClass="btn btn-fill btn-success" OnClick="btnVerProgreso_Click" />
+                                                    </div>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+
                                         </div>
-                                        <asp:UpdatePanel ID="upBotonEnviar" runat="server" UpdateMode="Conditional">
-                                            <ContentTemplate>
-                                                <div class="col-lg-2 col-md-2 col-sm-6">
-                                                    <asp:Button ID="btnVerAsistencia" runat="server" Text="Ver Asistencia" CssClass="btn btn-fill btn-success" OnClick="btnVerAsistencia_Click" />
-                                                </div>
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
-                                        <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
-                                            <ContentTemplate>
-                                                <div class="col-lg-2 col-md-2 col-sm-6">
-                                                    <asp:Button ID="btnVerProgreso" runat="server" Text="Ver Progreso" CssClass="btn btn-fill btn-success" OnClick="btnVerProgreso_Click" />
-                                                </div>
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
-                                        <%--<div class="col-lg-2 col-md-2 col-sm-6">
-                                            <asp:Button ID="btnRegresar" runat="server" Text="Regresar" CssClass="btn btn-fill btn-danger" OnClick="btnRegresar_Click" />
-                                        </div>--%>
                                     </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
@@ -181,7 +182,7 @@
                         <ContentTemplate>
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
-                                <h5 class="modal-title" id="myModalLabel" runat="server"></h5>
+                                <h5 class="modal-title" id="myModalLabel" runat="server">Marcar la asistencia:</h5>
                             </div>
                             <div class="modal-body">
                                 <div class="col-lg-12">
@@ -198,8 +199,10 @@
                                         </br>
                                         <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional">
                                             <ContentTemplate>
-                                                <input type="radio" name="asistencia" id="asistencia1" value="Asistio">Asistio<br>
-                                                <input type="radio" name="asistencia" id="asistencia2" value="Faltó">Falto<br>
+                                            
+                                                    <input type="radio" name="asistencia" id="asistencia1" value="Asistio">Asistio<br>
+                                                    <input type="radio" name="asistencia" id="asistencia2" value="Faltó">Falto<br>
+                                              
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
                                     </div>

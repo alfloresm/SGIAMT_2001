@@ -3,12 +3,10 @@
      <script src="assets/momentjs/moment.js"></script>
 
     <link href="assets/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
-    
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form2" runat="server" method="POST">
+    <form id="form2" runat="server">
         
        <div class="content">
             <div class="container-fluid">
@@ -56,10 +54,11 @@
                                                         <asp:BoundField DataField="VN_NombreNivel" HeaderText="Nivel" />
                                                         <asp:BoundField DataField="VU_Horario" HeaderText="Horario" />
                                                         
-                                                        <%--<asp:TemplateField HeaderText="">
+                                                        <asp:TemplateField HeaderText="">
                                                             <ItemTemplate>
+                                                                <asp:Button runat="server" Text="✏️" CommandName="Actualizar" CssClass="btn btn-sm btn-warning" />
                                                             </ItemTemplate>
-                                                        </asp:TemplateField>--%>
+                                                        </asp:TemplateField>
                                                         <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnDetalle" Text="📄" HeaderText="Ver" CommandName="Detalle">
                                                             <ControlStyle CssClass="btn btn-sm btn-round" BackColor="#4CAF50" />
                                                         </asp:ButtonField>

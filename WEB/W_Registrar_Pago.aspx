@@ -25,19 +25,19 @@
 
                                             </asp:DropDownList>
                                         </div>
-                                        <asp:TextBox ID="txtDni" runat="server" class="form-control" placeholder="Buscar"></asp:TextBox>
+                                        <%--<asp:TextBox ID="txtDni" runat="server" class="form-control" placeholder="Buscar"></asp:TextBox>--%>
                                                 
                                     </div>
-                                    <asp:UpdatePanel ID="upnBotonBuscar1" runat="server" UpdateMode="Conditional">
+                                    <%--<asp:UpdatePanel ID="upnBotonBuscar1" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>
                                             <asp:LinkButton ID="btnBuscar1" runat="server" CssClass="btn btn-white btn-round btn-just-icon" OnClick="btnBuscar1_Click">
                                                     <i class="material-icons">search</i>
                                                     <div class="ripple-container"></div>
                                             </asp:LinkButton>
                                         </ContentTemplate>
-                                    </asp:UpdatePanel>
+                                    </asp:UpdatePanel>--%>
                                <%-- </asp:Panel>--%>
-                                <div class="col-md-6">
+                                <%--<div class="col-md-6">
                                     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>
                                             <div class="row">
@@ -60,7 +60,7 @@
                                             </div>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
-                                </div>
+                                </div>--%>
                             </div>
 
                             <div class="row">

@@ -6,15 +6,14 @@
 
     <link href="assets/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
-    <script src="http://www.codeproject.com/ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
-    <script type="text/javascript"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
     <script type="text/javascript">
         var nota1;
@@ -42,8 +41,8 @@
             porcentaje = promedio * 5;
             // alert(nota1);
             //alert(total);
-            alert("Promedio es: " + promedio);
-            alert("En porcentaje es: " + porcentaje);
+            //alert("Promedio es: " + promedio);
+            //alert("En porcentaje es: " + porcentaje);
             document.getElementById("<%=txtNotaTotal.ClientID%>").value = promedio;
             document.getElementById("<%=txtProgresoP.ClientID%>").value = porcentaje + "%";
 
@@ -75,30 +74,21 @@
 
         }
         function OnSuccess(response) {
-            //alert(response.d);
-            //alert("Me voy");
-            //$(document).ready(function () {            //toastr.options.timeOut = 1000; // 1s            //toastr.info('Page Loaded!');            //toastr.success('Se ha registrado el progreso con éxito');            Command: toastr["success"]("Se ha registrado el progreso con éxito", " ")            toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": true,
-                "progressBar": false,
-                "positionClass": "toast-top-center",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "2000",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "2000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
 
-            }            location.href = "http://localhost:65359/W_Listar_Alumnos.aspx";        };
-            
+            //alert("hola"+response.d);
+            $(document).ready(function () {                toastr.options = {                    timeOut: 0,                    extendedTimeOut: 100,                    tapToDismiss: true,                    debug: false,                    fadeOut: 10,                    positionClass: "toast-top-center"                };
+                Command: toastr["success"]("Se guardó con éxito el progreso", "Registro exitoso")
 
+                //location.href = "http://localhost:65359/W_Listar_Alumnos.aspx";
+            });
+        }
 
     </script>
+    <style>
+        .toast-top-center {
+            top: 12px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -132,14 +122,14 @@
                                             <label class="col-md-2 label-on-left">Calificacion Pasos:</label>
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
-                                                <asp:TextBox ID="txtNota1" runat="server" class="form-control" required></asp:TextBox>
+                                                <asp:TextBox ID="txtNota1" runat="server" class="form-control" TextMode="Number" required></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sd-6">
                                             <label class="col-md-2 label-on-left">Calificacion Técnica:</label>
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
-                                                <asp:TextBox ID="txtNota2" runat="server" class="form-control" required></asp:TextBox>
+                                                <asp:TextBox ID="txtNota2" runat="server" class="form-control" TextMode="Number" required></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -148,14 +138,14 @@
                                             <label class="col-md-2 label-on-left">Calificacion Interes:</label>
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
-                                                <asp:TextBox ID="txtNota3" runat="server" class="form-control" required></asp:TextBox>
+                                                <asp:TextBox ID="txtNota3" runat="server" class="form-control" TextMode="Number" required></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sd-6">
                                             <label class="col-md-2 label-on-left">Calificacion Habilidad:</label>
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
-                                                <asp:TextBox ID="txtNota4" runat="server" class="form-control" required></asp:TextBox>
+                                                <asp:TextBox ID="txtNota4" runat="server" class="form-control" TextMode="Number" required></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>

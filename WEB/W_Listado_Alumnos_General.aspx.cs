@@ -32,6 +32,24 @@ namespace WEB
 
         protected void GVAlumnosTotal_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            try
+            {
+
+                if (e.CommandName == "Actualizar")
+                {
+                    int index = Convert.ToInt32(e.CommandArgument);
+                    var colsNoVisible = GVAlumnosTotal.DataKeys[index].Values;
+                    string id = colsNoVisible[0].ToString();
+                    //Session["act_alu"] = id;
+                    Response.Redirect("~/W_RegistrarAlumno2.aspx?ID=" + id);
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                _log.CustomWriteOnLog("listar alumno", "Error : " + ex.Message + "Stac" + ex.StackTrace);
+            }
 
         }
 

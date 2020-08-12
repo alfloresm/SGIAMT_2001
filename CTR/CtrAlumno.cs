@@ -20,7 +20,15 @@ namespace CTR
         {
             objDaoAlumno.RegistrarAlumno(objA);
         }
-
+        //actualizar alumno y obtener alumno
+        public void ActualizarAlumno(DtoUsuario objA)
+        {
+            objDaoAlumno.ActualizarAlumno(objA);
+        }
+        public void ObtenerAlumno2(DtoUsuario objA)
+        {
+            objDaoAlumno.ObtenerAlumno2(objA);
+        }
         public DataTable ListaAlumnos_()
         {
             return objDaoAlumno.ListarAlumnosA();
