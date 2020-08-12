@@ -17,7 +17,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="col-md-8 form-group form-search is-empty">
-                                            <asp:TextBox ID="txtTanda" runat="server" class="form-control" placeholder="Buscar Tanda" MaxLength="8" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="txtTanda" runat="server" class="form-control" placeholder="Buscar Tanda" MaxLength="8" TextMode="Number" required></asp:TextBox>
                                             <span class="material-input"></span>
                                             <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
                                         </div>
