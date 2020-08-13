@@ -23,22 +23,53 @@
                             </div>
                         </div>
                         <div class="row">
-                            <asp:GridView ID="GVTanda" runat="server" AutoGenerateColumns="False"
-                                DataKeyNames="PK_IT_CodTan,Tipo_Tanda,VT_Descripcion"
-                                CssClass="table table-responsive table-bordered table-hover js-basic-example dataTable" PageSize="5"
-                                AllowPaging="True" OnPageIndexChanging="GVTanda_PageIndexChanging" OnRowCommand="GVTanda_RowCommand"
-                                Font-Size="Small" HeaderStyle-ForeColor="#FF5050" HeaderStyle-CssClass="small">
-                                <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" />
-                                <Columns>
-                                    <asp:BoundField DataField="PK_IC_IdConcurso" HeaderText="Codigo" />
-                                    <asp:BoundField DataField="Tipo_Tanda" HeaderText="Tipo Tanda" />
-                                    <asp:BoundField DataField="VT_Descripcion" HeaderText="Categoría" />
+                            <div class="card-content">
+                                <div class="col-md-10 col-md-offset-1 table-responsive">
+                                    <asp:GridView ID="GVTanda" runat="server" AutoGenerateColumns="False"
+                                        DataKeyNames="PK_IT_CodTan,Tipo_Tanda,VT_Descripcion"
+                                        CssClass="table table-responsive table-bordered table-hover js-basic-example dataTable" PageSize="10"
+                                        AllowPaging="True" OnPageIndexChanging="GVTanda_PageIndexChanging" OnRowCommand="GVTanda_RowCommand"
+                                        Font-Size="Small" HeaderStyle-ForeColor="#FF5050" HeaderStyle-CssClass="small" EmptyDataText="No hay Registros">
+                                        <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" />
+                                        <Columns>
+                                            <asp:BoundField DataField="PK_IT_CodTan" HeaderText="Codigo" />
+                                            <asp:BoundField DataField="Tipo_Tanda" HeaderText="Tipo Tanda" />
+                                            <asp:BoundField DataField="VT_Descripcion" HeaderText="Categoría" />
 
-                                </Columns>
-                            </asp:GridView>
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
     </form>
+    <script src="assets/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="assets/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    <script>$(function () {
+            $(".dataTable").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable({
+                "bProcessing": false,
+                "bLengthChange": false,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Buscar registros",
+                    lengthMenu: "Mostrar _MENU_ registros",
+                    paginate: false,
+
+                },
+                "paging": false,
+                "info": false,
+                responsive: true
+            });
+        });
+    </script>
 </asp:Content>
