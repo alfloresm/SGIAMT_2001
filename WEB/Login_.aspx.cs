@@ -62,7 +62,7 @@ namespace WEB
                 if (Session["id_perfil"].ToString() == "4")
                 {
                     string script = @"<script type='text/javascript'>
-                                      location.href='../W_RegistrarAlumno2.aspx';
+                                      location.href='../W_Listado_Alumnos_General.aspx';
                                   </script>";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "alert", script, false);
                 }

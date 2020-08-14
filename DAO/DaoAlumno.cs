@@ -69,39 +69,48 @@ namespace DAO
         }
         public void ObtenerAlumno2(DtoUsuario objAlumno)
         {
-            SqlCommand command = new SqlCommand("SP_Obtener_Alumno", conexion);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@id", objAlumno.PK_IU_DNI);
-            DataSet ds = new DataSet();
-            conexion.Open();
-            SqlDataAdapter adapt = new SqlDataAdapter(command);
-            adapt.Fill(ds);
-            adapt.Dispose();
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                //cambiar estos campos
-                objAlumno.PK_IU_DNI = reader[0].ToString();
-                objAlumno.VU_Nombre = reader[1].ToString();
-                objAlumno.VU_APaterno = reader[2].ToString();
-                objAlumno.VU_AMaterno = reader[3].ToString();
-                objAlumno.DTU_FechaNacimiento = Convert.ToDateTime(reader[4].ToString());
-                objAlumno.VU_Contrasenia = reader[5].ToString();
-                objAlumno.VU_Sexo = reader[6].ToString();
-                objAlumno.VU_NAcademia = reader[7].ToString();
-                objAlumno.VU_Correo = reader[8].ToString();
-                objAlumno.VU_Celular = reader[9].ToString();
-                objAlumno.VU_Estado = reader[10].ToString();
-                objAlumno.VU_Horario = reader[11].ToString();
-                objAlumno.VU_Direccion = reader[12].ToString();
-                objAlumno.FK_ICA_CodCat = int.Parse(reader[13].ToString());
-                objAlumno.FK_ITN_TipoNivel = int.Parse(reader[14].ToString());
-                objAlumno.FK_IN_CodNivel = int.Parse(reader[15].ToString());
+                SqlCommand command = new SqlCommand("SP_Obtener_Alumno", conexion);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id", objAlumno.PK_IU_DNI);
+                DataSet ds = new DataSet();
+                conexion.Open();
+                SqlDataAdapter adapt = new SqlDataAdapter(command);
+                adapt.Fill(ds);
+                adapt.Dispose();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //cambiar estos campos
+                    objAlumno.PK_IU_DNI = reader[0].ToString();
+                    objAlumno.VU_Nombre = reader[1].ToString();
+                    objAlumno.VU_APaterno = reader[2].ToString();
+                    objAlumno.VU_AMaterno = reader[3].ToString();
+                    objAlumno.DTU_FechaNacimiento = Convert.ToDateTime(reader[4].ToString());
+                    objAlumno.VU_Contrasenia = reader[5].ToString();
+                    objAlumno.VU_Sexo = reader[6].ToString();
+                    objAlumno.VU_NAcademia = reader[7].ToString();
+                    objAlumno.VU_Correo = reader[8].ToString();
+                    objAlumno.VU_Celular = reader[9].ToString();
+                    objAlumno.VU_Estado = reader[10].ToString();
+                    objAlumno.VU_Horario = reader[11].ToString();
+                    objAlumno.VU_Direccion = reader[12].ToString();
+                    objAlumno.FK_ICA_CodCat = int.Parse(reader[13].ToString());
+                    objAlumno.FK_ITN_TipoNivel = int.Parse(reader[14].ToString());
+                    objAlumno.FK_IN_CodNivel = int.Parse(reader[15].ToString());
+                }
+                conexion.Close();
+                conexion.Dispose();
             }
-            conexion.Close();
-            conexion.Dispose();
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         //tabla de alumnos para administrar asistencia
@@ -109,7 +118,7 @@ namespace DAO
         {
             //@"data source=ALE\SQLEXPRESS; initial catalog=BD_SGIAMT; integrated security=SSPI;";
 
-            SqlConnection con = new SqlConnection(@"data source=LAPTOP-VLJRLSBM\SQLEXPRESS; initial catalog=BD_SGIAMT; integrated security=SSPI;");
+            SqlConnection con = new SqlConnection(@"data source=ALE\SQLEXPRESS; initial catalog=BD_SGIAMT; integrated security=SSPI;");
             DataTable dtAlumnos = null;
             con.Open();
             SqlCommand command = new SqlCommand("SP_Listar_Alumnos2", con);

@@ -22,13 +22,15 @@ namespace WEB
         {
             if (!Page.IsPostBack)
             {
-                if (Request.Params["Id"] != null)
+                if (Session["act_alu"].ToString() != null)
                 {
                     _log.CustomWriteOnLog("actualizar alumno", "cargo: ");
                     llenarNivel();
                     txtPagina.InnerText = "Actualizar Alumno";
                     btnRegistrar.Text = "Actualizar";
-                    obtenerAlumno2(Request.Params["Id"]);
+                    DtoUsuario dotoU = new DtoUsuario();
+                    dotoU.PK_IU_DNI = Session["act_alu"].ToString();
+                    //obtenerAlumno2(Session["act_alu"].ToString());
                     //Panel1.Visible = true;
                     //Panel2.Visible = true;
                 }
@@ -66,7 +68,7 @@ namespace WEB
                 }
                 else
                 {
-                    if (Request.Params["Id"] != null)
+                    if (Session["act_alu"].ToString() != null)
                     {
                         objDtoAlumno.PK_IU_DNI = txtDNI.Text;
                         objDtoAlumno.VU_Nombre = txtNombre.Text;

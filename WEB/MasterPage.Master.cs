@@ -193,10 +193,13 @@ namespace WEB
                         <div class='collapse' id='gestionConcurso'>
                             <ul class='nav'>
                                 <li>
-                                    <a href = 'W_Inscribir_ParticipanteP.aspx' > Inscribir Participante</a>
+                                    <a href = 'W_Inscribir_ParticipanteP.aspx'> Inscribir Participante</a>
                                 </li>
                                 <li>
                                     <a href = '#' > Adminitrar Participante</a>
+                                </li>
+                                <li>
+                                    <a href = 'W_Gestionar_Tanda.aspx' > Gestionar Tandas</a>
                                 </li>
                             </ul>
                         </div>
