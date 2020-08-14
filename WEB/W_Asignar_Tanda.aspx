@@ -5,14 +5,14 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server" method="POST" class="form">
+    <form id="form1" runat="server" class="form">
         <div class="card">
             <div class="card-header card-header-text" data-background-color="red">
                 <h4 id="txtPagina" runat="server" class="card-title">Información de Tanda</h4>
             </div>
             <div class="card-content">
 
-                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="3600"></asp:ScriptManager>
                 <div class="row">
 
                     <div class="col-md-5">
@@ -43,18 +43,16 @@
                     <div class="col-md-2">
                         <br />
                         <br />
-                        <asp:UpdatePanel ID="UpBtnIr" runat="server" UpdateMode="Conditional">
-                            <ContentTemplate>
+                       <%-- <asp:UpdatePanel ID="UpBtnIr" runat="server" UpdateMode="Conditional">
+                            <ContentTemplate>--%>
                                 <asp:LinkButton ID="btnIr" runat="server" OnClick="btnIr_Click" CssClass="btn btn-success btn-round btn-fab btn-fab-mini">
                             <i class="material-icons">done_outline</i>
-                            <
                                 </asp:LinkButton>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
+                            <%--</ContentTemplate>
+                        </asp:UpdatePanel>--%>
                     </div>
                 </div>
-
-            </div>
+                            </div>
         </div>
         <asp:Panel ID="pnlPistas" runat="server">
             <asp:HiddenField ID="HFidTanda" runat="server" />

@@ -182,9 +182,9 @@ namespace DAO
                 SqlCommand command = new SqlCommand("SP_Asignar_Tanda", conexion);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@ID", objUMT.PK_IUMT_CodUsuModTan);
-                command.Parameters.AddWithValue("@cod", objUMT.PK_IUMT_CodUsuModTan);
-                command.Parameters.AddWithValue("@idT", objUMT.PK_IUMT_CodUsuModTan);
-                command.Parameters.AddWithValue("@pista", objUMT.PK_IUMT_CodUsuModTan);
+                command.Parameters.AddWithValue("@cod", objUMT.FK_IUM_CodUM);
+                command.Parameters.AddWithValue("@idT", objUMT.FK_IT_CodTan);
+                command.Parameters.AddWithValue("@pista", objUMT.IUMT_Pista);
                 conexion.Open();
                 command.ExecuteNonQuery();
                 conexion.Close();
