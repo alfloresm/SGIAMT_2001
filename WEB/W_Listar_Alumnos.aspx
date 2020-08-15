@@ -73,12 +73,13 @@
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-1 text-center">
                                             <div class="col-md-6">
+                                                <asp:Label ID="Label1" runat="server" Font-Size="Large" Text=""></asp:Label>
                                                 <%--<div class="col-md-8 form-group form-search is-empty">
                                                     <asp:DropDownList ID="ddlClase" runat="server" CssClass="selectpicker"></asp:DropDownList>
                                                     <span class="material-input"></span>
                                                     <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
                                                 </div>--%>
-                                                <div class="col-md-8 form-group form-search is-empty">
+                                                <%--<div class="col-md-8 form-group form-search is-empty">
                                                     <asp:DropDownList ID="ddlTipoNivel" runat="server" CssClass="selectpicker"></asp:DropDownList>
                                                     <span class="material-input"></span>
                                                     <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
@@ -95,10 +96,10 @@
                                                         <div class="ripple-container"></div>
                                                         </asp:LinkButton>
                                                     </ContentTemplate>
-                                                </asp:UpdatePanel>
+                                                </asp:UpdatePanel>--%>
                                             </div>
                                             <%--<asp:Button runat="server" Text="BUSCAR" ID="btnBuscar" CssClass="btn btn-fill btn-success" />--%>
-                                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                                            
                                         </div>
                                         <%--<div class="col-md-4 col-md-offset-2 text-center">
                                             <asp:Button runat="server" Text="ACTUALIZAR CATEGORIAS" ID="btnActualizarC" CssClass="btn bg-indigo waves-effect" OnClick="btnActualizarCat_Click" />
@@ -113,7 +114,7 @@
 
                                                 <asp:GridView ID="GVAlumnos" runat="server" AutoGenerateColumns="False"
                                                     DataKeyNames="PK_IU_DNI,Apellidos,VU_Correo,VCA_NomCategoria,VTN_NombreTipoNivel,VN_NombreNivel,VU_Horario"
-                                                    CssClass="table table-responsive table-bordered table-hover js-basic-example dataTable" PageSize="5"
+                                                    CssClass="table table-responsive table-bordered table-hover js-basic-example dataTable" PageSize="8"
                                                     AllowPaging="True" OnPageIndexChanging="GVAlumnos_PageIndexChanging" OnRowCommand="GVAlumnos_RowCommand"
                                                     Font-Size="Small" HeaderStyle-ForeColor="#FF5050" HeaderStyle-CssClass="small">
                                                     <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" />
@@ -135,9 +136,7 @@
                                                         <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnProgreso" Text="Progreso" HeaderText="Opciones" CommandName="Progreso">
                                                             <ControlStyle CssClass="btn btn-sm btn-round" BackColor="#FF9800" />
                                                         </asp:ButtonField>
-                                                        <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnDetalle" Text="📄" HeaderText="Ver" CommandName="Detalle">
-                                                            <ControlStyle CssClass="btn btn-sm btn-round" BackColor="#4CAF50" />
-                                                        </asp:ButtonField>
+                                                        
 
                                                     </Columns>
 
@@ -201,6 +200,8 @@
                                             <ContentTemplate>
                                             
                                                     <input type="radio" name="asistencia" id="asistencia1" value="Asistio">Asistio<br>
+                                                <br />
+                                                
                                                     <input type="radio" name="asistencia" id="asistencia2" value="Faltó">Falto<br>
                                               
                                             </ContentTemplate>
@@ -225,6 +226,15 @@
             </div>
         </div>
     </form>
+    <script src="assets/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="assets/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="../../assets/jquery-datatable/extensions/export/buttons.print.min.js"></script>
     <script>$(function () {
             $(".dataTable").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable({
                 "bProcessing": false,

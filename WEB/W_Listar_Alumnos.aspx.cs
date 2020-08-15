@@ -30,9 +30,9 @@ namespace WEB
             {
                 _log.CustomWriteOnLog("administrar asistencia", "cargo: ");
                 //llenarClases();
-                llenarTipoNivel();
-                llenarNivel();
-                Label1.Text = DateTime.Today.Date.ToString("dd-MM-yyyy");
+                //llenarTipoNivel();
+                //llenarNivel();
+                Label1.Text = "Fecha: "+DateTime.Today.Date.ToString("dd-MM-yyyy");
                 
             }
         }
@@ -47,41 +47,41 @@ namespace WEB
         //    ddlClase.DataBind();
         //    ddlClase.Items.Insert(0, new ListItem("Seleccione", "0"));
         //}
-        public void llenarTipoNivel()
-        {
-            DataSet ds = new DataSet();
-            ds = objctrasis.desplegableTipoNivel();
-            ddlTipoNivel.DataSource = ds;
-            ddlTipoNivel.DataTextField = "VTN_NombreTipoNivel";
-            ddlTipoNivel.DataValueField = "VTN_NombreTipoNivel";
-            ddlTipoNivel.DataBind();
-            ddlTipoNivel.Items.Insert(0, new ListItem("Seleccione", "0"));
-        }
-        public void llenarNivel()
-        {
-            DataSet ds = new DataSet();
-            ds = objctrasis.desplegableNivel();
-            ddlNivel.DataSource = ds;
-            ddlNivel.DataTextField = "VN_NombreNivel";
-            ddlNivel.DataValueField = "VN_NombreNivel";
-            ddlNivel.DataBind();
-            ddlNivel.Items.Insert(0, new ListItem("Seleccione", "0"));
-        }
+        //public void llenarTipoNivel()
+        //{
+        //    DataSet ds = new DataSet();
+        //    ds = objctrasis.desplegableTipoNivel();
+        //    ddlTipoNivel.DataSource = ds;
+        //    ddlTipoNivel.DataTextField = "VTN_NombreTipoNivel";
+        //    ddlTipoNivel.DataValueField = "VTN_NombreTipoNivel";
+        //    ddlTipoNivel.DataBind();
+        //    ddlTipoNivel.Items.Insert(0, new ListItem("Seleccione", "0"));
+        //}
+        //public void llenarNivel()
+        //{
+        //    DataSet ds = new DataSet();
+        //    ds = objctrasis.desplegableNivel();
+        //    ddlNivel.DataSource = ds;
+        //    ddlNivel.DataTextField = "VN_NombreNivel";
+        //    ddlNivel.DataValueField = "VN_NombreNivel";
+        //    ddlNivel.DataBind();
+        //    ddlNivel.Items.Insert(0, new ListItem("Seleccione", "0"));
+        //}
         protected void GVAlumnos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GVAlumnos.DataSource = objctrAlumno.ListaAlumnos_();
             GVAlumnos.DataBind();
         }
 
-        protected void btnBuscar1_Click1(object sender, EventArgs e)
-        {
-            _log.CustomWriteOnLog("administrar asistencia", "1");
-            DtoNivel_TipoNivel dtoNiivelTipoNivel = new DtoNivel_TipoNivel();
-            dtoNiivelTipoNivel.FK_ITN_CodTipoNivel = Convert.ToInt32(ddlTipoNivel.SelectedValue);
-            dtoNiivelTipoNivel.FK_IN_CodNivel = Convert.ToInt32(ddlNivel.SelectedValue);
-            objctrasis.buscarDdl();
-            //_log.CustomWriteOnLog("administrar asistencia", Convert.ToInt32(ddlClase.SelectedValue).ToString());
-        }
+        //protected void btnBuscar1_Click1(object sender, EventArgs e)
+        //{
+        //    _log.CustomWriteOnLog("administrar asistencia", "1");
+        //    DtoNivel_TipoNivel dtoNiivelTipoNivel = new DtoNivel_TipoNivel();
+        //    dtoNiivelTipoNivel.FK_ITN_CodTipoNivel = Convert.ToInt32(ddlTipoNivel.SelectedValue);
+        //    dtoNiivelTipoNivel.FK_IN_CodNivel = Convert.ToInt32(ddlNivel.SelectedValue);
+        //    objctrasis.buscarDdl();
+        //    //_log.CustomWriteOnLog("administrar asistencia", Convert.ToInt32(ddlClase.SelectedValue).ToString());
+        //}
 
         protected void GVAlumnos_RowCommand(object sender, GridViewCommandEventArgs e)
         {

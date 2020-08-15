@@ -38,7 +38,7 @@
                                                     DataKeyNames="Apellidos,VTN_NombreTipoNivel,VN_NombreNivel,VU_Horario,DTA_Fecha,DP_TotalNota"
                                                     CssClass="table table-responsive table-bordered table-hover js-basic-example dataTable" PageSize="5"
                                                     AllowPaging="True" OnPageIndexChanging="GVProgreso_PageIndexChanging" OnRowCommand="GVProgreso_RowCommand"
-                                                    Font-Size="Small" HeaderStyle-ForeColor="#FF5050" HeaderStyle-CssClass="small">
+                                                    Font-Size="Medium" HeaderStyle-ForeColor="#FF5050">
                                                     <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" />
                                                     <Columns>
                                                         <asp:BoundField DataField="Apellidos" HeaderText="Nombres y Apellidos" />
@@ -51,9 +51,9 @@
                                                             <ItemTemplate>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>--%>
-                                                       <asp:ButtonField ButtonType="button" AccessibleHeaderText="btnDetalle" Text="📄" HeaderText="Ver" CommandName="Detalle">
+                                                       <%--<asp:ButtonField ButtonType="button" AccessibleHeaderText="btnDetalle" Text="📄" HeaderText="Ver" CommandName="Detalle">
                                                             <ControlStyle CssClass="btn btn-sm btn-round" BackColor="#4CAF50" />
-                                                        </asp:ButtonField>
+                                                        </asp:ButtonField>--%>
                                                     </Columns>
 
                                                 </asp:GridView>
