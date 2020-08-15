@@ -68,13 +68,15 @@
                                                 </asp:DropDownList>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sd-6">
-                                            <label class="col-md-2 label-on-left">Contraseña:</label>
-                                            <div class="form-group label-floating is-empty">
-                                                <label class="control-label"></label>
-                                                <asp:TextBox ID="txtContrasenia" runat="server" class="form-control" TextMode="Password" required></asp:TextBox>
+                                        <asp:Panel ID="panelContrasenia" runat="server">
+                                            <div class="col-lg-4 col-md-4 col-sd-6">
+                                                <label class="col-md-2 label-on-left">Contraseña:</label>
+                                                <div class="form-group label-floating is-empty">
+                                                    <label class="control-label"></label>
+                                                    <asp:TextBox ID="txtContrasenia" runat="server" class="form-control" TextMode="Password" required></asp:TextBox>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </asp:Panel>
                                         <div class="col-lg-4 col-md-4 col-sd-6">
                                             <label class="col-md-2 label-on-left">Direccion:</label>
                                             <div class="form-group label-floating is-empty">
@@ -105,7 +107,7 @@
                                                 <asp:TextBox ID="txtCelular" runat="server" class="form-control" required></asp:TextBox>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="row">
                                         <%--<div class="col-lg-4 col-md-4 col-sd-6">
@@ -125,7 +127,6 @@
                                             <div class="form-group label-floating is-empty">
                                                 <label class="control-label"></label>
                                                 <asp:DropDownList ID="ddlNivel" runat="server" CssClass="selectpicker">
-                                                    
                                                 </asp:DropDownList>
                                             </div>
                                         </div>

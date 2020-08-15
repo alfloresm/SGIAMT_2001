@@ -24,6 +24,7 @@ namespace WEB
             {
                 GVAlumnosTotal.DataSource = objctrAlumno.ListarAlumnosTodos_();
                 GVAlumnosTotal.DataBind();
+                
             }
         }
 
@@ -80,9 +81,9 @@ namespace WEB
                     var colsNoVisible = GVAlumnosTotal.DataKeys[index].Values;
                     string id = colsNoVisible[0].ToString();
                     _log.CustomWriteOnLog("listar alumno", "id: " + id);
-                    Session["act_alu"] = id;
-                    
-                    Response.Redirect("~/W_RegistrarAlumno2.aspx");
+                    //Session["act_alu"] = id;
+
+                    Response.Redirect("~/W_RegistrarAlumno2.aspx?ID=" + id);
 
                 }
             }

@@ -22,14 +22,17 @@ namespace WEB
         {
             if (!Page.IsPostBack)
             {
-                if (Session["act_alu"].ToString() != null)
+                if (Request.Params["Id"] != null)
                 {
                     _log.CustomWriteOnLog("actualizar alumno", "cargo: ");
                     llenarNivel();
                     txtPagina.InnerText = "Actualizar Alumno";
                     btnRegistrar.Text = "Actualizar";
-                    DtoUsuario dotoU = new DtoUsuario();
-                    dotoU.PK_IU_DNI = Session["act_alu"].ToString();
+                    panelContrasenia.Visible = false;
+                    
+                    //DtoUsuario dotoU = new DtoUsuario();
+                    //dotoU.PK_IU_DNI = Session["act_alu"].ToString();
+                    obtenerAlumno2(Request.Params["Id"]);
                     //obtenerAlumno2(Session["act_alu"].ToString());
                     //Panel1.Visible = true;
                     //Panel2.Visible = true;
@@ -68,19 +71,19 @@ namespace WEB
                 }
                 else
                 {
-                    if (Session["act_alu"].ToString() != null)
+                    if (Request.Params["Id"] != null)
                     {
                         objDtoAlumno.PK_IU_DNI = txtDNI.Text;
                         objDtoAlumno.VU_Nombre = txtNombre.Text;
                         objDtoAlumno.VU_APaterno = txtApellidoP.Text;
                         objDtoAlumno.VU_AMaterno = txtApellidoM.Text;
                         objDtoAlumno.DTU_FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
-                        objDtoAlumno.VU_Contrasenia = txtDNI.Text;
-                        objDtoAlumno.VU_Sexo = Convert.ToString(ddlSexo.SelectedValue); //aparezca el dni ya fijo
-                        objDtoAlumno.VU_NAcademia = "TUSUY PERU";
+                        
+                        objDtoAlumno.VU_Sexo = Convert.ToString(ddlSexo.SelectedValue);
+                       
                         objDtoAlumno.VU_Correo = txtCorreo.Text;
                         objDtoAlumno.VU_Celular = txtCelular.Text;
-                        objDtoAlumno.VU_Estado = "Activo";
+                        
                         objDtoAlumno.VU_Horario = Convert.ToString(ddlHorario.SelectedValue);
                         objDtoAlumno.VU_Direccion = txtDireccion.Text;
                         int anio = objDtoAlumno.DTU_FechaNacimiento.Year;
@@ -105,7 +108,11 @@ namespace WEB
                         }
 
                         objctralumno.ActualizarAlumno(objDtoAlumno);
-                        string m = "Se actualizó correctamente";
+                        _log.CustomWriteOnLog("actualizar alumno", "se actualizó con exito");
+                        
+                       string m = "Se actualizó correctamente";
+                        Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + m + "','success')");
+
                     }
                     else
                     {
@@ -154,7 +161,8 @@ namespace WEB
             }
             catch (Exception ex)
             {
-                Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + ex.Message + "','danger')");
+                _log.CustomWriteOnLog("actualizar alumno", "Error : " + ex.Message + "Stac" + ex.StackTrace);
+                //Utils.AddScriptClientUpdatePanel(upBotonEnviar, "showMessage('top','center','" + ex.Message + "','danger')");
             }
         }
 
@@ -165,26 +173,24 @@ namespace WEB
 
         public void obtenerAlumno2(string cod)
         {
-            
+            _log.CustomWriteOnLog("obtener alumno", "cargo: ");
             objDtoAlumno.PK_IU_DNI = cod;
+            _log.CustomWriteOnLog("obtener alumno", "dni es: "+cod);
             objctralumno.ObtenerAlumno2(objDtoAlumno);
-
+            _log.CustomWriteOnLog("obtener alumno", "dni es: " + objDtoAlumno.PK_IU_DNI.ToString());
             txtDNI.Text = objDtoAlumno.PK_IU_DNI.ToString();
+            _log.CustomWriteOnLog("obtener alumno", "nombre es: " + objDtoAlumno.VU_Nombre.ToString());
             txtNombre.Text = objDtoAlumno.VU_Nombre.ToString();
             txtApellidoP.Text = objDtoAlumno.VU_APaterno.ToString();
             txtApellidoM.Text = objDtoAlumno.VU_AMaterno.ToString();
             txtFechaNacimiento.Text = objDtoAlumno.DTU_FechaNacimiento.ToString("yyyy-MM-dd");
-            txtContrasenia.Text = objDtoAlumno.VU_Contrasenia.ToString();
             ddlSexo.SelectedValue = objDtoAlumno.VU_Sexo;
-            //nombre de academia
-            txtCorreo.Text = txtCorreo.ToString();
-            txtCelular.Text = objDtoAlumno.VU_Celular.ToString();
-            //estado
-            ddlHorario.SelectedValue = objDtoAlumno.VU_Horario.ToString();
+            txtContrasenia.Text = objDtoAlumno.PK_IU_DNI.ToString();
             txtDireccion.Text = objDtoAlumno.VU_Direccion.ToString();
-            //categoria
-            //tipo de nivel
+            txtCorreo.Text = objDtoAlumno.VU_Correo.ToString();
+            txtCelular.Text = objDtoAlumno.VU_Celular.ToString();
             ddlNivel.SelectedIndex = objDtoAlumno.FK_IN_CodNivel;
+            ddlHorario.SelectedValue = objDtoAlumno.VU_Horario.ToString();
         }
     }
 }
